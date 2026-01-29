@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ガチャ計算機 - 期待値と爆死確率を1秒でシミュレーション | 原神・ゼンゼロ対応</title>
+    <meta name="description" content="ガチャの排出率と引きたい回数から、当たる確率を自動計算。何回引けば安心か、予算内で何体狙えるかを即座に判定します。SNSシェア機能付き。">
+    <meta name="keywords" content="ガチャ計算機,期待値,確率計算,爆死,原神,ゼンゼロ,ブルーアーカイブ,ソシャゲ">
+    <meta name="google-site-verification" content="cQbbpUQymiPF_aklSFZggvotzex5dtzUyZ_E2nr41oo" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;900&family=Poppins:wght@600;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="background-decoration"></div>
+
+    <div class="container">
+        <!-- ヘッダー -->
+        <header class="header">
+            <nav class="nav-menu">
+                <a href="#calculator" class="nav-link">計算機</a>
+                <a href="#howto" class="nav-link">使い方</a>
+                <a href="#about" class="nav-link">当サイトについて</a>
+            </nav>
+            <h1 class="title">
+                <span class="sparkle">✨</span>
+                ガチャ計算機
+                <span class="sparkle">✨</span>
+            </h1>
+            <p class="subtitle">推し活期待値シミュレーター</p>
+            <!-- 広告プレースホルダー（トップ） -->
+            <div class="ad-placeholder ad-placeholder-top">
+                <!-- admax -->
+                <script src="https://adm.shinobi.jp/s/685c96c19db707e497b31c5c8caaecf4"></script>
+                <!-- admax -->
+            </div>
+        </header>
+
+        <!-- モード切り替えトグル -->
+        <div class="toggle-container">
+            <div class="toggle-switch">
+                <input type="radio" name="mode" id="stoneToggle" value="stone" checked>
+                <label for="stoneToggle" class="toggle-label">
+                    <span class="toggle-icon">💎</span>
+                    石で計算
+                </label>
+                <input type="radio" name="mode" id="moneyToggle" value="money">
+                <label for="moneyToggle" class="toggle-label">
+                    <span class="toggle-icon">💰</span>
+                    課金で計算
+                </label>
+                <div class="toggle-slider"></div>
+            </div>
+        </div>
+
+        <!-- メインコンテンツ -->
+        <main class="main-content" id="calculator">
+            <!-- 石モード入力フォーム -->
+            <section class="card input-card" id="stoneForm">
+                <h2 class="card-title">💎 石で計算</h2>
+                <form id="gachaFormStone" class="form">
+                    <div class="form-group">
+                        <label for="gachaPreset">ガチャプリセット</label>
+                        <select id="gachaPresetStone" class="preset-select">
+                            <option value="custom">手入力（カスタム）</option>
+                            <option value="genshin_char">原神：キャラピックアップ (0.6% + 90連天井)</option>
+                            <option value="genshin_weapon">原神：武器ガチャ (0.7% + 80連天井)</option>
+                            <option value="zzz_char">ゼンゼロ：キャラピックアップ (0.6% + 90連天井)</option>
+                            <option value="zzz_weapon">ゼンゼロ：音動機ピックアップ (1.0% + 80連天井)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="rateStone">排出率 (%)</label>
+                        <div class="input-with-quick">
+                            <input type="number" id="rateStone" step="0.01" min="0.01" max="100" value="1"
+                                placeholder="例: SSRが1%なら「1」" required>
+                            <div class="quick-buttons">
+                                <button type="button" class="quick-btn" data-target="rateStone"
+                                    data-value="0.7">0.7%</button>
+                                <button type="button" class="quick-btn" data-target="rateStone"
+                                    data-value="1">1%</button>
+                                <button type="button" class="quick-btn" data-target="rateStone"
+                                    data-value="3">3%</button>
+                                <button type="button" class="quick-btn" data-target="rateStone"
+                                    data-value="6">6%</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group highlight-group">
+                        <label for="targetCountStone">🎯 何体ほしいですか？</label>
+                        <div class="goal-selection-wrapper">
+                            <div class="goal-buttons">
+                                <button type="button" class="goal-btn active" data-target="targetCountStone"
+                                    data-value="1">
+                                    <span class="goal-number">1体</span>
+                                    <span class="goal-label">母体</span>
+                                </button>
+                                <button type="button" class="goal-btn" data-target="targetCountStone" data-value="2">
+                                    <span class="goal-number">2体</span>
+                                </button>
+                                <button type="button" class="goal-btn" data-target="targetCountStone" data-value="3">
+                                    <span class="goal-number">3体</span>
+                                </button>
+                                <button type="button" class="goal-btn" data-target="targetCountStone" data-value="5">
+                                    <span class="goal-number">5体</span>
+                                </button>
+                            </div>
+                            <div class="custom-input-wrapper">
+                                <label for="targetCountStone" class="custom-label">自由に入力:</label>
+                                <input type="number" id="targetCountStone" step="1" min="1" max="1000" value="1"
+                                    class="custom-input" placeholder="例: 10" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="stoneCount">現在持っている石</label>
+                        <input type="number" id="stoneCount" step="1" min="0" value="3000" placeholder="貯めた石の個数"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="stonePerPull">1回に必要な石</label>
+                        <input type="number" id="stonePerPull" step="1" min="1" value="100"
+                            placeholder="1連に必要な石（10連なら10倍）" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="targetProbStone">目標確率 (%)</label>
+                        <input type="number" id="targetProbStone" step="1" min="1" max="99" value="90"
+                            placeholder="推奨: 90%" required>
+                    </div>
+
+                    <button type="submit" class="btn-primary btn-calculate">
+                        <span>🎲 計算する</span>
+                    </button>
+                </form>
+            </section>
+
+            <!-- 課金モード入力フォーム -->
+            <section class="card input-card hidden" id="moneyForm">
+                <h2 class="card-title">💰 課金で計算</h2>
+                <form id="gachaFormMoney" class="form">
+                    <div class="form-group">
+                        <label for="gachaPresetMoney">ガチャプリセット</label>
+                        <select id="gachaPresetMoney" class="preset-select">
+                            <option value="custom">手入力（カスタム）</option>
+                            <option value="genshin_char">原神：キャラピックアップ (0.6% + 90連天井)</option>
+                            <option value="genshin_weapon">原神：武器ガチャ (0.7% + 80連天井)</option>
+                            <option value="zzz_char">ゼンゼロ：キャラピックアップ (0.6% + 90連天井)</option>
+                            <option value="zzz_weapon">ゼンゼロ：音動機ピックアップ (1.0% + 80連天井)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="rateMoney">排出率 (%)</label>
+                        <div class="input-with-quick">
+                            <input type="number" id="rateMoney" step="0.01" min="0.01" max="100" value="1"
+                                placeholder="例: SSRが1%なら「1」" required>
+                            <div class="quick-buttons">
+                                <button type="button" class="quick-btn" data-target="rateMoney"
+                                    data-value="0.7">0.7%</button>
+                                <button type="button" class="quick-btn" data-target="rateMoney"
+                                    data-value="1">1%</button>
+                                <button type="button" class="quick-btn" data-target="rateMoney"
+                                    data-value="3">3%</button>
+                                <button type="button" class="quick-btn" data-target="rateMoney"
+                                    data-value="6">6%</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group highlight-group">
+                        <label for="targetCountMoney">🎯 何体ほしいですか？</label>
+                        <div class="goal-selection-wrapper">
+                            <div class="goal-buttons">
+                                <button type="button" class="goal-btn active" data-target="targetCountMoney"
+                                    data-value="1">
+                                    <span class="goal-number">1体</span>
+                                    <span class="goal-label">母体</span>
+                                </button>
+                                <button type="button" class="goal-btn" data-target="targetCountMoney" data-value="2">
+                                    <span class="goal-number">2体</span>
+                                </button>
+                                <button type="button" class="goal-btn" data-target="targetCountMoney" data-value="3">
+                                    <span class="goal-number">3体</span>
+                                </button>
+                                <button type="button" class="goal-btn" data-target="targetCountMoney" data-value="5">
+                                    <span class="goal-number">5体</span>
+                                </button>
+                            </div>
+                            <div class="custom-input-wrapper">
+                                <label for="targetCountMoney" class="custom-label">自由に入力:</label>
+                                <input type="number" id="targetCountMoney" step="1" min="1" max="1000" value="1"
+                                    class="custom-input" placeholder="例: 10" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-group">
+                            <label for="budget">予算 (円)</label>
+                            <input type="text" id="budget" value="10000" placeholder="今回使える金額" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="price">ガチャ1回の単価 (円)</label>
+                            <input type="text" id="price" value="300" placeholder="1連の価格" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="targetProbMoney">目標確率 (%)</label>
+                            <input type="number" id="targetProbMoney" step="1" min="1" max="99" value="90"
+                                placeholder="推奨: 90%" required>
+                        </div>
+
+                        <button type="submit" class="btn-primary btn-calculate">
+                            <span>🎲 計算する</span>
+                        </button>
+                </form>
+            </section>
+
+            <!-- 結果表示 -->
+            <section class="card result-card" id="resultCard" style="display: none;">
+                <h2 class="card-title">📊 計算結果</h2>
+
+                <!-- メイン結果メッセージ（最優先表示） -->
+                <div class="result-main-message" id="mainResultMessage">
+                    <div class="main-message-text" id="targetMessage"></div>
+                    <div class="main-message-value" id="targetStats"></div>
+                    <!-- 一言診断メッセージ -->
+                    <div class="diagnosis-message" id="diagnosisMessage"></div>
+                </div>
+
+                <!-- 基本情報（コンパクト） -->
+                <div class="result-basic">
+                    <div class="stat-box stat-box-compact">
+                        <div class="stat-label">引ける回数</div>
+                        <div class="stat-value-compact" id="pullCount">0</div>
+                    </div>
+                    <div class="stat-box stat-box-compact">
+                        <div class="stat-label" id="probLabel">当たる確率</div>
+                        <div class="stat-value-compact" id="winProb">0</div>
+                    </div>
+                </div>
+
+                <!-- お得情報・アフィリエイトボタン -->
+                <div class="affiliate-section" id="affiliateSection">
+                    <p class="affiliate-intro">【お得情報】楽天でギフトカードを買えばポイント還元！実質安くガチャが引けます。</p>
+                    <div class="affiliate-buttons">
+                        <a href="https://a.r10.to/h5fa9f" target="_blank" class="affiliate-btn affiliate-btn-apple"
+                            rel="noopener noreferrer">
+                            <span class="btn-icon">🍎</span>
+                            Apple用ギフトカード
+                        </a>
+                        <a href="https://a.r10.to/hk3HJR" target="_blank" class="affiliate-btn affiliate-btn-google"
+                            rel="noopener noreferrer">
+                            <span class="btn-icon">🤖</span>
+                            Google用ギフトカード
+                        </a>
+                    </div>
+                </div>
+
+
+                <!-- 破産アラート -->
+                <div class="alert" id="bankruptAlert">
+                    <div class="alert-icon" id="alertIcon">⚠️</div>
+                    <div class="alert-message" id="alertMessage"></div>
+                </div>
+
+                <!-- 統計テーブル -->
+                <div class="stats-section">
+                    <h3 class="section-title">📈 確率別統計データ</h3>
+                    <div class="stats-table-container">
+                        <table class="stats-table">
+                            <thead>
+                                <tr>
+                                    <th>確率</th>
+                                    <th>必要回数</th>
+                                    <th id="resourceHeader">必要な石/金額</th>
+                                </tr>
+                            </thead>
+                            <tbody id="statsTableBody">
+                                <!-- 動的に生成 -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- SNSシェア -->
+                <div class="share-section">
+                    <p class="share-label">結果を友達に教える</p>
+                    <div class="share-buttons">
+                        <button class="btn-share btn-share-twitter" id="shareBtn">
+                            <span class="share-icon">𝕏</span>
+                            <span>𝕏でシェア</span>
+                        </button>
+                        <button class="btn-share btn-share-line" id="lineShareBtn">
+                            <span class="share-icon">LINE</span>
+                            <span>LINEで送る</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="copy-feedback" id="copyFeedback">コピーしました!</div>
+            </section>
+
+            <!-- グラフ表示 -->
+            <section class="card chart-card" id="chartCard" style="display: none;">
+                <h2 class="card-title">📈 確率グラフ</h2>
+                <div class="chart-container">
+                    <canvas id="probabilityChart"></canvas>
+                </div>
+                <p class="chart-note">
+                    <span class="marker-current">●</span> あなたの現在位置
+                </p>
+            </section>
+
+            <!-- 解説セクション (SEO対策) -->
+            <section class="card info-section" id="howto">
+                <h2 class="card-title">📖 ガチャ計算機の使い方と仕組み</h2>
+
+                <div class="info-group">
+                    <h3>1. このガチャ計算機でできること</h3>
+                    <p>「原神（Genshin）」「ゼンレスゾーンゼロ（ゼンゼロ）」「ブルーアーカイブ（ブルアカ）」「モンスターストライク（モンスト）」など、あらゆるソシャゲのガチャ確率をシミュレーションできます。<br>
+                        手持ちの石で「何%の確率で当たるか」を計算し、爆死のリスクを可視化することで、計画的なガチャライフをサポートします。</p>
+                </div>
+
+                <div class="info-group">
+                    <h3>2. 確率計算の仕組み（数学的な解説）</h3>
+                    <p>このサイトでは、数学の「余事象」の考え方を用いて計算しています。<br>
+                        例えば「100連で1%を引く確率」は、以下の式で算出しています。</p>
+                    <div class="formula">
+                        $1 - (0.99)^{100}$
+                    </div>
+                    <p>これは「100回連続で外れる確率」を全体から引くことで、「1回以上当たる確率」を正確に求める方法です。</p>
+                </div>
+
+                <div class="info-group">
+                    <h3>3. ガチャを引く際の注意点</h3>
+                    <ul class="info-list">
+                        <li>確率はあくまで理論値です。99%でも外れる時はあります。</li>
+                        <li>深追いは禁物！この計算機で「期待値」を確認し、無理のない範囲で楽しみましょう。</li>
+                        <li>課金をする際は、楽天などのギフトカード還元を活用すると、ポイント分お得にガチャを回せるのでおすすめです。</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 詳細解説セクション (SEO/AdSense対策) -->
+            <section class="card info-section">
+                <h2 class="card-title">💡 ガチャの期待値と天井の仕組みについて</h2>
+                <div class="info-group">
+                    <p>ソシャゲを遊ぶ上で避けては通れないのが「ガチャ」です。特に『原神』や『ゼンレスゾーンゼロ（ゼンゼロ）』のようなゲームには、単なる運だけではない<strong>「天井システム」</strong>という救済措置が用意されています。しかし、この仕組みを正しく理解していないと、思わぬ予算オーバーを招くこともあります。ここでは、初心者の方にも分かりやすく「期待値」や「ソフト天井」について解説します。
+                    </p>
+                </div>
+
+                <div class="info-group">
+                    <h3>1. 「ソフト天井」とは？</h3>
+                    <p>原神やゼンゼロのガチャには<strong>「ソフト天井」</strong>と呼ばれる仕組みが存在します。例えば、限定キャラガチャの基本排出率は0.6%と低めですが、74連目（武器ガチャは63連目）から1連ごとに当選確率が急激に上昇し始めます。これが「ソフト天井」の実態です。<br>
+                        最大90連（武器は80連）で必ず当たる「ハード天井」に達する前に、多くのプレイヤーが75〜80連前後で当選を経験するのは、この内部的な確率操作によるものです。この仕様により、実際の<strong>期待値</strong>（平均して何回引けば当たるかという数値）は、単純な基本確率から算出される数値よりも当たりやすく設定されています。
+                    </p>
+                </div>
+
+                <div class="info-group">
+                    <h3>2. 「期待値」と「確実性」の違い</h3>
+                    <p>ガチャを引く際に重要になるのが、「期待値」と「確率の偏り」の理解です。期待値とは、数学的に算出される「平均的な試行回数」のことですが、期待値の回数を引けば必ず当たるとは限りません。確率は試行回数を重ねるほど一定の数値に近づく<strong>「確率収束」</strong>という性質を持っていますが、短期的には大きく外れることもあります（いわゆる爆死）。<br>
+                        当サイトの計算機で「90%の確率で当たる回数」を算出できるのは、単なる期待値を知るよりも「どれだけ石を貯めれば安心か」という、実際のプレイにおけるリスク管理に役立てていただくためです。</p>
+                </div>
+
+                <div class="info-group">
+                    <h3>3. 計画的なガチャライフのために</h3>
+                    <p>原神やゼンゼロには、天井までのカウントが次のガチャに引き継がれるという非常に良心的な仕様があります。当サイトのシミュレーターを活用して、自分の「現在位置」と「目標とする当選確率」を正しく把握しましょう。期待値の仕組みを味方につけることで、感情に任せた無謀な課金を防ぎ、賢く効率的に推しキャラを確保。より健全で楽しい推し活を目指しましょう。
+                    </p>
+                </div>
+                <!-- 運営者情報・お問い合わせ -->
+                <section class="card about-section" id="about">
+                    <h2 class="card-title">ℹ️ 当サイトについて</h2>
+                    <div class="about-content">
+                        <div class="about-text">
+                            <p>高校生が、ソシャゲのガチャ確率を正しく把握するために開発した個人プロジェクトです。原神やゼンゼロの天井仕様に基づいた正確な計算を目指しています。</p>
+                        </div>
+                        <div class="contact-area">
+                            <p class="contact-label">ご要望・バグ報告はこちらから</p>
+                            <a href="https://forms.gle/8LapadajaG9iFNBB9" target="_blank" rel="noopener noreferrer"
+                                class="btn-contact">
+                                <span>📧 お問い合わせ (Googleフォーム)</span>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+        </main>
+
+
+        <!-- フッター -->
+        <footer class="footer">
+            <!-- 広告プレースホルダー（フッター） -->
+            <div class="ad-placeholder ad-placeholder-footer">
+                <!-- admax -->
+                <script src="https://adm.shinobi.jp/s/685c96c19db707e497b31c5c8caaecf4"></script>
+                <!-- admax -->
+            </div>
+
+            <!-- プライバシーポリシー -->
+            <div class="privacy-policy">
+                <h3>■プライバシーポリシー</h3>
+                <div class="privacy-content">
+                    <p>【広告の配信について】<br>
+                        当サイトでは、第三者配信の広告サービス「忍者AdMax」および「楽天アフィリエイト」を利用しています。広告配信事業者は、ユーザーの興味に応じた商品やサービスの広告を表示するため、クッキー（Cookie）を使用することがあります。
+                    </p>
+                    <p>【免責事項】<br>
+                        当サイトの計算結果および掲載情報により生じた損害等の一切の責任を負いかねます。ガチャの利用は自己責任でお願いいたします。</p>
+                </div>
+            </div>
+
+            <p class="footer-copy">推し活は計画的に 💖 Powered by 期待値の力</p>
+            <p class="disclaimer">※この結果は確率上の計算値であり、実際の当選を保証するものではありません。<br>無理のない範囲で楽しみましょう。</p>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
