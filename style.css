@@ -923,23 +923,59 @@ body {
     background: linear-gradient(135deg, #34a853 0%, #0f9d58 100%);
 }
 
-/* 解説 */
+/* 解説セクション全体 */
 .info-section {
-    background: #fdfdfd;
-    border: 1px solid #edf2f7;
-    padding: 2.5rem;
-    margin-top: 3rem;
-    border-radius: 20px;
+    background: transparent;
+    border: none;
+    padding: 2rem 0;
+    margin-top: 2rem;
+    box-shadow: none;
 }
 
-.info-group {
+/* 記事カード単位 */
+.info-group,
+.article-card {
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 2rem;
     margin-bottom: 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-normal);
 }
 
-.info-group h3 {
-    font-size: 1.2rem;
+.info-group:hover,
+.article-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.info-group h3,
+.article-card h3 {
+    font-size: 1.3rem;
     font-weight: 700;
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
+    padding-left: 1rem;
+    border-left: 5px solid var(--pastel-blue);
+    line-height: 1.4;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* 読みやすさの向上 */
+.info-group p,
+.article-card p {
+    line-height: 1.8;
+    margin-bottom: 1.2rem;
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+.info-group p strong,
+.article-card p strong {
+    color: var(--accent-primary);
 }
 
 .info-list {
@@ -986,7 +1022,13 @@ body {
 
     .card {
         padding: 1.2rem;
-        margin: 0 0.5rem 1.5rem 0.5rem;
+        margin: 0 0.2rem 1.5rem 0.2rem;
+    }
+
+    .info-group,
+    .article-card {
+        padding: 1.5rem 1.2rem;
+        margin: 0 0.2rem 1.5rem 0.2rem;
     }
 
     .title {
