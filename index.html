@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ガチャ計算機 - 期待値と爆死確率を1秒でシミュレーション | 原神・ゼンゼロ対応</title>
-    <meta name="description" content="ガチャの排出率と引きたい回数から、当たる確率を自動計算。何回引けば安心か、予算内で何体狙えるかを即座に判定します。SNSシェア機能付き。">
+    <title>ガチャ計算機 - 原神・ゼンゼロの天井や期待値を1秒でシミュレーション</title>
+    <meta name="description" content="原神・ゼンゼロの天井仕様に対応！ガチャの排出率から当たる確率を自動計算。何回引けば安心か、予算内で何体狙えるかを即座に判定します。">
     <meta name="keywords" content="ガチャ計算機,期待値,確率計算,爆死,原神,ゼンゼロ,ブルーアーカイブ,ソシャゲ">
     <meta name="google-site-verification" content="cQbbpUQymiPF_aklSFZggvotzex5dtzUyZ_E2nr41oo" />
 
@@ -26,6 +26,11 @@
     <div class="background-decoration"></div>
 
     <div class="container">
+        <!-- ダークモード切替ボタン -->
+        <button id="themeToggle" class="theme-toggle" aria-label="ダークモード切替">
+            <span class="toggle-icon-theme">🌙</span>
+        </button>
+
         <!-- ヘッダー -->
         <header class="header">
             <nav class="nav-menu">
@@ -38,7 +43,7 @@
                 ガチャ計算機
                 <span class="sparkle">✨</span>
             </h1>
-            <p class="subtitle">管理人の高校生が作った、推しのための期待値シミュレーター</p>
+            <p class="subtitle">管理人の高校生が作った、期待値シミュレーター</p>
             <!-- 広告プレースホルダー（トップ） -->
             <div class="ad-placeholder ad-placeholder-top">
                 <!-- admax -->
