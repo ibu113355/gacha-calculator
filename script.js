@@ -413,3 +413,42 @@ lineShareBtn.addEventListener('click', function () {
 });
 
 console.log('✨ ガチャ計算機 起動完了！');
+
+// ========================================
+// テーマ切替 (ダークモード)
+// ========================================
+const themeToggle = document.getElementById('themeToggle');
+const body = document.body;
+const themeIcon = themeToggle.querySelector('.toggle-icon-theme');
+
+// 保存されたテーマを確認
+const savedTheme = localStorage.getItem('theme') || 'light';
+if (savedTheme === 'dark') {
+    body.classList.add('dark-mode');
+    themeIcon.textContent = '☀️';
+}
+
+themeToggle.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    const isDark = body.classList.contains('dark-mode');
+    themeIcon.textContent = isDark ? '☀️' : '🌙';
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+
+    // グラフがあれば再描画して色を合わせる
+    if (probabilityChart) {
+        updateChartColors();
+    }
+});
+
+function updateChartColors() {
+    const isDark = body.classList.contains('dark-mode');
+    const color = isDark ? '#00d2ff' : '#6ea8fe';
+    const textColor = isDark ? '#8b949e' : '#4a5568';
+
+    probabilityChart.data.datasets[0].borderColor = color;
+    probabilityChart.options.scales.x.ticks.color = textColor;
+    probabilityChart.options.scales.y.ticks.color = textColor;
+    probabilityChart.options.scales.x.title.color = textColor;
+    probabilityChart.options.scales.y.title.color = textColor;
+    probabilityChart.update();
+}
