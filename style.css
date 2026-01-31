@@ -1133,3 +1133,108 @@ body {
         /* スマホでの高さ */
     }
 }
+
+/* ========================================
+   クイック目次
+   ======================================== */
+.quick-links-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);
+    border-left: 8px solid var(--pastel-blue);
+}
+
+.quick-links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.quick-link-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    background: var(--bg-secondary);
+    border: 2px solid rgba(110, 168, 254, 0.1);
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all var(--transition-normal);
+}
+
+.quick-link-item:hover {
+    border-color: var(--pastel-blue);
+    background: rgba(110, 168, 254, 0.05);
+    transform: translateX(5px);
+    color: var(--accent-primary);
+}
+
+/* ========================================
+   人間味・手作り感の演出
+   ======================================== */
+/* 開発秘話の特別装飾（付箋メモ風） */
+.dev-story-card {
+    position: relative;
+    background: #fffdf0;
+    /* 暖かい紙の色 */
+    border: 2px solid #f2e8cf;
+    box-shadow: 5px 5px 0px #f2e8cf;
+    transform: rotate(-0.5deg);
+}
+
+.dev-story-card::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 35px;
+    background: rgba(110, 168, 254, 0.3);
+    /* マステ風 */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.dev-story-card .card-title {
+    color: #8b4513;
+    /* セピア文字色 */
+}
+
+/* 見出しの装飾（手書き風アンダーライン） */
+.info-group h3,
+.article-card h3 {
+    border-left: none;
+    padding-left: 0;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.info-group h3::after,
+.article-card h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: var(--pastel-blue);
+    border-radius: 2px;
+}
+
+/* 一言メモ風 */
+.info-group,
+.article-card {
+    border-radius: 12px;
+}
+
+/* スマホ調整 */
+@media (max-width: 480px) {
+    .quick-links-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dev-story-card {
+        transform: none;
+        margin-top: 2rem;
+    }
+}
