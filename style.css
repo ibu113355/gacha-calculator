@@ -1035,6 +1035,42 @@ body.dark-mode .diagnosis-message {
     box-shadow: var(--shadow-md);
 }
 
+.contact-buttons-group {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-x {
+    background: #000000;
+    border-color: #000000;
+    color: #ffffff;
+}
+
+.btn-x:hover {
+    background: #2d3748;
+    border-color: #2d3748;
+}
+
+.x-icon {
+    font-family: var(--font-accent);
+    margin-right: 0.5rem;
+    font-size: 1.1rem;
+}
+
+/* ダークモード時のXボタン */
+body.dark-mode .btn-x {
+    background: #ffffff;
+    border-color: #ffffff;
+    color: #000000;
+}
+
+body.dark-mode .btn-x:hover {
+    background: #e2e8f0;
+    border-color: #e2e8f0;
+}
+
 @media (min-width: 768px) {
     .about-content {
         flex-direction: row;
