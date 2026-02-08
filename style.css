@@ -432,11 +432,11 @@ body {
 
 @media (max-width: 480px) {
     .site-header {
-        padding: 0.4rem 0.6rem;
+        padding: 0.3rem 0.5rem;
     }
 
     .header-logo {
-        font-size: 1.0rem;
+        font-size: 0.9rem;
         flex-shrink: 0;
     }
 
@@ -444,13 +444,13 @@ body {
         display: flex !important;
         flex-wrap: nowrap !important;
         justify-content: flex-end;
-        gap: 0.3rem !important;
+        gap: 0.2rem !important;
         flex: 1;
         min-width: 0;
     }
 
     .header-nav a {
-        font-size: 0.85rem !important;
+        font-size: 0.75rem !important;
         white-space: nowrap;
         padding: 0.5rem 0.2rem;
     }
@@ -1789,7 +1789,9 @@ h3 {
     transition: transform var(--transition-fast);
 }
 
-/* トラッキングピクセル(1x1)に影やマージンがつかないように非表示化 */
+/* トラッキングピクセル(1x1)に影やマージンがつかないように非表示化(全コンテナ対応) */
+[class*="rakuten-banner"] img[width="1"],
+[class*="rakuten-banner"] img[height="1"],
 .rakuten-banner-center img[width="1"],
 .rakuten-banner-center img[height="1"] {
     display: none !important;
