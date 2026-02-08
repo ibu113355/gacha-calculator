@@ -26,38 +26,33 @@
     <div class="background-decoration"></div>
 
     <div class="container">
-        <!-- ダークモード切替ボタン -->
-        <button id="themeToggle" class="theme-toggle" aria-label="ダークモード切替">
-            <span class="toggle-icon-theme">🌙</span>
-        </button>
-
-        <!-- ヘッダー -->
-        <header class="header">
-            <nav class="nav-menu">
-                <a href="#calculator" class="nav-link">計算機</a>
-                <a href="#howto" class="nav-link">使い方</a>
-                <a href="#about" class="nav-link">当サイトについて</a>
+        <!-- 共通ヘッダー -->
+        <header class="site-header">
+            <a href="index.html" class="header-logo">
+                <span>✨</span> ガチャ計算機
+            </a>
+            <nav class="header-nav">
+                <a href="index.html">ホーム</a>
+                <a href="genshin-pity.html">原神</a>
+                <a href="zzz-probability.html">ゼンゼロ</a>
+                <a href="how-to.html">使い方</a>
             </nav>
-            <h1 class="title">
-                <span class="sparkle">✨</span>
-                ガチャ計算機
-                <span class="sparkle">✨</span>
-            </h1>
-            <p class="subtitle">高精度ガチャシミュレーター</p>
-            <!-- 広告エリア（トップ：楽天バナー） -->
-            <!-- 広告エリア（トップ：おすすめグッズ） -->
-            <div class="recommend-card">
-                <div class="recommend-label">✨ おすすめグッズ</div>
-                <div class="rakuten-banner-center">
-                    <a href="//af.moshimo.com/af/c/click?a_id=5357434&amp;p_id=54&amp;pc_id=54&amp;pl_id=616&amp;url=https%3A%2F%2Fitem.rakuten.co.jp%2Fmerletta-co%2Fgenshin-acrylicstand-liyue%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fmerletta-co%2Fi%2F10000038%2F"
-                        rel="nofollow" referrerpolicy="no-referrer-when-downgrade"><img
-                            src="//thumbnail.image.rakuten.co.jp/@0_mall/merletta-co/cabinet/10098190/10098196/imgrc0100427618.jpg?_ex=128x128"
-                            alt="" style="border: none;" /><br>原神 公式グッズ 正規品 璃月 キャラクター アクリルスタンド</a><img
-                        src="//i.moshimo.com/af/i/impression?a_id=5357434&amp;p_id=54&amp;pc_id=54&amp;pl_id=616" alt=""
-                        loading="lazy" width="1" height="1" style="border: 0px;">
-                </div>
-            </div>
+            <!-- ダークモード切替ボタン -->
+            <button id="themeToggle" class="theme-toggle" aria-label="ダークモード切替">
+                <span class="toggle-icon-theme">🌙</span>
+            </button>
         </header>
+
+        <!-- 広告エリア（トップ：おすすめグッズ） -->
+        <section class="card recommend-card compact">
+            <h3 class="card-title" style="font-size: 0.9rem; margin-bottom: 0.8rem; text-align: center;">🎁 おすすめグッズ</h3>
+            <div class="rakuten-banner-center">
+                <a href="//af.moshimo.com/af/c/click?a_id=5357434&amp;p_id=54&amp;pc_id=54&amp;pl_id=616&amp;url=https%3A%2F%2Fitem.rakuten.co.jp%2Fmerletta-co%2Fgenshin-acrylicstand-liyue%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fmerletta-co%2Fi%2F10000038%2F"
+                    rel="nofollow" referrerpolicy="no-referrer-when-downgrade"><img
+                        src="//thumbnail.image.rakuten.co.jp/@0_mall/merletta-co/cabinet/10098190/10098196/imgrc0100427618.jpg?_ex=128x128"
+                        alt="" style="border: none;" /><br>原神 公式グッズ 正規品 璃月 キャラクター アクリルスタンド</a>
+            </div>
+        </section>
 
         <!-- モード切り替えトグル -->
         <div class="toggle-container">
@@ -79,8 +74,8 @@
         <!-- メインコンテンツ -->
         <main class="main-content" id="calculator">
             <!-- 石モード入力フォーム -->
-            <section class="card input-card" id="stoneForm">
-                <h2 class="card-title">💎 石で計算</h2>
+            <section class="card calculator-card" id="stoneForm">
+                <h2 class="card-title">💎 ガチャ計算機</h2>
                 <form id="gachaFormStone" class="form">
                     <div class="form-group">
                         <label for="gachaPreset">ガチャプリセット</label>
@@ -163,7 +158,7 @@
             </section>
 
             <!-- 課金モード入力フォーム -->
-            <section class="card input-card hidden" id="moneyForm">
+            <section class="card calculator-card hidden" id="moneyForm">
                 <h2 class="card-title">💰 課金で計算</h2>
                 <form id="gachaFormMoney" class="form">
                     <div class="form-group">
@@ -276,12 +271,12 @@
                         <a href="https://a.r10.to/h5fa9f" target="_blank" class="affiliate-btn affiliate-btn-apple"
                             rel="noopener noreferrer">
                             <span class="btn-icon">🍎</span>
-                            Apple用ギフトカード
+                            Appleギフトカード
                         </a>
                         <a href="https://a.r10.to/hk3HJR" target="_blank" class="affiliate-btn affiliate-btn-google"
                             rel="noopener noreferrer">
                             <span class="btn-icon">🤖</span>
-                            Google用ギフトカード
+                            Google Playカード
                         </a>
                     </div>
                 </div>
@@ -330,169 +325,100 @@
                 <div class="copy-feedback" id="copyFeedback">コピーしました!</div>
             </section>
 
-            <!-- クイック目次 (追加) -->
-            <section class="card quick-links-card">
-                <h2 class="card-title">🔗 役立つ解説記事（クイック目次）</h2>
-                <div class="quick-links-grid">
-                    <a href="#howto" class="quick-link-item">📖 計算機の使い方</a>
-                    <a href="#article-dev-story" class="quick-link-item">🏠 開発秘話（読んでみてね！）</a>
-                    <a href="#article-genshin-pity" class="quick-link-item">🔍 原神の天井解説</a>
-                    <a href="#article-zzz-prob" class="quick-link-item">🎮 ゼンゼロの確率</a>
-                    <a href="#article-expected-value" class="quick-link-item">📈 期待値ってなに？</a>
-                    <a href="#article-pity-carryover" class="quick-link-item">✨ 天井引き継ぎのコツ</a>
-                </div>
-            </section>
+            <!-- ガチャ計算機の詳しい使い方・数学的背景 -->
+            <section class="card info-section" id="how-to-detail">
+                <h2 class="card-title">📖 ガチャ計算機の詳しい使い方・数学的背景</h2>
+                <div class="article-content">
+                    <p>
+                        「1%の確率なら、100回引けば1回は当たるはず」――そう思ってガチャを回し、結果として何も得られなかった経験はありませんか？
+                        実は、この「1%を100回引いて当たる確率」は、数学的に計算すると<strong>約63.2%</strong>しかありません。残りの約37%、つまり3人に1人以上は「爆死」してしまうのが現実なのです。
+                    </p>
+                    <p>
+                        当サイトのガチャ計算機は、こうした「直感と現実のズレ」を可視化し、あなたが納得感を持ってガチャに臨めるよう設計されています。
+                        ここでは、計算機のより効果的な使い方と、その裏側にある数学的な仕組みについて少し詳しくお話しします。
+                    </p>
 
-
-            <!-- グラフ表示 -->
-            <section class="card chart-card" id="chartCard" style="display: none;">
-                <h2 class="card-title">📈 確率グラフ</h2>
-                <div class="chart-container">
-                    <canvas id="probabilityChart"></canvas>
-                </div>
-                <p class="chart-note">
-                    <span class="marker-current">●</span> あなたの現在位置
-                </p>
-            </section>
-
-            <!-- 解説セクション (SEO対策) -->
-            <section class="card info-section" id="howto">
-                <h2 class="card-title">📖 どうやって使うの？（使い方解説）</h2>
-
-                <div class="info-group">
-                    <h3>✨ このサイトでできること</h3>
-                    <p>「原神」「ゼンゼロ」「ブルアカ」「モンスト」など、いろんなソシャゲのガチャ確率をシミュレーションできます。<br>
-                        手持ちの石で「何%の確率で当たるか」を計算して、爆死のリスクをチェック！計画的なガチャライフを応援します。</p>
-                </div>
-
-                <div class="info-group">
-                    <h3>📐 どうやって計算してるの？（数学の話）</h3>
-                    <p>このサイトでは、数学の「余事象」っていう考え方を使って計算しています。<br>
-                        例えば「100連で1%を引く確率」は、こんな式で求めています。</p>
-                    <div class="formula">
-                        $1 - (0.99)^{100}$
+                    <div class="info-group">
+                        <h3>✨ 賢い計算機の使い方：目標確率を設定しよう</h3>
+                        <p>
+                            この計算機の最大の特徴は、単に確率を出すだけでなく「目標確率」を設定できる点です。
+                            例えば、「どうしてもこのキャラが欲しい！」という時は、目標確率を<strong>90%や95%</strong>に設定してみてください。
+                        </p>
+                        <p>
+                            「期待値（平均して当たる回数）」で予算を組むのは少し危険です。期待値はあくまで平均なので、運が悪い側に入った時の対策ができません。
+                            「9割以上の確率で当たる回数」をあらかじめ知っておくことで、万が一の時にも冷静に対応でき、感情に任せた「無謀な追い課金」を防ぐ強力なブレーキになります。
+                        </p>
                     </div>
-                    <p>「100回連続で外れる確率」を全体から引くことで、「1回以上当たる確率」を正確に出せるんです！</p>
-                </div>
 
-                <div class="info-group">
-                    <h3>⚠️ ガチャを引くときのお約束</h3>
-                    <ul class="info-list">
-                        <li>確率はあくまで理論値です。99%でも外れるときはあります（怖い…）。</li>
-                        <li>深追いは禁物！この計算機で「期待値」を確認して、無理のない範囲で楽しみましょう。</li>
-                        <li>課金するときは、楽天などのギフトカード還元を使うと、ポイント分でお得に回せるのでおすすめです。</li>
-                    </ul>
+                    <div class="info-group">
+                        <h3>📐 数学的背景：「余事象」を使った精密な計算</h3>
+                        <p>
+                            当サイトでは、正確な数値を出すために数学の<strong>「余事象（よじしょう）」</strong>という考え方を用いています。
+                            「少なくとも1回当たる確率」を直接計算するのは大変ですが、「すべて外れる確率」を計算して全体（100%）から引くことで、非常に正確な確率を導き出せます。
+                        </p>
+                        <div class="formula"
+                            style="background: rgba(var(--primary-rgb), 0.05); padding: 1.5rem; border-radius: 12px; text-align: center; font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 1.2rem; margin: 1rem 0; color: var(--primary-color);">
+                            1 - (ハズレる確率)<sup>引く回数</sup>
+                        </div>
+                        <p>
+                            例えば、排出率1%（0.01）のガチャを100回引く場合、ハズレる確率は99%（0.99）です。
+                            これを100乗すると「100回連続で外れる確率」が出ます。これを1から引くことで、「100回の中で1回以上当たりが出る確率」が判明します。
+                            当サイトのJSプログラムはこの計算をミリ秒単位で実行し、グラフや表としてあなたに提示しています。
+                        </p>
+                    </div>
+
+                    <div class="info-group">
+                        <h3>⚠️ 最後に：運を「管理」する楽しさを</h3>
+                        <p>
+                            ガチャは運任せのものですが、その運を数字で把握することで「戦略」に変わります。
+                            「当たるまで引く」のではなく、「この確率なら勝負できる」と判断する。
+                            このサイトが、あなたのゲームライフをより豊かで計画的なものにする一助となれば、開発者としてこれほど嬉しいことはありません。
+                        </p>
+                    </div>
                 </div>
             </section>
 
-            <!-- 5. 開発秘話（移動） -->
-            <section class="card info-section article-card dev-story-card" id="article-dev-story">
-                <h2 class="card-title">🏠 開発秘話：僕がガチャ計算機を作った理由</h2>
-                <p>このサイトを作った僕は、現役の高校生です。制作当初はプログラミング初心者でしたが、「手持ちの石でキャラが当たるか不安…」というゲーマー共通の悩みを解決したくて、AIを使い開発を始めました。</p>
-                <p>実は僕は数学とプログラミングの挑戦としてこのツールを作ったので、ゲーム自体は未プレイです。でも、仕様は徹底的に調べ抜きました!もし計算がズレていたり、最新の仕様が変わっていたりしたら、ぜひX（旧Twitter）やお問い合わせフォームから教えてください!
-                </p>
-                <p>豪華なアプリではありませんが、**「同じ悩みを持つプレイヤーの役に立ちたい」**という一心で作りました。皆さんの推し活が、少しでも正確で楽しくなるお手伝いができれば最高に嬉しいです！間違いがあれば教えてください。
-                </p>
-            </section>
-
-
-            <!-- 詳細解説セクション (SEO/AdSense対策) -->
+            <!-- おすすめの解説記事セクション -->
             <section class="card info-section">
-                <h2 class="card-title">💡 もっと詳しく！ガチャの仕組み解説</h2>
-                <div class="info-group">
-                    <p>ソシャゲを遊ぶ上で避けては通れない「ガチャ」。特に『原神』や『ゼンゼロ』には、単なる運だけじゃない<strong>「天井システム」</strong>という優しさが用意されています！でも、仕組みを正しく知らないと、思わぬ予算オーバーになっちゃうことも…。ここでは、初心者さんにも分かりやすく「期待値」や「ソフト天井」について解説します！
-                    </p>
-                </div>
-
-
-                <div class="info-group">
-                    <h3>1. 「ソフト天井」とは？</h3>
-                    <p>原神やゼンゼロのガチャには<strong>「ソフト天井」</strong>と呼ばれる仕組みが存在します。例えば、限定キャラガチャの基本排出率は0.6%と低めですが、74連目（武器ガチャは63連目）から1連ごとに当選確率が急激に上昇し始めます。これが「ソフト天井」の実態です。<br>
-                        最大90連（武器は80連）で必ず当たる「ハード天井」に達する前に、多くのプレイヤーが75〜80連前後で当選を経験するのは、この内部的な確率操作によるものです。この仕様により、実際の<strong>期待値</strong>（平均して何回引けば当たるかという数値）は、単純な基本確率から算出される数値よりも当たりやすく設定されています。
-                    </p>
-                </div>
-
-                <div class="info-group">
-                    <h3>2. 「期待値」と「確実性」の違い</h3>
-                    <p>ガチャを引く際に重要になるのが、「期待値」と「確率の偏り」の理解です。期待値とは、数学的に算出される「平均的な試行回数」のことですが、期待値の回数を引けば必ず当たるとは限りません。確率は試行回数を重ねるほど一定の数値に近づく<strong>「確率収束」</strong>という性質を持っていますが、短期的には大きく外れることもあります（いわゆる爆死）。<br>
-                        当サイトの計算機で「90%の確率で当たる回数」を算出できるのは、単なる期待値を知るよりも「どれだけ石を貯めれば安心か」という、実際のプレイにおけるリスク管理に役立てていただくためです。</p>
-                </div>
-
-                <div class="info-group">
-                    <h3>3. 計画的なガチャライフのために</h3>
-                    <p>原神やゼンゼロには、天井までのカウントが次のガチャに引き継がれるという非常に良心的な仕様があります。当サイトのシミュレーターを活用して、自分の「現在位置」と「目標とする当選確率」を正しく把握しましょう。期待値の仕組みを味方につけることで、感情に任せた無謀な課金を防ぎ、賢く効率的に推しキャラを確保。より健全で楽しい推し活を目指しましょう。
-                    </p>
-                </div>
-
-                <!-- 1. 原神の天井システム完全解説 -->
-                <div class="info-group article-card" id="article-genshin-pity">
-                    <h3>🔍 【原神】天井システムの仕組みを徹底解説！ソフト天井と武器ガチャの注意点</h3>
-                    <p>『原神』のガチャ（祈願）は、キャラクター確保の戦略において「天井」をどう活用するかが鍵となります。まず基本として、キャラクターイベント祈願のハード天井は「90連」です。つまり、90回引けば必ず最高レアリティである星5キャラクターが1体排出されます。しかし、多くのベテランプレイヤーが知っている通り、実際には90連までかかることは稀です。ここに『原神』特有の<strong>「ソフト天井」</strong>という隠された仕様が存在します。
-                    </p>
-                    <p>ソフト天井とは、74連目付近から星5の排出率が劇的に上昇し始める現象です。通常時の排出率はわずか0.6%と非常に低いですが、74連目からは1連ごとに確率が約6%ずつ加算され、80連目までにはほとんどのプレイヤーが星5を引くことになります。この仕様を理解しておけば、「あと何連で星5が出るか」の予測が立てやすくなり、石の管理がより正確になります。また、星5が出た際にピックアップ対象が出る確率は50%（通称50/50）ですが、ここで外れた場合（すり抜け）、次に出る星5は100%の確率で限定キャラクターになるという「確定枠」の仕組みもあります。
-                    </p>
-                    <p>一方、武器ガチャ（神鋳賦形）はキャラガチャよりも少し複雑です。武器の天井は「80連」と短めに設定されており、ソフト天井も63連目付近から始まります。しかし、特定の武器を狙う場合は「命定値」というシステムが重要になります。狙いの武器を引けなかった場合に溜まるポイントで、以前は最大2ポイント（3回目の星5で確定）必要でしたが、Ver.5.0以降は改善され、1ポイント（2回目の星5で確定）で狙いの武器が手に入るようになりました。このように、『原神』のガチャは一見厳しそうに見えて、内部的な確率上昇や救済措置が非常に手厚く設計されています。当サイトの計算機で自分の現在のカウントを入力し、次の「ソフト天井」までの予算を賢く見積もってみてください。
-                    </p>
-                </div>
-
-                <!-- 2. ゼンゼロの排出確率と特徴 -->
-                <div class="info-group article-card" id="article-zzz-prob">
-                    <h3>🎮 【ゼンゼロ】ガチャの確率は？S級エージェントを狙うための期待値と音動機の仕様</h3>
-                    <p>HoYoverseの最新作『ゼンレスゾーンゼロ（ゼンゼロ）』のガチャ（変調）システムは、基本的には『原神』の洗練された仕組みを継承していますが、いくつかの独自の調整が加えられています。エージェント変調（キャラガチャ）の基本排出率は0.6%で、天井は90回。これは『原神』と同じですが、実際にプレイしてみると、A級（星4相当）の排出頻度や、信号（アイテム）の交換効率などが絶妙に調整されており、ユーザー体験としての「当たりやすさ」が追求されています。
-                    </p>
-                    <p>ゼンゼロにおいて最も注目すべきは、<strong>「S級音動機（武器）」</strong>のガチャ仕様です。原神の武器ガチャが以前は2回すり抜ける可能性があったのに対し、ゼンゼロの音動機変調は最初から「すり抜け確率が25%（ピックアップ率75%）」と非常に高く設定されています。天井も80連と低く、ソフト天井も早めに設定されているため、キャラクターを確保した後に「モチーフ武器」を持たせるハードルが他のゲームに比べて低いのが特徴です。これにより、無課金や微課金プレイヤーでも、計画的に石を貯めれば「キャラ＋モチーフ武器」のセット運用が現実的な目標となります。
-                    </p>
-                    <p>また、ゼンゼロのガチャ演出はビデオテープのノイズやTV画面をモチーフにしたスタイリッシュなもので、S級確定時の高揚感は格別です。しかし、演出に惑わされず冷静に期待値を把握することが大切です。統計的には、S級エージェントを1体確保するための平均的な回数（期待値）は約62.5回と言われています。100%ではないにしろ、60〜70連分の石があれば勝負に出る価値は十分にあります。当サイトのシミュレーターを使えば、自分の持っているポリクローム（石）で、どの程度の勝率があるかを瞬時に計算できます。特にゼンゼロはバトルの爽快感が売りですので、強力なエージェントを効率よく確保し、アクションを存分に楽しむための資金計画にぜひお役立てください。
-                    </p>
-                </div>
-
-                <!-- 3. 期待値の重要性とリスク管理 -->
-                <div class="info-group article-card" id="article-expected-value">
-                    <h3>📈 なぜガチャで「期待値」を知ることが重要なのか？爆死を防ぐ確率論的思考法</h3>
-                    <p>ソーシャルゲームのガチャにおいて、「1%の確率だから100回引けば当たる」という考え方は非常に危険な誤解です。実際には100回引いて1%を引き当てる確率は約63%程度にとどまります。この「感覚的な確率」と「数学的な現実」のギャップこそが、いわゆる<strong>「爆死」</strong>の正体です。では、どうすればこの罠を回避できるのでしょうか？その答えが「期待値」と「信頼区間」の理解にあります。
-                    </p>
-                    <p>期待値とは、平均的に何回試行すれば1回成功するかという数値です。しかし、重要なのは期待値そのものではなく、「どれだけの確率で当たるか」という勝率の把握です。例えば、どうしても欲しいキャラがいる場合、期待値の回数分だけ予算を用意するのではなく、「90%（あるいは95%）の確率で当たる回数」を準備するのがプロの節約術です。当サイトの計算機が「目標確率」を入力できるようになっているのは、まさにこの「安心できるライン」を視覚化するためです。90%のラインに達する回数を知っておけば、万が一外れた際も「10%の不運を引いた」と冷静に受け止めることができ、感情的な「追い課金」を防ぐブレーキになります。
-                    </p>
-                    <p>また、確率は試行回数が増えるほど本来の数値に近づいていく<strong>「大数の法則」</strong>という性質を持っています。短期的には運が悪く、100連ですり抜けることもありますが、長くプレイを続けていれば必ず期待値通りの結果に収束していきます。重要なのは、一回のガチャの結果に一喜一憂せず、長期的なスパンでリソースを管理することです。お得なパックや楽天ギフトカードなどでのポイント還元を活用し、1連あたりのコストを下げつつ、数学的に勝率の高い局面で勝負をかける。これが、最新のソシャゲにおける最も賢い戦略と言えるでしょう。運を天に任せるのではなく、数字を味方につけて、豊かなゲームライフを楽しんでください。
-                    </p>
-                </div>
-
-                <!-- 4. 天井の引き継ぎ・持ち越し -->
-                <div class="info-group article-card" id="article-pity-carryover">
-                    <h3>✨ 【神仕様】ガチャ天井の「引き継ぎ・持ち越し」を徹底活用して賢く推しを確保しよう</h3>
-                    <p>『原神』や『ゼンレスゾーンゼロ』をプレイしていて、最も嬉しい仕様の一つが<strong>「ガチャ天井カウントの引き継ぎ」</strong>です。多くのソシャゲでは、特定の期間が過ぎるとガチャのカウント（いわゆる「交換ポイント」など）がリセットされ、ゴミアイテムに変換されてしまいます。しかし、HoYoverseの主要タイトルでは、今回のガチャで使った分が次のガチャ、あるいは数ヶ月後のガチャにまで無期限に持ち越されます。この仕様を正しく理解して利用するのとしないのでは、キャラクターの確保効率に天と地ほどの差が出ます。
-                    </p>
-                    <p>具体的にどう引き継がれるのかを整理しましょう。まず、「限定キャラクター祈願」のカウントは、ピックアップされているキャラクターが入れ替わっても、バージョンがアップデートされてもそのまま残ります。例えば、Ver.1で40連引いて星5が出なかった場合、Ver.2の新キャラガチャを引く際は「41連目」からスタートできるのです。さらに強力なのが、<strong>「すり抜け確定枠」</strong>の持ち越しです。あるガチャで星5を引いたものの、ピックアップではない恒常キャラが出てしまった（すりぬけた）場合、次に星5を引くときは100%限定キャラが出る「確定状態」になります。この確定状態も、次のガチャに引き継がれます。
-                    </p>
-                    <p>この仕様があるおかげで、プレイヤーは「今は石が足りないけど、とりあえず天井までのカウントを進めておこう（天積み）」といった戦略や、「今回は確定枠だけ作っておいて、本命の推しが来るまで温存する」という高度な管理が可能になります。ただし注意点として、キャラガチャと武器ガチャ、そして恒常ガチャのカウントはそれぞれ別々に管理されているため、混ざることはありません。自分が今、それぞれのガチャで何連引いているのか、そして前回はすりぬけたのかどうかを常に把握しておくことが大切です。当サイトの計算機を使う際も、前回の残りカウントを考慮して「あと何連必要か」を逆算することで、より精度の高い予算計画が可能になります。この「神仕様」を味方につけて、無駄のない推し活を楽しみましょう。
-                    </p>
-                </div>
-
-
-                <!-- 運営者情報・お問い合わせ -->
-                <section class="card about-section" id="about">
-                    <h2 class="card-title">🎒 管理人のプロフィール</h2>
-
-                    <div class="about-content">
-                        <div class="about-text">
-                            <p>現役の高校生が、最先端のAIをプログラミング・パートナーとして開発した個人サイト。未プレイだからこそ、AIとデータを駆使した「客観的で正確な計算」を追求しています！</p>
+                <h2 class="card-title">🌟 おすすめの解説記事</h2>
+                <div class="recommend-list">
+                    <a href="genshin-pity.html" class="recommend-item">
+                        <div class="recommend-info">
+                            <div class="recommend-title">【原神】天井システムの仕組みを徹底解説</div>
+                            <p class="recommend-summary">ソフト天井や確定枠の仕組みを理解して、賢く石を管理しましょう。</p>
                         </div>
-                        <div class="contact-area">
-                            <p class="contact-label">ご要望・バグ報告はこちらから</p>
-                            <div class="contact-buttons-group">
-                                <a href="https://forms.gle/8LapadajaG9iFNBB9" target="_blank" rel="noopener noreferrer"
-                                    class="btn-contact btn-googleform">
-                                    <span>📧 お問い合わせ</span>
-                                </a>
-                                <a href="https://x.com/q3yVLeCrvHormaG" target="_blank" rel="noopener noreferrer"
-                                    class="btn-contact btn-x">
-                                    <span class="x-icon">𝕏</span>
-                                    <span>X (Twitter)</span>
-                                </a>
-                            </div>
+                        <span class="item-arrow">➔</span>
+                    </a>
+                    <a href="zzz-probability.html" class="recommend-item">
+                        <div class="recommend-info">
+                            <div class="recommend-title">【ゼンゼロ】ガチャの確率は？S級確保への道</div>
+                            <p class="recommend-summary">ゼンレスゾーンゼロ独自の確率設定と、S級を引くための期待値を一挙公開。</p>
                         </div>
-                    </div>
-                </section>
+                        <span class="item-arrow">➔</span>
+                    </a>
+                    <a href="how-to.html" class="recommend-item">
+                        <div class="recommend-info">
+                            <div class="recommend-title">ガチャ計算機の詳しい使い方・数学的背景</div>
+                            <p class="recommend-summary">余事象の考え方を使った計算ロジックと、正しい使い道を解説。</p>
+                        </div>
+                        <span class="item-arrow">➔</span>
+                    </a>
+                    <a href="expectation-logic.html" class="recommend-item">
+                        <div class="recommend-info">
+                            <div class="recommend-title">なぜガチャで「期待値」を知ることが重要か</div>
+                            <p class="recommend-summary">「爆死」を回避するための数学的な考え方とリスク管理。100連1%の罠とは？</p>
+                        </div>
+                        <span class="item-arrow">➔</span>
+                    </a>
+                    <a href="pity-carryover.html" class="recommend-item">
+                        <div class="recommend-info">
+                            <div class="recommend-title">天井カウントの「引き継ぎ・持ち越し」活用術</div>
+                            <p class="recommend-summary">原神・ゼンゼロの神仕様、天井引き継ぎを正しく利用する戦略を伝授。</p>
+                        </div>
+                        <span class="item-arrow">➔</span>
+                    </a>
+                </div>
+            </section>
         </main>
 
 
@@ -504,6 +430,30 @@
                 <script src="https://adm.shinobi.jp/s/685c96c19db707e497b31c5c8caaecf4"></script>
                 <!-- admax -->
             </div>
+
+            <!-- 管理人プロフィール（個別ページと共通） -->
+            <section class="card about-section" id="about">
+                <h2 class="card-title">🎒 管理人のプロフィール</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>現役の高校生が、最先端のAIをプログラミング・パートナーとして開発した個人サイト。未プレイだからこそ、AIとデータを駆使した「客観的で正確な計算」を追求しています！</p>
+                    </div>
+                    <div class="contact-area">
+                        <p class="contact-label">ご要望・バグ報告はこちらから</p>
+                        <div class="contact-buttons-group">
+                            <a href="https://forms.gle/8LapadajaG9iFNBB9" target="_blank" rel="noopener noreferrer"
+                                class="btn-contact btn-googleform">
+                                <span>📧 お問い合わせ</span>
+                            </a>
+                            <a href="https://x.com/q3yVLeCrvHormaG" target="_blank" rel="noopener noreferrer"
+                                class="btn-contact btn-x">
+                                <span class="x-icon">𝕏</span>
+                                <span>X (Twitter)</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             <!-- プライバシーポリシー -->
             <div class="privacy-policy">
@@ -517,13 +467,15 @@
                 </div>
             </div>
 
-            <p class="footer-copy">推し活は計画的に 💖 Powered by 期待値の力</p>
+            <p class="footer-copy">推し活は計画的に 💖 Powered by 期待値의力</p>
             <p class="disclaimer">※この結果は確率上の計算値であり、実際の当選を保証するものではありません。<br>無理のない範囲で楽しみましょう。</p>
         </footer>
 
     </div>
 
     <script src="script.js"></script>
+    <!-- おすすめグッズのランダム表示ロジック -->
+    <script src="recommend-data.js"></script>
 </body>
 
 </html>
