@@ -437,10 +437,22 @@ body {
 
     .header-logo {
         font-size: 1.1rem;
+        flex-shrink: 0;
     }
 
     .header-nav {
-        gap: 0.8rem;
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        justify-content: flex-end;
+        gap: 0.4rem !important;
+        flex: 1;
+        min-width: 0;
+    }
+
+    .header-nav a {
+        font-size: 0.7rem !important;
+        white-space: nowrap;
+        padding: 0.2rem 0;
     }
 
     .nav-menu {
@@ -531,6 +543,8 @@ body {
     /* 攻略サイト風 */
     font-size: 16px;
     /* 攻略サイト風 */
+    word-break: break-all;
+    overflow-wrap: break-word;
 }
 
 h1,
@@ -695,6 +709,11 @@ h3 {
     box-shadow: var(--shadow-md);
     transition: all var(--transition-normal);
     animation: fadeInUp 0.6s ease;
+}
+
+#resultCard {
+    margin-bottom: 10px !important;
+    padding-bottom: 0px !important;
 }
 
 .card:hover {
@@ -945,7 +964,7 @@ h3 {
     border: 3px solid var(--pastel-pink);
     border-radius: 20px;
     padding: 1.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem !important;
     text-align: center;
 }
 
@@ -1478,6 +1497,10 @@ h3 {
         margin: 0 0.2rem 1.5rem 0.2rem;
     }
 
+    .recommend-card {
+        margin-bottom: 0.5rem !important;
+    }
+
     .info-group,
     .article-card {
         padding: 1.5rem 1.2rem;
@@ -1541,6 +1564,7 @@ h3 {
     height: 400px !important;
     /* パソコンでの高さ */
     width: 100% !important;
+    margin-top: 5px !important;
 }
 
 @media (max-width: 768px) {
