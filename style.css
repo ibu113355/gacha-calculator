@@ -61,46 +61,6 @@
     --transition-slow: 0.5s ease;
 }
 
-/* ========================================
-   ダークモード変数 (サイバー)
-   ======================================== */
-body.dark-mode {
-    --bg-primary: #0a0e14;
-    --bg-secondary: #0f1419;
-    --bg-card: #151b23;
-    --bg-card-hover: #1c2128;
-
-    /* テキストカラー - コントラストを高める */
-    --text-primary: #ffffff;
-    --text-secondary: #e2e8f0;
-    --text-muted: #94a3b8;
-    --text-white: #ffffff;
-
-    /* ネオンカラー */
-    --pastel-blue: #00d2ff;
-    --pastel-pink: #ff007f;
-    --pastel-purple: #bc13fe;
-    --pastel-cyan: #00fff2;
-    --pastel-yellow: #f8ff00;
-    --pastel-green: #39ff14;
-
-    --accent-primary: #00d2ff;
-    --accent-secondary: #ff007f;
-
-    --primary-rgb: 0, 210, 255;
-    --secondary-rgb: 255, 0, 127;
-
-    --gradient-main: linear-gradient(135deg, #00d2ff 0%, #bc13fe 100%);
-    --gradient-pink: linear-gradient(135deg, #ff007f 0%, #ff52af 100%);
-
-    /* シャドウ - ダークモード用にくっきりさせる */
-    --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.5);
-    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.6);
-    --shadow-lg: 0 12px 48px rgba(0, 0, 0, 0.7);
-    --shadow-hover: 0 0 20px rgba(0, 210, 255, 0.3);
-
-    color-scheme: dark;
-}
 
 body {
     font-family: var(--font-main);
@@ -148,20 +108,6 @@ body {
     border-radius: 50%;
 }
 
-/* ダークモード背景 */
-body.dark-mode .background-decoration::before {
-    background: radial-gradient(circle, rgba(0, 210, 255, 0.1) 0%, transparent 70%);
-}
-
-body.dark-mode .background-decoration::after {
-    background: radial-gradient(circle, rgba(255, 0, 127, 0.1) 0%, transparent 70%);
-}
-
-body.dark-mode .background-decoration {
-    background-image:
-        radial-gradient(rgba(0, 210, 255, 0.05) 1px, transparent 1px);
-    background-size: 30px 30px;
-}
 
 /* ========================================
    追加：続きを読む・戻るボタン
@@ -225,13 +171,6 @@ body.dark-mode .background-decoration {
     color: var(--accent-primary);
 }
 
-.dark-mode .article-content p {
-    color: #b1bac4;
-}
-
-.dark-mode .article-content strong {
-    color: #44d3ff;
-}
 
 .formula {
     background: rgba(var(--primary-rgb), 0.05);
@@ -245,10 +184,6 @@ body.dark-mode .background-decoration {
     color: var(--accent-primary);
 }
 
-.dark-mode .formula {
-    background: rgba(0, 210, 255, 0.1);
-    color: #00d2ff;
-}
 
 /* おすすめグッズ・紹介コーナー風デザイン */
 .rakuten-banner-sidebar a {
@@ -260,11 +195,6 @@ body.dark-mode .background-decoration {
     transition: all var(--transition-normal);
     position: relative;
     overflow: hidden;
-}
-
-.dark-mode .rakuten-banner-sidebar a {
-    background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
-    border-color: #3d4655;
 }
 
 .rakuten-banner-sidebar a::before {
@@ -353,15 +283,6 @@ body.dark-mode .background-decoration {
     font-size: 1rem;
 }
 
-.dark-mode .article-list-item {
-    background: rgba(255, 255, 255, 0.03);
-    color: #e6edf3;
-}
-
-.dark-mode .article-list-item:hover {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.1);
-}
 
 /* 個別ページ最上部ナビゲーション */
 .top-nav {
@@ -386,13 +307,6 @@ body.dark-mode .background-decoration {
     color: var(--accent-secondary);
 }
 
-.dark-mode .related-articles-list li {
-    border-bottom-color: rgba(255, 255, 255, 0.1);
-}
-
-.dark-mode .top-nav {
-    border-bottom-color: rgba(255, 255, 255, 0.1);
-}
 
 /* ========================================
    レスポンシブ
@@ -437,10 +351,6 @@ body.dark-mode .background-decoration {
     filter: drop-shadow(0 0 10px rgba(var(--primary-rgb), 0.2));
 }
 
-/* ダークモード時のグロー効果 */
-body.dark-mode .title {
-    filter: drop-shadow(0 0 15px rgba(0, 210, 255, 0.6));
-}
 
 .sparkle {
     display: inline-block;
@@ -519,12 +429,6 @@ body.dark-mode .title {
     box-shadow: var(--shadow-hover);
 }
 
-body.dark-mode .theme-toggle {
-    background: #1c2128;
-    border-color: var(--pastel-yellow);
-    color: var(--pastel-yellow);
-    box-shadow: 0 0 15px rgba(248, 255, 0, 0.3);
-}
 
 @media (max-width: 480px) {
     .nav-menu {
@@ -640,10 +544,6 @@ h3 {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
-.dark-mode .site-header {
-    background: rgba(13, 17, 23, 0.9);
-    border-bottom-color: var(--accent-secondary);
-}
 
 .header-logo {
     font-family: 'Poppins', sans-serif;
@@ -745,9 +645,6 @@ h3 {
     border: 1px solid rgba(var(--primary-rgb), 0.1);
 }
 
-.dark-mode .recommend-item {
-    background: var(--bg-card);
-}
 
 .recommend-item:hover {
     transform: translateY(-2px);
@@ -772,9 +669,6 @@ h3 {
     line-height: 1.4;
 }
 
-.dark-mode .recommend-summary {
-    color: #999;
-}
 
 /* ========================================
    カード
@@ -829,10 +723,6 @@ h3 {
     margin: 0.8rem 0;
 }
 
-body.dark-mode .form-group.highlight-group {
-    background: linear-gradient(135deg, rgba(0, 210, 255, 0.05) 0%, rgba(255, 0, 127, 0.05) 100%);
-    border-color: rgba(0, 210, 255, 0.3);
-}
 
 .form-group.highlight-group label {
     font-size: 1.1rem;
@@ -986,17 +876,6 @@ body.dark-mode .form-group.highlight-group {
     opacity: 0.8;
 }
 
-body.dark-mode .form-group input,
-body.dark-mode .form-group select {
-    background: #2d3748;
-    border-color: #4a5568;
-    color: #ffffff;
-}
-
-body.dark-mode .form-group input::placeholder {
-    color: #a0aec0;
-}
-
 .form-group input:focus,
 .form-group select:focus,
 .preset-select:focus {
@@ -1005,11 +884,6 @@ body.dark-mode .form-group input::placeholder {
     box-shadow: 0 0 0 4px rgba(var(--primary-rgb), 0.2);
 }
 
-body.dark-mode .form-group input:focus,
-body.dark-mode .form-group select:focus {
-    background: #1a202c;
-    border-color: var(--accent-primary);
-}
 
 .preset-select {
     width: 100%;
@@ -1090,17 +964,6 @@ body.dark-mode .form-group select:focus {
     /* ライトモード時のテキスト視認性 */
 }
 
-body.dark-mode .result-main-message {
-    background: linear-gradient(135deg, rgba(0, 210, 255, 0.1) 0%, rgba(188, 19, 254, 0.1) 100%);
-    background-color: #0d1117;
-    border-color: var(--pastel-blue);
-}
-
-body.dark-mode .diagnosis-message {
-    background: rgba(0, 0, 0, 0.3);
-    color: var(--text-primary);
-    border-color: rgba(0, 210, 255, 0.3);
-}
 
 .result-basic {
     display: grid;
@@ -1472,17 +1335,6 @@ body.dark-mode .diagnosis-message {
     font-size: 1.1rem;
 }
 
-/* ダークモード時のXボタン */
-body.dark-mode .btn-x {
-    background: #ffffff;
-    border-color: #ffffff;
-    color: #000000;
-}
-
-body.dark-mode .btn-x:hover {
-    background: #e2e8f0;
-    border-color: #e2e8f0;
-}
 
 @media (min-width: 768px) {
     .about-content {
@@ -1551,11 +1403,6 @@ body.dark-mode .btn-x:hover {
     gap: 0.5rem;
 }
 
-/* ダークモード時の調整 */
-body.dark-mode .info-group h3,
-body.dark-mode .article-card h3 {
-    background: rgba(0, 210, 255, 0.15);
-}
 
 /* 読みやすさの向上 */
 .info-group p,
@@ -1603,11 +1450,6 @@ body.dark-mode .article-card h3 {
     font-weight: 700;
 }
 
-body.dark-mode .formula {
-    background: #1a202c;
-    border-color: #4a5568;
-    color: #ffffff;
-}
 
 /* レスポンシブ */
 @media (max-width: 768px) {
@@ -1705,10 +1547,6 @@ body.dark-mode .formula {
     line-height: 1.6;
 }
 
-body.dark-mode .privacy-policy {
-    background: #1a202c;
-    color: #a0aec0;
-}
 
 
 
@@ -1746,10 +1584,6 @@ body.dark-mode .privacy-policy {
     border-left: 8px solid var(--pastel-blue);
 }
 
-body.dark-mode .quick-links-card {
-    background: linear-gradient(135deg, #151b23 0%, #0f1419 100%);
-    border-color: var(--pastel-blue);
-}
 
 .quick-links-grid {
     display: grid;
@@ -1771,11 +1605,6 @@ body.dark-mode .quick-links-card {
     transition: all var(--transition-normal);
 }
 
-body.dark-mode .quick-link-item {
-    background: #1c2128;
-    border-color: rgba(0, 210, 255, 0.2);
-    color: #ffffff;
-}
 
 .quick-link-item:hover {
     border-color: var(--pastel-blue);
@@ -1797,12 +1626,6 @@ body.dark-mode .quick-link-item {
     transform: rotate(-0.5deg);
 }
 
-body.dark-mode .dev-story-card {
-    background: #151b23;
-    border-color: #30363d;
-    box-shadow: 5px 5px 0px #0a0e14;
-    color: #ffffff;
-}
 
 .dev-story-card::before {
     content: '';
@@ -1817,18 +1640,12 @@ body.dark-mode .dev-story-card {
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
 }
 
-body.dark-mode .dev-story-card::before {
-    background: rgba(0, 210, 255, 0.4);
-}
 
 .dev-story-card .card-title {
     color: #8b4513;
     /* セピア文字色 */
 }
 
-body.dark-mode .dev-story-card .card-title {
-    color: var(--pastel-blue);
-}
 
 /* 見出しの装飾（手書き風アンダーライン） */
 .info-group h3,
@@ -1931,27 +1748,4 @@ body.dark-mode .dev-story-card .card-title {
 
 .rakuten-banner-center a:hover img {
     transform: scale(1.05);
-}
-
-/* ダークモード */
-body.dark-mode .recommend-card {
-    background: var(--bg-card);
-    /* 統一感 */
-    border-color: var(--pastel-pink);
-    box-shadow: 0 0 15px rgba(var(--secondary-rgb), 0.15);
-    /* ほんのり光らせる */
-}
-
-body.dark-mode .recommend-label {
-    color: var(--pastel-pink);
-    background: rgba(var(--secondary-rgb), 0.15);
-}
-
-body.dark-mode .rakuten-banner-center a {
-    color: var(--text-secondary) !important;
-    /* 明るめのグレーに */
-}
-
-body.dark-mode .rakuten-banner-center a:hover {
-    color: var(--text-white) !important;
 }
