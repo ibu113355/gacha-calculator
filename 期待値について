@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>なぜガチャで「期待値」を知ることが重要なのか？ | ガチャ計算機</title>
+    <meta name="description" content="ガチャで爆死を防ぐための確率論的思考法。期待値と信頼区間の重要性について詳しく解説します。">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;900&family=Poppins:wght@600;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="background-decoration"></div>
+
+    <div class="container">
+        <!-- 共通ヘッダー -->
+        <header class="site-header">
+            <a href="index.html" class="header-logo">
+                <span>✨</span> ガチャ計算機
+            </a>
+            <nav class="header-nav">
+                <a href="index.html">ホーム</a>
+                <a href="genshin-pity.html">原神</a>
+                <a href="zzz-probability.html">ゼンゼロ</a>
+                <a href="how-to.html">使い方</a>
+            </nav>
+            <!-- ダークモード切替ボタン -->
+            <button id="themeToggle" class="theme-toggle" aria-label="ダークモード切替">
+                <span class="toggle-icon-theme">🌙</span>
+            </button>
+        </header>
+
+        <div class="layout-wrapper">
+            <main class="main-content">
+                <article class="card article-page">
+                    <h2 class="card-title">📈 なぜガチャで「期待値」を知ることが重要なのか？爆死を防ぐ確率論的思考法</h2>
+                    <div class="article-content">
+                        <section class="info-group">
+                            <p>
+                                ソーシャルゲームのガチャ、あるいは「祈願」の画面を前にしたとき、私たちの心は期待と不安で揺れ動きます。
+                                「1%の確率だから、100回引けば1枚は出るはず」――多くのプレイヤーが抱くこの直感は、残念ながら数学的な真実とは少し距離があります。
+                            </p>
+                            <p>
+                                実際には、100回引いて1%を1回以上引き当てる確率は約63.2%に過ぎません。
+                                この「直感（100回ならいける）」と「計算（3人に1人は外れる）」のギャップこそが、いわゆる<strong>「爆死」</strong>の正体です。
+                                この絶望を避けるために必要な知恵が、「期待値」と「リスク管理」の考え方です。
+                            </p>
+                        </section>
+
+                        <section class="info-group">
+                            <h3>🔍 期待値とは「平均的な投資目安」</h3>
+                            <p>
+                                期待値とは、簡単に言えば「平均して何回引けば1回当たるか」という数値です。
+                                排出率1%なら期待値は100回、0.6%なら約167回となります。
+                                しかし、重要なのは期待値通りにガチャが動くことではなく、<strong>「期待値通りにならない可能性が常にある」</strong>と知ることです。
+                            </p>
+                            <p>
+                                期待値はあくまで「平均」です。運良く10連で引く人もいれば、期待値の倍、200連引いても出ない不運な人もいます。
+                                ガチャにおける真の賢さとは、単に期待値を目指すことではなく、自分の運が「平均より下」だったときにどう立ち振る舞うかを決めておくことなのです。
+                            </p>
+                        </section>
+
+                        <section class="info-group">
+                            <h3>🛡️ 「目標確率」でセーフティネットを張る</h3>
+                            <p>
+                                当サイトの計算機に「目標確率」の設定があるのは、このリスクを数字で管理するためです。
+                                プロのプレイヤー（あるいは賢い節約家）は、「期待値分だけ石を貯める」のではなく、<strong>「90%（あるいは95%）の確率で当たる回数」</strong>を基準に予算を組んでいます。
+                            </p>
+                            <p>
+                                例えば、90%ラインが150連だった場合、150連分の石がない状態で勝負をかけるのは「リスクが高い」と判断して温存する。
+                                逆に、150連あれば「よっぽどの不運（10%の底）を引かない限り大丈夫」と自信を持って挑めます。
+                                この「安心できるライン」を事前に知っておくことが、感情に流された「無謀な追い課金」を防ぐ、最強のブレーキになるのです。
+                            </p>
+                        </section>
+
+                        <section class="info-group">
+                            <h3>🌌 大数の法則：運は必ず収束する</h3>
+                            <p>
+                                確率は試行回数が増えるほど本来の数値に近づいていく<strong>「大数の法則」</strong>という性質を持っています。
+                                1回や2回のガチャでは激しく上振れ・下振れしますが、1年、2年とプレイを続けていれば、結局は設定された確率通りの排出結果に落ち着いていきます。
+                            </p>
+                            <p>
+                                つまり、今回のガチャで運が悪くすり抜けたとしても、それは「未来の幸運のための種まき」のようなものです。
+                                一喜一憂せず、長期的なスパンでリソースを管理しましょう。
+                                楽天ギフトカードなどの還元を活用して「1連あたりのコスト」を最小限に抑えつつ、数学的に有利な状況で勝負をかける。これが、最新のソシャゲにおける最も賢い戦略と言えるでしょう。
+                            </p>
+                        </section>
+
+                        <section class="info-group">
+                            <p>
+                                運を天に任せるのではなく、数字を味方につける。
+                                このサイトの計算結果を一つの指標にして、無理のない、そして後悔のない豊かなゲームライフを楽しんでください。
+                                あなたの次の「祈願」が、素晴らしい結果になることを心から願っています。
+                            </p>
+                        </section>
+                    </div>
+
+                    <div class="back-to-calc">
+                        <a href="index.html" class="btn-primary"><span>🎲 計算機に戻る</span></a>
+                    </div>
+                </article>
+            </main>
+
+            <!-- サイドバー -->
+            <aside class="sidebar">
+                <section class="card sidebar-card">
+                    <h3 class="card-title">🔗 クイックリンク</h3>
+                    <div class="simple-article-list">
+                        <a href="index.html" class="article-list-item">
+                            <span class="item-icon">🎲</span>
+                            <span class="item-text">ガチャ計算機ホーム</span>
+                        </a>
+                        <a href="genshin-pity.html" class="article-list-item">
+                            <span class="item-icon">🔍</span>
+                            <span class="item-text">原神の天井システム</span>
+                        </a>
+                        <a href="zzz-probability.html" class="article-list-item">
+                            <span class="item-icon">🎮</span>
+                            <span class="item-text">ゼンゼロの確率解説</span>
+                        </a>
+                        <a href="how-to.html" class="article-list-item">
+                            <span class="item-icon">📖</span>
+                            <span class="item-text">計算機の使い方</span>
+                        </a>
+                        <a href="pity-carryover.html" class="article-list-item">
+                            <span class="item-icon">✨</span>
+                            <span class="item-text">天井の引き継ぎ仕様</span>
+                        </a>
+                        <a href="dev-story.html" class="article-list-item">
+                            <span class="item-icon">🏠</span>
+                            <span class="item-text">開発者ストーリー</span>
+                        </a>
+                    </div>
+                </section>
+
+                <section class="card sidebar-card sponsored-card">
+                    <h3 class="card-title">🎁 おすすめグッズ</h3>
+                    <div class="rakuten-banner-sidebar" style="text-align: center;">
+                        <a href="//af.moshimo.com/af/c/click?a_id=5357434&amp;p_id=54&amp;pc_id=54&amp;pl_id=616&amp;url=https%3A%2F%2Fitem.rakuten.co.jp%2Fmerletta-co%2Fgenshin-acrylicstand-liyue%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fmerletta-co%2Fi%2F10000038%2F"
+                            rel="nofollow" referrerpolicy="no-referrer-when-downgrade"
+                            style="text-decoration: none; color: var(--text-secondary); font-size: 0.85rem;">
+                            <img src="//thumbnail.image.rakuten.co.jp/@0_mall/merletta-co/cabinet/10098190/10098196/imgrc0100427618.jpg?_ex=128x128"
+                                alt="" style="border: none; margin-bottom: 0.5rem; border-radius: 8px;" /><br>
+                            原神公式グッズ アクリルスタンド
+                        </a>
+                    </div>
+                </section>
+            </aside>
+        </div>
+
+        <!-- フッター -->
+        <footer class="footer">
+            <section class="card about-section" id="about">
+                <h2 class="card-title">🎒 管理人のプロフィール</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>現役の高校生が、最先端のAIをプログラミング・パートナーとして開発した個人サイト。未プレイだからこそ、AIとデータを駆使した「客観的で正確な計算」を追求しています！</p>
+                    </div>
+                    <div class="contact-area">
+                        <p class="contact-label">ご要望・バグ報告はこちらから</p>
+                        <div class="contact-buttons-group">
+                            <a href="https://forms.gle/8LapadajaG9iFNBB9" target="_blank" rel="noopener noreferrer"
+                                class="btn-contact btn-googleform">
+                                <span>📧 お問い合わせ</span>
+                            </a>
+                            <a href="https://x.com/q3yVLeCrvHormaG" target="_blank" rel="noopener noreferrer"
+                                class="btn-contact btn-x">
+                                <span class="x-icon">𝕏</span>
+                                <span>X (Twitter)</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="privacy-policy">
+                <h3>■プライバシーポリシー</h3>
+                <div class="privacy-content">
+                    <p>【広告の配信について】<br>
+                        当サイトでは、第三者配信の広告サービス「忍者AdMax」、「楽天アフィリエイト」および「Amazonアソシエイト」を利用しています。Amazonのアソシエイトとして、当メディアは適格販売により収入を得ています。広告配信事業者は、ユーザーの興味に応じた商品やサービスの広告を表示するため、クッキー（Cookie）を使用することがあります。
+                    </p>
+                    <p>【免責事項】<br>
+                        当サイトの計算結果および掲載情報により生じた損害等の一切の責任を負いかねます。ガチャの利用は自己責任でお願いいたします。</p>
+                </div>
+            </div>
+
+            <p class="footer-copy">推し活は計画的に 💖 Powered by 期待値の力</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <!-- おすすめグッズのランダム表示ロジック -->
+    <script src="recommend-data.js"></script>
+</body>
+
+</html>
