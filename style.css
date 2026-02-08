@@ -450,9 +450,9 @@ body {
     }
 
     .header-nav a {
-        font-size: 0.7rem !important;
+        font-size: 0.85rem !important;
         white-space: nowrap;
-        padding: 0.2rem 0;
+        padding: 0.5rem 0.2rem;
     }
 
     .nav-menu {
@@ -1787,6 +1787,12 @@ h3 {
     border-radius: 12px;
     box-shadow: var(--shadow-xs);
     transition: transform var(--transition-fast);
+}
+
+/* トラッキングピクセル(1x1)に影やマージンがつかないように非表示化 */
+.rakuten-banner-center img[width="1"],
+.rakuten-banner-center img[height="1"] {
+    display: none !important;
 }
 
 .rakuten-banner-center a:hover img {
