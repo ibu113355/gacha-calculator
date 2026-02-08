@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【原神】天井システムの仕組みを徹底解説！ソフト天井と武器ガチャの注意点 | ガチャ計算機</title>
+    <meta name="description" content="『原神』のガチャ（祈願）は、キャラクター確保の戦略において「天井」をどう活用するかが鍵となります。ソフト天井や確定枠の仕組みを詳しく解説。">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;900&family=Poppins:wght@600;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="background-decoration"></div>
+
+    <div class="container">
+        <!-- 共通ヘッダー -->
+        <header class="site-header">
+            <a href="index.html" class="header-logo">
+                <span>✨</span> ガチャ計算機
+            </a>
+            <nav class="header-nav">
+                <a href="index.html">ホーム</a>
+                <a href="genshin-pity.html">原神</a>
+                <a href="zzz-probability.html">ゼンゼロ</a>
+                <a href="how-to.html">使い方</a>
+            </nav>
+            <!-- ダークモード切替ボタン -->
+            <button id="themeToggle" class="theme-toggle" aria-label="ダークモード切替">
+                <span class="toggle-icon-theme">🌙</span>
+            </button>
+        </header>
+
+        <div class="layout-wrapper">
+            <main class="main-content">
+                <article class="card article-page">
+                    <h2 class="card-title">🔍 【原神】天井システムの仕組みを徹底解説！ソフト天井と武器ガチャの救済措置</h2>
+                    <div class="article-content">
+                        <section class="info-group">
+                            <p>
+                                『原神』の世界において、強力なアタッカーやサポーターを仲間にすることは、冒険を有利に進める上で非常に重要です。
+                                しかし、ただ闇雲に「祈願（ガチャ）」を回すだけでは、貴重な原石を無駄にしてしまうかもしれません。
+                            </p>
+                            <p>
+                                原神のガチャには、プレイヤーを救済するための精巧な「天井システム」が組み込まれています。
+                                この仕様を隅々まで理解し、当サイトの計算機と組み合わせることで、最小限の投資で最大限の結果を引き出す戦略的な攻略が可能になります。
+                            </p>
+                        </section>
+
+                        <section class="info-group">
+                            <h3>🌙 隠された真実：「ソフト天井」の存在</h3>
+                            <p>
+                                ゲーム内の説明では、キャラクターイベント祈願の天井は「90連」とされています。
+                                これを「ハード天井」と呼びますが、実は熱心なプレイヤーの間では、90回までかかることは滅多にないことが知られています。
+                                ここに、<strong>「ソフト天井」</strong>という隠された仕様が存在します。
+                            </p>
+                            <p>
+                                通常、星5の排出率はわずか0.6%ですが、<strong>74連目</strong>を境にその確率は劇的に上昇し始めます。
+                                74連目から1連ごとに約6%ずつ確率が加算されていくため、80連前後でほとんどのプレイヤーが星5を引き当てることになります。
+                                「あと何連で74回に届くか」を意識するだけで、石の管理は驚くほど楽になります。
+                            </p>
+                        </section>
+
+                        <section class="info-group">
+                            <h3>⚖️ 運命の分かれ道：「50/50（すり抜け）」の仕組み</h3>
+                            <p>
+                                星5が出現した際、それがピックアップ対象の限定キャラクターである確率は50%です。これが有名な<strong>「50/50」</strong>です。
+                                もしここでピックアップ以外のキャラクターが出た場合、「すり抜け」が発生したことになります。
+                            </p>
+                            <p>
+                                しかし、絶望する必要はありません。原神には強力な救済措置があります。
+                                一度「すり抜け」が発生すると、<strong>次に出現する星5は100%の確率で限定キャラクター</strong>になります。
+                                この「確定枠」の状態は、ガチャ期間が終わっても、次のバージョンにアップデートされても引き継がれます。
+                                この計算機を使う際は、「前回すり抜けたかどうか」を考慮して、目標確率を調整してみてください。
+                            </p>
+                        </section>
+
+                        <section class="info-group">
+                            <h3>⚔️ 武器ガチャの変革：Ver.5.0以降の「命定値」</h3>
+                            <p>
+                                以前は「闇が深い」と言われていた武器ガチャ（神鋳賦形）も、Ver.5.0のアップデートで大きな改善が行われました。
+                                武器ガチャの天井は「80連」と短く、ソフト天井も「63連目」付近から始まります。
+                            </p>
+                            <p>
+                                最大の変更点は<strong>「命定値（めいていち）」</strong>です。
+                                以前は狙いの武器を引くために最大2回のすり抜けを覚悟する必要がありましたが、現在は1回すり抜けるだけで（命定値が1溜まるだけで）、次の星5が確実に狙いの武器になります。
+                                これにより、キャラを確保した後に「モチーフ武器」まで狙うハードルがぐっと下がりました。
+                            </p>
+                        </section>
+
+                        <section class="info-group">
+                            <p>
+                                原神のガチャは、一見すると厳しい確率に見えますが、こうした内部的な救済措置を理解すれば、非常に計算しやすい設計になっています。
+                                あなたの持っている原石が、次の「ソフト天井」までにどれだけの勝率を生むのか。
+                                ぜひ当計算機でシミュレーションして、賢く、楽しくテイワットの旅を彩ってください！
+                            </p>
+                        </section>
+                    </div>
+
+                    <div class="back-to-calc">
+                        <a href="index.html" class="btn-primary"><span>🎲 計算機に戻る</span></a>
+                    </div>
+                </article>
+            </main>
+
+            <!-- サイドバー -->
+            <aside class="sidebar">
+                <section class="card sidebar-card">
+                    <h3 class="card-title">🔗 クイックリンク</h3>
+                    <div class="simple-article-list">
+                        <a href="index.html" class="article-list-item">
+                            <span class="item-icon">🎲</span>
+                            <span class="item-text">ガチャ計算機ホーム</span>
+                        </a>
+                        <a href="zzz-probability.html" class="article-list-item">
+                            <span class="item-icon">🎮</span>
+                            <span class="item-text">ゼンゼロの確率解説</span>
+                        </a>
+                        <a href="expectation-logic.html" class="article-list-item">
+                            <span class="item-icon">📈</span>
+                            <span class="item-text">期待値とリスク管理</span>
+                        </a>
+                        <a href="how-to.html" class="article-list-item">
+                            <span class="item-icon">📖</span>
+                            <span class="item-text">計算機の使い方</span>
+                        </a>
+                        <a href="pity-carryover.html" class="article-list-item">
+                            <span class="item-icon">✨</span>
+                            <span class="item-text">天井の引き継ぎ仕様</span>
+                        </a>
+                        <a href="dev-story.html" class="article-list-item">
+                            <span class="item-icon">🏠</span>
+                            <span class="item-text">開発者ストーリー</span>
+                        </a>
+                    </div>
+                </section>
+
+                <section class="card sidebar-card sponsored-card">
+                    <h3 class="card-title">🎁 おすすめグッズ</h3>
+                    <div class="rakuten-banner-sidebar" style="text-align: center;">
+                        <a href="//af.moshimo.com/af/c/click?a_id=5357434&amp;p_id=54&amp;pc_id=54&amp;pl_id=616&amp;url=https%3A%2F%2Fitem.rakuten.co.jp%2Fmerletta-co%2Fgenshin-acrylicstand-liyue%2F&amp;m=http%3A%2F%2Fm.rakuten.co.jp%2Fmerletta-co%2Fi%2F10000038%2F"
+                            rel="nofollow" referrerpolicy="no-referrer-when-downgrade"
+                            style="text-decoration: none; color: var(--text-secondary); font-size: 0.85rem;">
+                            <img src="//thumbnail.image.rakuten.co.jp/@0_mall/merletta-co/cabinet/10098190/10098196/imgrc0100427618.jpg?_ex=128x128"
+                                alt="" style="border: none; margin-bottom: 0.5rem; border-radius: 8px;" /><br>
+                            原神公式グッズ アクリルスタンド
+                        </a>
+                    </div>
+                </section>
+            </aside>
+        </div>
+
+        <!-- フッター -->
+        <footer class="footer">
+            <section class="card about-section" id="about">
+                <h2 class="card-title">🎒 管理人のプロフィール</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>現役の高校生が、最先端のAIをプログラミング・パートナーとして開発した個人サイト。未プレイだからこそ、AIとデータを駆使した「客観的で正確な計算」を追求しています！</p>
+                    </div>
+                    <div class="contact-area">
+                        <p class="contact-label">ご要望・バグ報告はこちらから</p>
+                        <div class="contact-buttons-group">
+                            <a href="https://forms.gle/8LapadajaG9iFNBB9" target="_blank" rel="noopener noreferrer"
+                                class="btn-contact btn-googleform">
+                                <span>📧 お問い合わせ</span>
+                            </a>
+                            <a href="https://x.com/q3yVLeCrvHormaG" target="_blank" rel="noopener noreferrer"
+                                class="btn-contact btn-x">
+                                <span class="x-icon">𝕏</span>
+                                <span>X (Twitter)</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="privacy-policy">
+                <h3>■プライバシーポリシー</h3>
+                <div class="privacy-content">
+                    <p>【広告の配信について】<br>
+                        当サイトでは、第三者配信の広告サービス「忍者AdMax」、「楽天アフィリエイト」および「Amazonアソシエイト」を利用しています。Amazonのアソシエイトとして、当メディアは適格販売により収入を得ています。広告配信事業者は、ユーザーの興味に応じた商品やサービスの広告を表示するため、クッキー（Cookie）を使用することがあります。
+                    </p>
+                    <p>【免責事項】<br>
+                        当サイトの計算結果および掲載情報により生じた損害等の一切の責任を負いかねます。ガチャの利用は自己責任でお願いいたします。</p>
+                </div>
+            </div>
+
+            <p class="footer-copy">推し活は計画的に 💖 Powered by 期待値の力</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <!-- おすすめグッズのランダム表示ロジック -->
+    <script src="recommend-data.js"></script>
+</body>
+
+</html>
