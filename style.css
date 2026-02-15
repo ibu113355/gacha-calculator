@@ -1328,14 +1328,78 @@ h3 {
     object-fit: contain;
 }
 
-/* 旧ボタンの互換性維持が必要な場合は残すが、今回は刷新するので削除または上書き */
-.affiliate-intro,
-.affiliate-buttons,
-.affiliate-btn,
-.affiliate-btn-apple,
-.affiliate-btn-google,
-.affiliate-btn-amazon {
-    display: none;
+/* 運営者情報 & お問い合わせ */
+.about-section {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.about-text p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 0;
+}
+
+.contact-area {
+    padding-top: 1.5rem;
+    border-top: 1px dashed #e2e8f0;
+    margin-top: 1rem;
+    text-align: left;
+}
+
+.contact-label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    margin-bottom: 0.8rem;
+}
+
+.contact-buttons-group {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+}
+
+.btn-contact {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    color: #475569;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: all var(--transition-normal);
+}
+
+.btn-contact:hover {
+    background: #e2e8f0;
+    color: #1e293b;
+    transform: translateY(-1px);
+}
+
+.btn-contact span,
+.btn-contact .x-icon {
+    margin-right: 5px;
+    /* アイコンと文字の間に5pxの隙間 */
+}
+
+@media (min-width: 768px) {
+    .about-section {
+        padding: 2rem;
+    }
 }
 
 /* 解説セクション全体 */
