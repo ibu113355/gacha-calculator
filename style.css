@@ -1249,145 +1249,93 @@ h3 {
     display: none !important;
 }
 
-/* アフィリエイト */
+/* アフィリエイト - クリーンな公式ストア風デザイン */
 .affiliate-section {
-    background: linear-gradient(135deg, rgba(255, 212, 59, 0.1) 0%, rgba(140, 228, 154, 0.1) 100%);
-    border: 2px solid var(--accent-warning);
-    border-radius: 16px;
-    padding: 1.5rem;
-    margin-bottom: 2rem;
-    text-align: center;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.2rem;
+    margin-bottom: 1.5rem;
 }
 
-.affiliate-intro {
+.affiliate-title {
+    font-size: 0.95rem;
     font-weight: 700;
-    margin-bottom: 1.2rem;
-}
-
-.affiliate-buttons {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.affiliate-btn {
-    flex: 1;
-    min-width: 200px;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 0.8rem;
-    padding: 1rem;
-    border-radius: 12px;
-    text-decoration: none;
-    font-weight: 700;
-    color: var(--text-white);
-    transition: all var(--transition-normal);
+    gap: 0.5rem;
 }
 
-.affiliate-btn-apple {
-    background: linear-gradient(135deg, #0071e3 0%, #00c6ff 100%);
+.affiliate-title::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 1.2em;
+    background: var(--accent-primary);
+    border-radius: 2px;
 }
 
-/* 運営者情報 & お問い合わせ */
-.about-section {
-    background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.05) 0%, rgba(var(--secondary-rgb), 0.05) 100%);
-}
-
-.about-content {
+.affiliate-list {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 0.8rem;
 }
 
-.about-text p {
-    color: var(--text-secondary);
-    line-height: 1.8;
+.affiliate-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.8rem 1rem;
+    background: #f8fafc;
+    border: 1px solid #f1f5f9;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all var(--transition-normal);
 }
 
-.contact-area {
-    padding-top: 1.5rem;
-    border-top: 1px dashed rgba(var(--primary-rgb), 0.3);
-    text-align: center;
+.affiliate-item:hover {
+    background: #f1f5f9;
+    border-color: #e2e8f0;
+    transform: translateX(4px);
 }
 
-.contact-label {
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: var(--text-muted);
-    margin-bottom: 1rem;
+.affiliate-store-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 0.95rem;
 }
 
-.btn-contact {
-    display: inline-flex;
+.store-logo {
+    display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1rem 2rem;
-    background: var(--bg-secondary);
-    border: 2px solid var(--pastel-blue);
-    color: var(--pastel-blue);
-    border-radius: 12px;
-    text-decoration: none;
-    font-weight: 700;
-    transition: all var(--transition-normal);
-    box-shadow: var(--shadow-sm);
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid #e2e8f0;
 }
 
-.btn-contact:hover {
-    background: var(--pastel-blue);
-    color: var(--text-white);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
+.store-logo img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
 }
 
-.contact-buttons-group {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.btn-x {
-    background: #000000;
-    border-color: #000000;
-    color: #ffffff;
-}
-
-.btn-x:hover {
-    background: #2d3748;
-    border-color: #2d3748;
-}
-
-.x-icon {
-    font-family: var(--font-accent);
-    margin-right: 0.5rem;
-    font-size: 1.1rem;
-}
-
-
-@media (min-width: 768px) {
-    .about-content {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .about-text {
-        flex: 1;
-    }
-
-    .contact-area {
-        border-top: none;
-        border-left: 1px dashed rgba(var(--primary-rgb), 0.3);
-        padding-top: 0;
-        padding-left: 2rem;
-        min-width: 300px;
-    }
-}
-
-.affiliate-btn-google {
-    background: linear-gradient(135deg, #34a853 0%, #0f9d58 100%);
+/* 旧ボタンの互換性維持が必要な場合は残すが、今回は刷新するので削除または上書き */
+.affiliate-intro,
+.affiliate-buttons,
+.affiliate-btn,
+.affiliate-btn-apple,
+.affiliate-btn-google,
+.affiliate-btn-amazon {
+    display: none;
 }
 
 /* 解説セクション全体 */
