@@ -359,63 +359,19 @@
                 <div class="copy-feedback" id="copyFeedback">コピーしました!</div>
             </section>
 
-            <!-- ガチャ計算機の詳しい使い方・数学的背景 -->
-            <section class="card info-section" id="how-to-detail">
-                <h2 class="card-title">📖 ガチャ計算機の詳しい使い方・数学的背景</h2>
-                <div class="article-content">
-                    <p>
-                        「1%の確率なら、100回引けば1回は当たるはず」――そう思ってガチャを回し、結果として何も得られなかった経験はありませんか？
-                        実は、この「1%を100回引いて当たる確率」は、数学的に計算すると<strong>約63.2%</strong>しかありません。残りの約37%、つまり3人に1人以上は「爆死」してしまうのが現実なのです。
-                    </p>
-                    <p>
-                        当サイトのガチャ計算機は、こうした「直感と現実のズレ」を可視化し、あなたが納得感を持ってガチャに臨めるよう設計されています。
-                        ここでは、計算機のより効果的な使い方と、その裏側にある数学的な仕組みについて少し詳しくお話しします。
-                    </p>
 
-                    <div class="info-group">
-                        <h3>✨ 賢い計算機の使い方：目標確率を設定しよう</h3>
-                        <p>
-                            この計算機の最大の特徴は、単に確率を出すだけでなく「目標確率」を設定できる点です。
-                            例えば、「どうしてもこのキャラが欲しい！」という時は、目標確率を<strong>90%や95%</strong>に設定してみてください。
-                        </p>
-                        <p>
-                            「期待値（平均して当たる回数）」で予算を組むのは少し危険です。期待値はあくまで平均なので、運が悪い側に入った時の対策ができません。
-                            「9割以上の確率で当たる回数」をあらかじめ知っておくことで、万が一の時にも冷静に対応でき、感情に任せた「無謀な追い課金」を防ぐ強力なブレーキになります。
-                        </p>
-                    </div>
-
-                    <div class="info-group">
-                        <h3>📐 数学的背景：「余事象」を使った精密な計算</h3>
-                        <p>
-                            当サイトでは、正確な数値を出すために数学の<strong>「余事象（よじしょう）」</strong>という考え方を用いています。
-                            「少なくとも1回当たる確率」を直接計算するのは大変ですが、「すべて外れる確率」を計算して全体（100%）から引くことで、非常に正確な確率を導き出せます。
-                        </p>
-                        <div class="formula"
-                            style="background: rgba(var(--primary-rgb), 0.05); padding: 1.5rem; border-radius: 12px; text-align: center; font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 1.2rem; margin: 1rem 0; color: var(--primary-color);">
-                            1 - (ハズレる確率)<sup>引く回数</sup>
-                        </div>
-                        <p>
-                            例えば、排出率1%（0.01）のガチャを100回引く場合、ハズレる確率は99%（0.99）です。
-                            これを100乗すると「100回連続で外れる確率」が出ます。これを1から引くことで、「100回の中で1回以上当たりが出る確率」が判明します。
-                            当サイトのJSプログラムはこの計算をミリ秒単位で実行し、グラフや表としてあなたに提示しています。
-                        </p>
-                    </div>
-
-                    <div class="info-group">
-                        <h3>⚠️ 最後に：運を「管理」する楽しさを</h3>
-                        <p>
-                            ガチャは運任せのものですが、その運を数字で把握することで「戦略」に変わります。
-                            「当たるまで引く」のではなく、「この確率なら勝負できる」と判断する。
-                            このサイトが、あなたのゲームライフをより豊かで計画的なものにする一助となれば、開発者としてこれほど嬉しいことはありません。
-                        </p>
-                    </div>
-                </div>
-            </section>
 
             <!-- おすすめの解説記事セクション -->
             <section class="card info-section">
                 <h2 class="card-title">🌟 おすすめの解説記事</h2>
                 <div class="recommend-list">
+                    <a href="genshin-probability.html" class="recommend-item">
+                        <div class="recommend-info">
+                            <div class="recommend-title">【原神】ガチャの確率は？星5確保への道</div>
+                            <p class="recommend-summary">0.6%の真実とソフト天井、1体確保に必要な原石の期待値を徹底解説。</p>
+                        </div>
+                        <span class="item-arrow">➔</span>
+                    </a>
                     <a href="genshin-pity.html" class="recommend-item">
                         <div class="recommend-info">
                             <div class="recommend-title">【原神】天井システムの仕組みを徹底解説</div>
@@ -423,17 +379,17 @@
                         </div>
                         <span class="item-arrow">➔</span>
                     </a>
+                    <a href="zzz-gacha-system.html" class="recommend-item">
+                        <div class="recommend-info">
+                            <div class="recommend-title">【ゼンゼロ】ガチャの仕様と天井・確率解説</div>
+                            <p class="recommend-summary">ゼンゼロのガチャ（変調）の仕様と天井金額、引き継ぎについて徹底解説。</p>
+                        </div>
+                        <span class="item-arrow">➔</span>
+                    </a>
                     <a href="zzz-probability.html" class="recommend-item">
                         <div class="recommend-info">
                             <div class="recommend-title">【ゼンゼロ】ガチャの確率は？S級確保への道</div>
                             <p class="recommend-summary">ゼンレスゾーンゼロ独自の確率設定と、S級を引くための期待値を一挙公開。</p>
-                        </div>
-                        <span class="item-arrow">➔</span>
-                    </a>
-                    <a href="how-to.html" class="recommend-item">
-                        <div class="recommend-info">
-                            <div class="recommend-title">ガチャ計算機の詳しい使い方・数学的背景</div>
-                            <p class="recommend-summary">余事象の考え方を使った計算ロジックと、正しい使い道を解説。</p>
                         </div>
                         <span class="item-arrow">➔</span>
                     </a>
