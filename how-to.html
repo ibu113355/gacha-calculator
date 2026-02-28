@@ -40,83 +40,144 @@
             <main class="main-content">
                 <article class="card article-page">
                     <h2 class="card-title">📖 ガチャ計算機の詳しい使い方：爆死を避けるための「数字の扱い方」</h2>
-                    <div class="article-content">
-                        <section class="info-group">
-                            <p>
-                                「どうしてもあのキャラを引きたいけれど、今持っている石だけで足りるかな……？」
-                                ソシャゲをプレイしている方なら、誰もが一度は抱く不安ではないでしょうか。
-                            </p>
-                            <p>
-                                当サイトのガチャ計算機は、そんなあなたの「不安」を「確信」に変えるために作られました。
-                                単に数字を打ち込むだけのツールではなく、あなたの推し活を戦略的にサポートするためのヒントが詰まっています。
-                                ここでは、この計算機を120%活用するためのステップを詳しく解説します。
-                            </p>
-                        </section>
+                    <div class="article-intro">
+                        ガチャを回す前の「運試し」や「資源管理」に大活躍！<br>
+                        当サイトのガチャシミュレーターは、誰でも直感的に使えるシンプルな設計でありながら、『原神』や『ゼンレスゾーンゼロ』の複雑な天井仕様に対応する高機能な計算機です。ここでは、具体的な使い方と便利な活用術を解説します。
+                    </div>
 
-                        <section class="info-group">
-                            <h3>✨ ステップ1：自分の環境を正しく入力する</h3>
-                            <p>
-                                まずは、今プレイしているゲームの仕様をセットしましょう。
-                                「原神」や「ゼンレスゾーンゼロ」など、人気のタイトルにはあらかじめ<strong>「プリセット」</strong>を用意しています。これを選択するだけで、排出率（0.6%など）や天井回数が自動で入力されます。
-                            </p>
-                            <p>
-                                意外と忘れがちなのが、<strong>「1回に必要な石の数」</strong>です。10連で少しお得になるゲームや、逆に1連ずつの単価が異なる場合もあります。
-                                ここを正確に入力することで、記事の後半で解説する「課金予算」の精度が劇的に上がります。
-                            </p>
-                        </section>
+                    <section class="info-group">
+                        <h3 class="rich-section-title">
+                            <span class="icon">🔍</span>
+                            <div><span class="badge badge-standard">手順</span>基本的な使い方：3ステップで完了！</div>
+                        </h3>
+                        <p>
+                            計算機の使い方はとても簡単です。トップページ（Home）にある計算機フォームに、以下の3つの数値を入力して「計算する」ボタンを押すだけです。
+                        </p>
 
-                        <section class="info-group">
-                            <h3>🎯 ステップ2：「目標確率」で安心を手に入れる</h3>
-                            <p>
-                                このサイトの一番のこだわりは、<strong>「目標確率」</strong>の設定機能です。
-                                多くの人は「期待値（平均）」で考えがちですが、期待値とは「半分くらいの人はその回数で引けるけど、残りの半分は引けない」という過酷な境界線でもあります。
-                            </p>
-                            <p>
-                                「絶対に後悔したくない！」というときは、目標確率を<strong>90%以上</strong>に設定して計算してみてください。
-                                90%の確率で当たるために必要な石の量を知る。これこそが、最悪の事態（爆死）を未然に防ぎ、心穏やかにガチャを回すための最大の秘訣です。
-                            </p>
-                        </section>
+                        <div class="table-container">
+                            <table class="info-table" style="text-align: left;">
+                                <thead>
+                                    <tr>
+                                        <th>STEP</th>
+                                        <th>入力項目</th>
+                                        <th>解説</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td
+                                            style="text-align: center; font-weight: bold; font-size: 1.2rem; color: var(--primary-color);">
+                                            1</td>
+                                        <td><strong>引き継ぎ回数</strong></td>
+                                        <td>現在までに引いた回数を入力します。ゲーム内の「履歴（祈願履歴/変調履歴）」を確認し、前回の星5が出てから何回引いているかを数えましょう。</td>
+                                    </tr>
+                                    <tr>
+                                        <td
+                                            style="text-align: center; font-weight: bold; font-size: 1.2rem; color: var(--primary-color);">
+                                            2</td>
+                                        <td><strong>所持ガチャ石</strong></td>
+                                        <td>現在持っている「原石」や「ポリクローム」の数を入力します。「クイック入力ボタン（0・1600・3200…）」を使うと便利です。</td>
+                                    </tr>
+                                    <tr>
+                                        <td
+                                            style="text-align: center; font-weight: bold; font-size: 1.2rem; color: var(--primary-color);">
+                                            3</td>
+                                        <td><strong>すり抜け状況</strong></td>
+                                        <td>前回引いた星5が「ピックアップ外（すり抜け）」だった場合はチェックを入れます。これにより、次の星5が100%確定する状態として計算されます。</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
 
-                        <section class="info-group">
-                            <h3>📐 ステップ3：数学的背景「余事象」のパワー</h3>
-                            <p>
-                                「100回引いて1%が当たらない確率は？」という問いに対して、直感で答えるのは非常に難しいものです。
-                                この計算機の裏側では、数学の<strong>「余事象」</strong>という考え方を使っています。
-                            </p>
-                            <div class="formula"
-                                style="background: rgba(var(--primary-rgb), 0.05); padding: 1.5rem; border-radius: 12px; text-align: center; font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 1.2rem; margin: 1rem 0; color: var(--primary-color);">
-                                1 - (外れる確率)<sup>試行回数</sup>
+                    <section class="info-group">
+                        <h3 class="rich-section-title">
+                            <span class="icon">📊</span>
+                            <div><span class="badge badge-limited">結果の見方</span>「目標確率」から逆算する戦略</div>
+                        </h3>
+                        <p>
+                            計算ボタンを押すと、入力した条件で「星5ピックアップキャラが当たる確率」が大きく表示されます。<br>
+                            さらに便利なのが、その下に表示される<strong>「確率ごとの必要石数（目安）」</strong>の表です。
+                        </p>
+
+                        <div class="callout callout-info">
+                            <div class="callout-icon">💡</div>
+                            <div class="callout-content">
+                                <p><strong>「安心ライン」に届いているかチェック！</strong><br>
+                                    人によって「これくらいの確率があれば勝負できる」という基準は異なります。<br>
+                                    例えば、「90%」の行に書かれている「あと〇〇個」という数字を見れば、"9割の確率で勝てるための安全資金"があとどれくらい足りないのかが一目でわかります。</p>
                             </div>
-                            <p>
-                                直接「当たる確率」を計算するのではなく、「一度も当たらない最悪のパターン」を計算して、それを全体から差し引く。
-                                この「逆転の発想」による計算によって、スマホの画面上であってもコンマ数秒で非常に正確なシミュレーションを可能にしています。
-                            </p>
-                        </section>
+                        </div>
+                    </section>
 
-                        <section class="info-group">
-                            <h3>💡 プロのコツ：課金は「楽天ギフトカード」などを活用</h3>
-                            <p>
-                                計算の結果、「あともう少しだけ石が足りない……」という結論が出ることもあるでしょう。
-                                そんなとき、慌ててアプリ内から直接課金する前に、一旦手を止めてみてください。
-                            </p>
-                            <p>
-                                楽天などで販売されている<strong>各種ギフトカード</strong>を経由することで、ポイント還元を受けられる場合があります。
-                                数%の還元であっても、積み重なれば10連、20連分の差になって返ってきます。
-                                賢く数字を使い、賢くリソースを確保する。それこそが、現代のソシャゲプレイヤーに求められるリテラシーだと言えるでしょう。
-                            </p>
-                        </section>
+                    <section class="info-group">
+                        <h3 class="rich-section-title">
+                            <span class="icon">⚠️</span>
+                            <div><span class="badge badge-weapon">注意点</span>「武器ガチャ」の計算への対応</div>
+                        </h3>
+                        <p>
+                            現在のバージョンにおいて、当計算機の内部ロジックは<strong>「キャラクターガチャ（基本確率0.6%、天井90連、ソフト天井74連〜）」</strong>の仕様を前提に最適化されています。
+                        </p>
+                        <div class="callout callout-warning">
+                            <div class="callout-icon">🚨</div>
+                            <div class="callout-content">
+                                <p><strong>武器ガチャの計算について</strong><br>
+                                    武器ガチャ（原神：天井80連、ゼンゼロ：天井80連＆75%）の計算結果としては、実際よりも少し「厳しめ（低め）」の確率が出力されます。武器ガチャの目安として使う場合は「表示されている確率よりも、実際はもう少し当たりやすい」と考えてお使いください。<br>
+                                    <span
+                                        style="font-size: 0.85rem; opacity: 0.8;">※今後のアップデートで武器専用計算モードの実装を検討中です。</span>
+                                </p>
+                            </div>
+                        </div>
+                    </section>
 
-                        <section class="info-group">
-                            <p>
-                                この計算機は、僕がプログラミングと数学を学ぶ中で「自分自身も欲しかったツール」として、AIパートナーと共に作り上げたものです。
-                                皆さんの「推し」が、どうか最小限のコストで、最大限の笑顔と共に手元に来てくれることを願っています！
-                            </p>
-                        </section>
+                    <!-- 計算機への誘導 (Cyber Design) -->
+                    <div class="cyber-calc-wrapper" style="margin-top: 2rem;">
+                        <div class="cyber-calc-title">さっそく計算してみよう！</div>
+                        <p style="margin-bottom: 2rem; color: var(--text-secondary); font-size: 0.95rem;">
+                            準備ができたら、実際に数字を入力して運命のシミュレーションへ。</p>
+                        <a href="index.html" class="btn-cyber">
+                            <span>📱 確率計算機を使う</span>
+                        </a>
                     </div>
+                    <section class="info-group">
+                        <h3>📐 ステップ3：数学的背景「余事象」のパワー</h3>
+                        <p>
+                            「100回引いて1%が当たらない確率は？」という問いに対して、直感で答えるのは非常に難しいものです。
+                            この計算機の裏側では、数学の<strong>「余事象」</strong>という考え方を使っています。
+                        </p>
+                        <div class="formula"
+                            style="background: rgba(var(--primary-rgb), 0.05); padding: 1.5rem; border-radius: 12px; text-align: center; font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 1.2rem; margin: 1rem 0; color: var(--primary-color);">
+                            1 - (外れる確率)<sup>試行回数</sup>
+                        </div>
+                        <p>
+                            直接「当たる確率」を計算するのではなく、「一度も当たらない最悪のパターン」を計算して、それを全体から差し引く。
+                            この「逆転の発想」による計算によって、スマホの画面上であってもコンマ数秒で非常に正確なシミュレーションを可能にしています。
+                        </p>
+                    </section>
 
-                    <div class="back-to-calc">
-                        <a href="index.html" class="btn-primary"><span>🎲 計算機に戻る</span></a>
-                    </div>
+                    <section class="info-group">
+                        <h3>💡 プロのコツ：課金は「楽天ギフトカード」などを活用</h3>
+                        <p>
+                            計算の結果、「あともう少しだけ石が足りない……」という結論が出ることもあるでしょう。
+                            そんなとき、慌ててアプリ内から直接課金する前に、一旦手を止めてみてください。
+                        </p>
+                        <p>
+                            楽天などで販売されている<strong>各種ギフトカード</strong>を経由することで、ポイント還元を受けられる場合があります。
+                            数%の還元であっても、積み重なれば10連、20連分の差になって返ってきます。
+                            賢く数字を使い、賢くリソースを確保する。それこそが、現代のソシャゲプレイヤーに求められるリテラシーだと言えるでしょう。
+                        </p>
+                    </section>
+
+                    <section class="info-group">
+                        <p>
+                            この計算機は、僕がプログラミングと数学を学ぶ中で「自分自身も欲しかったツール」として、AIパートナーと共に作り上げたものです。
+                            皆さんの「推し」が、どうか最小限のコストで、最大限の笑顔と共に手元に来てくれることを願っています！
+                        </p>
+
+
+                        <div class="back-to-calc">
+                            <a href="index.html" class="btn-primary"><span>🎲 計算機に戻る</span></a>
+                        </div>
                 </article>
             </main>
 
@@ -143,9 +204,17 @@
                             <span class="item-icon">🎲</span>
                             <span class="item-text">ガチャ計算機ホーム</span>
                         </a>
+                        <a href="zzz-gacha-system.html" class="article-list-item">
+                            <span class="item-icon">📖</span>
+                            <span class="item-text">ゼンゼロの天井システム</span>
+                        </a>
                         <a href="genshin-pity.html" class="article-list-item">
                             <span class="item-icon">🔍</span>
                             <span class="item-text">原神の天井システム</span>
+                        </a>
+                        <a href="genshin-probability.html" class="article-list-item">
+                            <span class="item-icon">📈</span>
+                            <span class="item-text">原神の確率徹底解説</span>
                         </a>
                         <a href="zzz-probability.html" class="article-list-item">
                             <span class="item-icon">🎮</span>
@@ -159,10 +228,7 @@
                             <span class="item-icon">✨</span>
                             <span class="item-text">天井の引き継ぎ仕様</span>
                         </a>
-                        <a href="dev-story.html" class="article-list-item">
-                            <span class="item-icon">🏠</span>
-                            <span class="item-text">開発者ストーリー</span>
-                        </a>
+
                     </div>
                 </section>
             </aside>
