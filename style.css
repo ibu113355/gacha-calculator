@@ -1,5 +1,5 @@
 /* ========================================
-   リセット & ベーススタイル
+   繝ｪ繧ｻ繝�ヨ & 繝吶�繧ｹ繧ｹ繧ｿ繧､繝ｫ
    ======================================== */
 * {
     margin: 0;
@@ -8,13 +8,13 @@
 }
 
 :root {
-    /* 背景色を薄いパステルブルーに変更 */
+    /* 閭梧勹濶ｲ繧定埋縺�ヱ繧ｹ繝�Ν繝悶Ν繝ｼ縺ｫ螟画峩 */
     --bg-primary: #f0f4f8;
     --bg-secondary: #ffffff;
     --bg-card: #ffffff;
     --bg-card-hover: #f1f3f5;
 
-    /* パステルカラー */
+    /* 繝代せ繝�Ν繧ｫ繝ｩ繝ｼ */
     --pastel-blue: #6ea8fe;
     --pastel-pink: #f687b3;
     --pastel-purple: #b197fc;
@@ -22,7 +22,7 @@
     --pastel-yellow: #ffd43b;
     --pastel-green: #8ce99a;
 
-    /* アクセントカラー */
+    /* 繧｢繧ｯ繧ｻ繝ｳ繝医き繝ｩ繝ｼ */
     --accent-primary: #6ea8fe;
     --accent-secondary: #f687b3;
     --accent-success: #8ce99a;
@@ -33,29 +33,29 @@
     --primary-rgb: 110, 168, 254;
     --secondary-rgb: 246, 135, 179;
 
-    /* テキストカラー - 本文を真っ黒に近いグレーに */
+    /* 繝�く繧ｹ繝医き繝ｩ繝ｼ - 譛ｬ譁�ｒ逵溘▲鮟偵↓霑代＞繧ｰ繝ｬ繝ｼ縺ｫ */
     --text-primary: #1a202c;
     --text-secondary: #2d3748;
     --text-muted: #4a5568;
     --text-white: #ffffff;
 
-    /* グラデーション */
+    /* 繧ｰ繝ｩ繝��繧ｷ繝ｧ繝ｳ */
     --gradient-main: linear-gradient(135deg, #6ea8fe 0%, #b197fc 100%);
     --gradient-pink: linear-gradient(135deg, #f687b3 0%, #ffa8cc 100%);
     --gradient-success: linear-gradient(135deg, #8ce99a 0%, #66d9e8 100%);
 
-    /* シャドウ - 少ししっかりとした影に変更 */
+    /* 繧ｷ繝｣繝峨え - 蟆代＠縺励▲縺九ｊ縺ｨ縺励◆蠖ｱ縺ｫ螟画峩 */
     --shadow-xs: 0 1px 3px rgba(0, 0, 0, 0.1);
     --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.1);
     --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.12);
     --shadow-lg: 0 12px 48px rgba(0, 0, 0, 0.15);
     --shadow-hover: 0 10px 30px rgba(var(--primary-rgb), 0.25);
 
-    /* フォント */
+    /* 繝輔か繝ｳ繝� */
     --font-main: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
     --font-accent: "Poppins", "Helvetica Neue", Arial, sans-serif;
 
-    /* トランジション */
+    /* 繝医Λ繝ｳ繧ｸ繧ｷ繝ｧ繝ｳ */
     --transition-fast: 0.2s ease;
     --transition-normal: 0.3s ease;
     --transition-slow: 0.5s ease;
@@ -73,7 +73,7 @@ body {
 }
 
 /* ========================================
-   背景装飾
+   閭梧勹陬�｣ｾ
    ======================================== */
 .background-decoration {
     position: fixed;
@@ -110,7 +110,7 @@ body {
 
 
 /* ========================================
-   追加：続きを読む・戻るボタン
+   霑ｽ蜉��夂ｶ壹″繧定ｪｭ繧繝ｻ謌ｻ繧九�繧ｿ繝ｳ
    ======================================== */
 .read-more-wrapper {
     margin-top: 1.5rem;
@@ -146,7 +146,7 @@ body {
     padding-top: 2rem;
 }
 
-/* 個別記事ページ用調整 */
+/* 蛟句挨險倅ｺ九�繝ｼ繧ｸ逕ｨ隱ｿ謨ｴ */
 .article-page {
     line-height: 1.8;
     padding: 3rem;
@@ -185,7 +185,7 @@ body {
 }
 
 
-/* おすすめグッズ・紹介コーナー風デザイン */
+/* 縺翫☆縺吶ａ繧ｰ繝�ぜ繝ｻ邏ｹ莉九さ繝ｼ繝翫�鬚ｨ繝�じ繧､繝ｳ */
 .rakuten-banner-sidebar a {
     display: block;
     padding: 1.2rem;
@@ -245,7 +245,7 @@ body {
 }
 
 /* ========================================
-   追加：関連記事リスト（シンプル版）
+   霑ｽ蜉��夐未騾｣險倅ｺ九Μ繧ｹ繝茨ｼ医す繝ｳ繝励Ν迚茨ｼ�
    ======================================== */
 .simple-article-list {
     display: flex;
@@ -284,7 +284,7 @@ body {
 }
 
 
-/* 個別ページ最上部ナビゲーション */
+/* 蛟句挨繝壹�繧ｸ譛荳企Κ繝翫ン繧ｲ繝ｼ繧ｷ繝ｧ繝ｳ */
 .top-nav {
     margin-bottom: 2rem;
     padding-bottom: 1rem;
@@ -309,10 +309,10 @@ body {
 
 
 /* ========================================
-   レスポンシブ
+   繝ｬ繧ｹ繝昴Φ繧ｷ繝�
    ======================================== */
 /* ========================================
-   コンテナ
+   繧ｳ繝ｳ繝�リ
    ======================================== */
 .container {
     max-width: 1200px;
@@ -330,7 +330,7 @@ body {
 }
 
 /* ========================================
-   ヘッダー
+   繝倥ャ繝繝ｼ
    ======================================== */
 .header {
     text-align: center;
@@ -375,7 +375,7 @@ body {
     font-weight: 400;
 }
 
-/* ナビゲーションメニュー */
+/* 繝翫ン繧ｲ繝ｼ繧ｷ繝ｧ繝ｳ繝｡繝九Η繝ｼ */
 .nav-menu {
     display: flex;
     justify-content: center;
@@ -403,7 +403,7 @@ body {
     background: rgba(var(--primary-rgb), 0.05);
 }
 
-/* ダークモード切替ボタン */
+/* 繝繝ｼ繧ｯ繝｢繝ｼ繝牙�譖ｿ繝懊ち繝ｳ */
 .theme-toggle {
     position: absolute;
     top: 1rem;
@@ -466,7 +466,7 @@ body {
 }
 
 /* ========================================
-   モード切り替えトグル
+   繝｢繝ｼ繝牙�繧頑崛縺医ヨ繧ｰ繝ｫ
    ======================================== */
 .toggle-container {
     margin-bottom: 2rem;
@@ -533,16 +533,16 @@ body {
 
 
 /* ========================================
-   タイポグラフィの調整
+   繧ｿ繧､繝昴げ繝ｩ繝輔ぅ縺ｮ隱ｿ謨ｴ
    ======================================== */
 body {
     font-family: 'Noto Sans JP', sans-serif;
     background-color: var(--bg-primary);
     color: var(--text-primary);
     line-height: 1.75;
-    /* 攻略サイト風 */
+    /* 謾ｻ逡･繧ｵ繧､繝磯｢ｨ */
     font-size: 16px;
-    /* 攻略サイト風 */
+    /* 謾ｻ逡･繧ｵ繧､繝磯｢ｨ */
     word-break: break-all;
     overflow-wrap: break-word;
 }
@@ -554,7 +554,7 @@ h3 {
 }
 
 /* ========================================
-   共通ヘッダー
+   蜈ｱ騾壹�繝�ム繝ｼ
    ======================================== */
 .site-header {
     background: rgba(255, 255, 255, 0.9);
@@ -600,7 +600,7 @@ h3 {
 }
 
 /* ========================================
-   2カラムレイアウト
+   2繧ｫ繝ｩ繝�繝ｬ繧､繧｢繧ｦ繝�
    ======================================== */
 .layout-wrapper {
     display: grid;
@@ -629,7 +629,7 @@ h3 {
 }
 
 /* ========================================
-   計算機セクションのコンパクト化
+   險育ｮ玲ｩ溘そ繧ｯ繧ｷ繝ｧ繝ｳ縺ｮ繧ｳ繝ｳ繝代け繝亥喧
    ======================================== */
 .calculator-card {
     padding: 1.5rem !important;
@@ -651,7 +651,7 @@ h3 {
 }
 
 /* ========================================
-   おすすめ解説記事 (リスト形式)
+   縺翫☆縺吶ａ隗｣隱ｬ險倅ｺ� (繝ｪ繧ｹ繝亥ｽ｢蠑�)
    ======================================== */
 .recommend-list {
     display: flex;
@@ -697,7 +697,7 @@ h3 {
 
 
 /* ========================================
-   カード
+   繧ｫ繝ｼ繝�
    ======================================== */
 .card {
     background: var(--bg-card);
@@ -705,7 +705,7 @@ h3 {
     padding: 2rem;
     margin-bottom: 2rem;
     border: 1px solid rgba(255, 255, 255, 0.05);
-    /* デフォルトで少し白みを帯びた境界 */
+    /* 繝�ヵ繧ｩ繝ｫ繝医〒蟆代＠逋ｽ縺ｿ繧貞ｸｯ縺ｳ縺溷｢�阜 */
     box-shadow: var(--shadow-md);
     transition: all var(--transition-normal);
     animation: fadeInUp 0.6s ease;
@@ -732,7 +732,7 @@ h3 {
 }
 
 /* ========================================
-   フォーム
+   繝輔か繝ｼ繝�
    ======================================== */
 .form {
     display: flex;
@@ -803,7 +803,7 @@ h3 {
     box-shadow: var(--shadow-sm);
 }
 
-/* 目標選択ボタン */
+/* 逶ｮ讓咎∈謚槭�繧ｿ繝ｳ */
 .goal-selection-wrapper {
     display: flex;
     flex-direction: column;
@@ -865,7 +865,7 @@ h3 {
     color: var(--text-white);
 }
 
-/* カスタム入力 */
+/* 繧ｫ繧ｹ繧ｿ繝�蜈･蜉� */
 .custom-input-wrapper {
     display: flex;
     align-items: center;
@@ -901,7 +901,7 @@ h3 {
     outline: none;
 }
 
-/* プレースホルダーの色 */
+/* 繝励Ξ繝ｼ繧ｹ繝帙Ν繝繝ｼ縺ｮ濶ｲ */
 .form-group input::placeholder {
     color: var(--text-muted);
     opacity: 0.8;
@@ -927,7 +927,7 @@ h3 {
 }
 
 /* ========================================
-   ボタン
+   繝懊ち繝ｳ
    ======================================== */
 .btn-primary {
     background: var(--gradient-main);
@@ -957,7 +957,7 @@ h3 {
 }
 
 /* ========================================
-   結果表示
+   邨先棡陦ｨ遉ｺ
    ======================================== */
 .result-main-message {
     background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.15) 0%, rgba(var(--secondary-rgb), 0.15) 100%);
@@ -1039,7 +1039,7 @@ h3 {
     color: var(--accent-primary);
 }
 
-/* アラート */
+/* 繧｢繝ｩ繝ｼ繝� */
 .alert {
     background: rgba(255, 135, 135, 0.1);
     border: 2px solid var(--accent-danger);
@@ -1078,7 +1078,7 @@ h3 {
     border-color: var(--accent-warning);
 }
 
-/* テーブル */
+/* 繝��繝悶Ν */
 .stats-table-container {
     overflow-x: auto;
     margin-bottom: 1.5rem;
@@ -1108,7 +1108,7 @@ h3 {
     color: var(--accent-primary);
 }
 
-/* 広告 & シェア */
+/* 蠎�相 & 繧ｷ繧ｧ繧｢ */
 .ad-placeholder {
     margin: 1.5rem auto;
     max-width: 336px;
@@ -1190,7 +1190,7 @@ h3 {
     transform: translateY(0);
 }
 
-/* グラフ & その他 */
+/* 繧ｰ繝ｩ繝� & 縺昴�莉� */
 .chart-container {
     position: relative;
     height: 400px !important;
@@ -1249,7 +1249,7 @@ h3 {
     display: none !important;
 }
 
-/* アフィリエイト - クリーンな公式ストア風デザイン */
+/* 繧｢繝輔ぅ繝ｪ繧ｨ繧､繝� - 繧ｯ繝ｪ繝ｼ繝ｳ縺ｪ蜈ｬ蠑上せ繝医い鬚ｨ繝�じ繧､繝ｳ */
 .affiliate-section {
     background: #ffffff;
     border: 1px solid #e2e8f0;
@@ -1328,7 +1328,7 @@ h3 {
     object-fit: contain;
 }
 
-/* 運営者情報 & お問い合わせ */
+/* 驕句霧閠�ュ蝣ｱ & 縺雁撫縺�粋繧上○ */
 .about-section {
     background: #ffffff;
     border: 1px solid #e2e8f0;
@@ -1393,7 +1393,7 @@ h3 {
 .btn-contact span,
 .btn-contact .x-icon {
     margin-right: 5px;
-    /* アイコンと文字の間に5pxの隙間 */
+    /* 繧｢繧､繧ｳ繝ｳ縺ｨ譁�ｭ励�髢薙↓5px縺ｮ髫咎俣 */
 }
 
 @media (min-width: 768px) {
@@ -1402,7 +1402,7 @@ h3 {
     }
 }
 
-/* 解説セクション全体 */
+/* 隗｣隱ｬ繧ｻ繧ｯ繧ｷ繝ｧ繝ｳ蜈ｨ菴� */
 .info-section {
     background: transparent;
     border: none;
@@ -1411,7 +1411,7 @@ h3 {
     box-shadow: none;
 }
 
-/* 記事カード単位 */
+/* 險倅ｺ九き繝ｼ繝牙腰菴� */
 .info-group,
 .article-card {
     background: var(--bg-card);
@@ -1446,7 +1446,7 @@ h3 {
 }
 
 
-/* 読みやすさの向上 */
+/* 隱ｭ縺ｿ繧�☆縺輔�蜷台ｸ� */
 .info-group p,
 .article-card p {
     line-height: 1.8;
@@ -1473,7 +1473,7 @@ h3 {
 }
 
 .info-list li::before {
-    content: '・';
+    content: '繝ｻ';
     position: absolute;
     left: 0;
     color: var(--accent-primary);
@@ -1493,7 +1493,7 @@ h3 {
 }
 
 
-/* レスポンシブ */
+/* 繝ｬ繧ｹ繝昴Φ繧ｷ繝� */
 @media (max-width: 768px) {
     .container {
         padding: 1rem 0.5rem;
@@ -1566,14 +1566,14 @@ h3 {
 }
 
 /* ========================================
-   ここから追加：グラフとLINEの修正
+   縺薙％縺九ｉ霑ｽ蜉��壹げ繝ｩ繝輔→LINE縺ｮ菫ｮ豁｣
    ======================================== */
 
-/* グラフが潰れるバグを強制的に直す */
+/* 繧ｰ繝ｩ繝輔′貎ｰ繧後ｋ繝舌げ繧貞ｼｷ蛻ｶ逧�↓逶ｴ縺� */
 .chart-container {
     position: relative;
     height: 400px !important;
-    /* パソコンでの高さ */
+    /* 繝代た繧ｳ繝ｳ縺ｧ縺ｮ鬮倥＆ */
     width: 100% !important;
     margin-top: 5px !important;
 }
@@ -1581,11 +1581,11 @@ h3 {
 @media (max-width: 768px) {
     .chart-container {
         height: 280px !important;
-        /* スマホでの高さ */
+        /* 繧ｹ繝槭�縺ｧ縺ｮ鬮倥＆ */
     }
 }
 
-/* プライバシーポリシーの見た目を整える */
+/* 繝励Λ繧､繝舌す繝ｼ繝昴Μ繧ｷ繝ｼ縺ｮ隕九◆逶ｮ繧呈紛縺医ｋ */
 .privacy-policy {
     font-size: 0.8rem;
     background: #f1f3f5;
@@ -1603,12 +1603,12 @@ h3 {
 
 
 
-/* --- グラフの潰れを強制的に直す最終兵器 --- */
+/* --- 繧ｰ繝ｩ繝輔�貎ｰ繧後ｒ蠑ｷ蛻ｶ逧�↓逶ｴ縺呎怙邨ょ�蝎ｨ --- */
 #probabilityChart {
     display: block !important;
     width: 100% !important;
     height: 400px !important;
-    /* パソコンでの高さ */
+    /* 繝代た繧ｳ繝ｳ縺ｧ縺ｮ鬮倥＆ */
 }
 
 .chart-container {
@@ -1622,12 +1622,12 @@ h3 {
     #probabilityChart,
     .chart-container {
         height: 280px !important;
-        /* スマホでの高さ */
+        /* 繧ｹ繝槭�縺ｧ縺ｮ鬮倥＆ */
     }
 }
 
 /* ========================================
-   クイック目次
+   繧ｯ繧､繝�け逶ｮ谺｡
    ======================================== */
 .quick-links-card {
     background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);
@@ -1664,40 +1664,12 @@ h3 {
 }
 
 /* ========================================
-   人間味・手作り感の演出
+   莠ｺ髢灘袖繝ｻ謇倶ｽ懊ｊ諢溘貍泌
    ======================================== */
-/* 開発秘話の特別装飾（付箋メモ風） */
-.dev-story-card {
-    position: relative;
-    background: #fffdf0;
-    /* 暖かい紙の色 */
-    border: 2px solid #f2e8cf;
-    box-shadow: 5px 5px 0px #f2e8cf;
-    transform: rotate(-0.5deg);
-}
+/* 髢狗匱遘倩ｩｱ縺ｮ迚ｹ蛻･陬｣ｾ井ｻ倡ｮ九Γ繝｢鬚ｨ */
 
 
-.dev-story-card::before {
-    content: '';
-    position: absolute;
-    top: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 120px;
-    height: 35px;
-    background: rgba(var(--primary-rgb), 0.3);
-    /* マステ風 */
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
-}
-
-
-.dev-story-card .card-title {
-    color: #8b4513;
-    /* セピア文字色 */
-}
-
-
-/* 見出しの装飾（手書き風アンダーライン） */
+/* 隕句縺励陬｣ｾ域焔譖ｸ縺埼｢ｨ繧｢繝ｳ繝繝ｼ繝ｩ繧､繝ｳ */
 .info-group h3,
 .article-card h3 {
     border-left: none;
@@ -1718,22 +1690,19 @@ h3 {
     border-radius: 2px;
 }
 
-/* 一言メモ風 */
+/* 荳險繝｡繝｢鬚ｨ */
 .info-group,
 .article-card {
     border-radius: 12px;
 }
 
-/* スマホ調整 */
+/* 繧ｹ繝槭�隱ｿ謨ｴ */
 @media (max-width: 480px) {
     .quick-links-grid {
         grid-template-columns: 1fr;
     }
 
-    .dev-story-card {
-        transform: none;
-        margin-top: 1.5rem;
-    }
+
 
     .recommend-card {
         margin: 0.5rem auto 1rem;
@@ -1742,19 +1711,19 @@ h3 {
 }
 
 /* ========================================
-   おすすめグッズ (楽天アフィリエイト)
+   縺翫☆縺吶ａ繧ｰ繝�ぜ (讌ｽ螟ｩ繧｢繝輔ぅ繝ｪ繧ｨ繧､繝�)
    ======================================== */
 .recommend-card {
     background: var(--bg-card);
     border: 2px solid var(--pastel-pink);
-    /* 目立たせる枠線 */
+    /* 逶ｮ遶九◆縺帙ｋ譫�邱� */
     border-radius: 24px;
-    /* ふんわり大きく */
+    /* 縺ｵ繧薙ｏ繧雁､ｧ縺阪￥ */
     padding: 1rem 1.5rem;
     margin: 1.5rem auto;
-    /* 中央寄せ */
+    /* 荳ｭ螟ｮ蟇�○ */
     max-width: 500px;
-    /* 横に広がりすぎないように */
+    /* 讓ｪ縺ｫ蠎�′繧翫☆縺弱↑縺�ｈ縺�↓ */
     box-shadow: var(--shadow-sm);
     text-align: center;
     position: relative;
@@ -1801,7 +1770,7 @@ h3 {
     transition: transform var(--transition-fast);
 }
 
-/* トラッキングピクセル(1x1)に影やマージンがつかないように非表示化(全コンテナ対応) */
+/* 繝医Λ繝�く繝ｳ繧ｰ繝斐け繧ｻ繝ｫ(1x1)縺ｫ蠖ｱ繧��繝ｼ繧ｸ繝ｳ縺後▽縺九↑縺�ｈ縺�↓髱櫁｡ｨ遉ｺ蛹�(蜈ｨ繧ｳ繝ｳ繝�リ蟇ｾ蠢�) */
 [class*="rakuten-banner"] img[width="1"],
 [class*="rakuten-banner"] img[height="1"],
 .rakuten-banner-center img[width="1"],
@@ -1811,4 +1780,245 @@ h3 {
 
 .rakuten-banner-center a:hover img {
     transform: scale(1.05);
+}
+
+/* ========================================
+   繝ｪ繝・メ繧ｳ繝ｳ繝昴・繝阪Φ繝育畑繧ｹ繧ｿ繧､繝ｫ
+   ======================================== */
+.article-intro {
+    background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.1), rgba(var(--primary-rgb), 0.02));
+    border-left: 4px solid var(--primary-color);
+    padding: 1.5rem;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 2rem;
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+.rich-section-title {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 1.4rem;
+    border-bottom: 2px solid rgba(var(--primary-rgb), 0.2);
+    padding-bottom: 0.5rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.rich-section-title span.icon {
+    font-size: 1.8rem;
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #fff;
+    margin-right: 0.5rem;
+    vertical-align: middle;
+}
+
+.badge-limited {
+    background-color: #e53935;
+}
+
+/* 襍､邉ｻ */
+.badge-weapon {
+    background-color: #1e88e5;
+}
+
+/* 髱堤ｳｻ */
+.badge-bangboo {
+    background-color: #fb8c00;
+}
+
+/* 繧ｪ繝ｬ繝ｳ繧ｸ邉ｻ */
+.badge-standard {
+    background-color: #8e24aa;
+}
+
+/* 邏ｫ邉ｻ */
+
+.table-container {
+    margin: 1.5rem 0;
+    overflow-x: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.info-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--card-bg);
+    text-align: center;
+}
+
+.info-table th {
+    background-color: rgba(var(--primary-rgb), 0.15);
+    color: var(--text-primary);
+    font-weight: 800;
+    padding: 1.2rem 1rem;
+    border-bottom: 2px solid rgba(var(--primary-rgb), 0.3);
+}
+
+.info-table td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+.info-table tr:last-child td {
+    border-bottom: none;
+}
+
+.info-table tr:hover td {
+    background-color: rgba(var(--primary-rgb), 0.02);
+}
+
+.info-table .highlight-cell {
+    font-weight: 800;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+
+/* 繧ｳ繝ｼ繝ｫ繧｢繧ｦ繝茨ｼ医ヲ繝ｳ繝医・隴ｦ蜻頑棧・・*/
+.callout {
+    padding: 1.2rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.callout-icon {
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.callout-content p {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.callout-info {
+    background-color: rgba(33, 150, 243, 0.1);
+    border-left: 4px solid #2196f3;
+}
+
+.callout-warning {
+    background-color: rgba(255, 152, 0, 0.1);
+    border-left: 4px solid #ff9800;
+}
+
+/* 髮ｻ閼ｳ鬚ｨ險育ｮ玲ｩ溘・繧ｿ繝ｳ */
+.cyber-calc-wrapper {
+    text-align: center;
+    margin: 3rem 0;
+    padding: 2.5rem 2rem;
+    background: linear-gradient(135deg, rgba(var(--card-bg-rgb), 1), rgba(var(--primary-rgb), 0.05));
+    border-radius: 16px;
+    border: 1px solid rgba(var(--primary-rgb), 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05), inset 0 0 20px rgba(var(--primary-rgb), 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.cyber-calc-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+}
+
+.cyber-calc-title {
+    margin-bottom: 1.5rem;
+    font-weight: 800;
+    font-size: 1.3rem;
+    color: var(--text-primary);
+}
+
+.btn-cyber {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    padding: 1.2rem 3rem;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #ffffff !important;
+    background: linear-gradient(135deg, #4f46e5, #ec4899);
+    border: none;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 8px 20px rgba(79, 70, 229, 0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-cyber:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(79, 70, 229, 0.6);
+}
+
+/* 繧｢繝輔ぅ繝ｪ繧ｨ繧､繝医Μ繝ｳ繧ｯ縺ｮ繧ｹ繧ｿ繧､繝ｪ繝ｳ繧ｰ */
+.banner-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+@media(min-width: 600px) {
+    .banner-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.affiliate-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    padding: 1.2rem 1rem;
+    border: 2px solid;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.2s;
+    background-color: var(--card-bg);
+    text-align: center;
+}
+
+.affiliate-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.affiliate-amazon {
+    border-color: #FF9900;
+    color: var(--text-primary);
+}
+
+.affiliate-amazon:hover {
+    background-color: rgba(255, 153, 0, 0.05);
+}
+
+.affiliate-rakuten {
+    border-color: #BF0000;
+    color: var(--text-primary);
+}
+
+.affiliate-rakuten:hover {
+    background-color: rgba(191, 0, 0, 0.05);
+}
+
+.accent-text {
+    color: var(--primary-color);
+    font-weight: bold;
 }
