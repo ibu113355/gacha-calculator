@@ -41,50 +41,89 @@
                 <article class="card article-page">
                     <h2 class="card-title">📈 なぜガチャで「期待値」を知ることが重要なのか？爆死を防ぐ確率論的思考法</h2>
                     <div class="article-content">
+                        <div class="article-intro">
+                            「1%の確率で当たるガチャを100回引けば、絶対当たるよね？」<br>
+                            ゲームをプレイする誰もが一度は考える疑問ですが、現実の確率はそう甘くありません。このページでは、当サイトの計算機がどのようなロジックで「当たる確率」を弾き出しているのか、その数学的な裏側をわかりやすく解説します。
+                        </div>
+
                         <section class="info-group">
+                            <h3 class="rich-section-title">
+                                <span class="icon">🎲</span>
+                                <div><span class="badge badge-standard">基礎知識</span>1%を100回引いても「100%」にはならない</div>
+                            </h3>
                             <p>
-                                ソーシャルゲームのガチャ、あるいは「祈願」の画面を前にしたとき、私たちの心は期待と不安で揺れ動きます。
-                                「1%の確率だから、100回引けば1枚は出るはず」――多くのプレイヤーが抱くこの直感は、残念ながら数学的な真実とは少し距離があります。
+                                結論から言うと、1%の確率で当たるガチャを100回引いた時、<strong>少なくとも1回以上当たる確率は約63.4%</strong>です。決して100%にはなりません。
                             </p>
                             <p>
-                                実際には、100回引いて1%を1回以上引き当てる確率は約63.2%に過ぎません。
-                                この「直感（100回ならいける）」と「計算（3人に1人は外れる）」のギャップこそが、いわゆる<strong>「爆死」</strong>の正体です。
-                                この絶望を避けるために必要な知恵が、「期待値」と「リスク管理」の考え方です。
+                                身近な例で考えてみましょう。サイコロを6回振って「1」が出る確率は100%でしょうか？<br>
+                                いいえ、6回すべてで「1以外」が出る可能性も十分にあることは、直感的に理解できると思います。ガチャもこれと全く同じ仕組みで動いています。
                             </p>
                         </section>
 
                         <section class="info-group">
-                            <h3>🔍 期待値とは「平均的な投資目安」</h3>
+                            <h3 class="rich-section-title">
+                                <span class="icon">🧮</span>
+                                <div><span class="badge badge-weapon">計算方法</span>「余事象」を使った確率の求め方</div>
+                            </h3>
                             <p>
-                                期待値とは、簡単に言えば「平均して何回引けば1回当たるか」という数値です。
-                                排出率1%なら期待値は100回、0.6%なら約167回となります。
-                                しかし、重要なのは期待値通りにガチャが動くことではなく、<strong>「期待値通りにならない可能性が常にある」</strong>と知ることです。
+                                では、どのようにして「少なくとも1回当たる確率」を計算するのでしょうか。当サイトの計算機でも使用しているのが、数学の<strong>お「余事象（よじしょう）」</strong>という考え方です。
                             </p>
+                            <div class="callout callout-info">
+                                <div class="callout-icon">💡</div>
+                                <div class="callout-content">
+                                    <p><strong>余事象の考え方</strong><br>
+                                        「少なくとも1回当たる確率」を直接計算するのは複雑です。そこで視点を変え、<strong>「1回も当たらない（すべて外れる）確率」</strong>を求め、それを100%（1）から引くという賢い方法を使います。
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="formula"
+                                style="background: rgba(var(--primary-rgb), 0.05); padding: 1.5rem; border-radius: 12px; text-align: center; margin: 1.5rem 0; font-family: monospace;">
+                                <div style="color: var(--text-primary); font-size: 1.1rem; margin-bottom: 0.5rem;">
+                                    少なくとも1回当たる確率 =</div>
+                                <div style="color: var(--accent-primary); font-size: 1.4rem; font-weight: bold;">1 -
+                                    (外れる確率) ^ 試行回数</div>
+                            </div>
+
                             <p>
-                                期待値はあくまで「平均」です。運良く10連で引く人もいれば、期待値の倍、200連引いても出ない不運な人もいます。
-                                ガチャにおける真の賢さとは、単に期待値を目指すことではなく、自分の運が「平均より下」だったときにどう立ち振る舞うかを決めておくことなのです。
+                                例えば、排出率1%（= 外れる確率 99%）のガチャを100回引く場合：<br>
+                                <strong>1 - (0.99)^100 ≒ 1 - 0.366 = 0.634 (63.4%)</strong><br>
+                                となります。これが、当サイトの計算式の基本となるロジックです。
                             </p>
                         </section>
 
-                        <section class="info-group">
-                            <h3>🛡️ 「目標確率」でセーフティネットを張る</h3>
-                            <p>
-                                当サイトの計算機に「目標確率」の設定があるのは、このリスクを数字で管理するためです。
-                                プロのプレイヤー（あるいは賢い節約家）は、「期待値分だけ石を貯める」のではなく、<strong>「90%（あるいは95%）の確率で当たる回数」</strong>を基準に予算を組んでいます。
-                            </p>
-                            <p>
-                                例えば、90%ラインが150連だった場合、150連分の石がない状態で勝負をかけるのは「リスクが高い」と判断して温存する。
-                                逆に、150連あれば「よっぽどの不運（10%の底）を引かない限り大丈夫」と自信を持って挑めます。
-                                この「安心できるライン」を事前に知っておくことが、感情に流された「無謀な追い課金」を防ぐ、最強のブレーキになるのです。
-                            </p>
-                        </section>
+                        <!-- 計算機への誘導 (Cyber Design) -->
+                        <div class="cyber-calc-wrapper">
+                            <div class="cyber-calc-title">複雑な計算は、計算機にお任せ！</div>
+                            <p style="margin-bottom: 2rem; color: var(--text-secondary); font-size: 0.95rem;">
+                                原神やゼンゼロの複雑な確率変動も、当サイトのプログラムで完全再現しています。</p>
+                            <a href="index.html" class="btn-cyber">
+                                <span>📱 確率計算機を使ってみる</span>
+                            </a>
+                        </div>
 
                         <section class="info-group">
-                            <h3>🌌 大数の法則：運は必ず収束する</h3>
+                            <h3 class="rich-section-title">
+                                <span class="icon">📈</span>
+                                <div><span class="badge badge-limited">独自システム</span>ホヨバースゲー特有の「ソフト天井」</div>
+                            </h3>
                             <p>
-                                確率は試行回数が増えるほど本来の数値に近づいていく<strong>「大数の法則」</strong>という性質を持っています。
-                                1回や2回のガチャでは激しく上振れ・下振れしますが、1年、2年とプレイを続けていれば、結局は設定された確率通りの排出結果に落ち着いていきます。
+                                純粋な確率論（独立試行）に基づけば、ガチャを回せば回すほど「当たる確率」は緩やかに上昇していきますが、100%に到達することはありません。
                             </p>
+                            <p>
+                                しかし、『原神』や『ゼンゼロ』のガチャは純粋な確率論では語れません。なぜなら、<strong>「天井システム」</strong>と<strong>「ソフト天井」</strong>という独自の救済措置がプログラムされているからです。
+                            </p>
+
+                            <div class="callout callout-warning">
+                                <div class="callout-icon">⚠️</div>
+                                <div class="callout-content">
+                                    <p><strong>当サイトの計算機の強み</strong><br>
+                                        74連目（原神キャラガチャの場合）から基本確率が徐々に加算されていくソフト天井の仕様は、単純な「余事象」の計算式では導き出せません。当サイトの計算機は、この1連ごとの確率変動をプログラム上でシミュレーションすることで、極めて精密な期待値を算出しています。
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="info-group">
                             <p>
                                 つまり、今回のガチャで運が悪くすり抜けたとしても、それは「未来の幸運のための種まき」のようなものです。
                                 一喜一憂せず、長期的なスパンでリソースを管理しましょう。
@@ -129,9 +168,13 @@
                             <span class="item-icon">🎲</span>
                             <span class="item-text">ガチャ計算機ホーム</span>
                         </a>
-                        <a href="genshin-pity.html" class="article-list-item">
-                            <span class="item-icon">🔍</span>
-                            <span class="item-text">原神の天井システム</span>
+                        <a href="zzz-gacha-system.html" class="article-list-item">
+                            <span class="item-icon">📖</span>
+                            <span class="item-text">ゼンゼロの天井システム</span>
+                        </a>
+                        <a href="genshin-probability.html" class="article-list-item">
+                            <span class="item-icon">📈</span>
+                            <span class="item-text">原神の確率徹底解説</span>
                         </a>
                         <a href="zzz-probability.html" class="article-list-item">
                             <span class="item-icon">🎮</span>
@@ -145,10 +188,7 @@
                             <span class="item-icon">✨</span>
                             <span class="item-text">天井の引き継ぎ仕様</span>
                         </a>
-                        <a href="dev-story.html" class="article-list-item">
-                            <span class="item-icon">🏠</span>
-                            <span class="item-text">開発者ストーリー</span>
-                        </a>
+
                     </div>
                 </section>
             </aside>
