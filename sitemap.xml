@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://gacha-calculator.vercel.app/</loc>
+  </url>
+  <url>
+    <loc>https://gacha-calculator.vercel.app/expectation-logic.html</loc>
+  </url>
+  <url>
+    <loc>https://gacha-calculator.vercel.app/genshin-pity.html</loc>
+  </url>
+  <url>
+    <loc>https://gacha-calculator.vercel.app/genshin-probability.html</loc>
+  </url>
+  <url>
+    <loc>https://gacha-calculator.vercel.app/how-to.html</loc>
+  </url>
+  <url>
+    <loc>https://gacha-calculator.vercel.app/pity-carryover.html</loc>
+  </url>
+  <url>
+    <loc>https://gacha-calculator.vercel.app/zzz-gacha-system.html</loc>
+  </url>
+  <url>
+    <loc>https://gacha-calculator.vercel.app/zzz-probability.html</loc>
+  </url>
+</urlset>
