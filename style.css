@@ -180,7 +180,8 @@ body {
     .info-table td {
         padding: 0.6rem 0.5rem;
         font-size: 0.95rem;
-        min-width: 5rem;
+        min-width: 9rem;
+        /* 5rem -> 9rem to enforce wider cells (2-3 lines max width) */
         word-break: normal;
         overflow-wrap: break-word;
     }
