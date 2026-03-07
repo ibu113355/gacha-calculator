@@ -352,6 +352,7 @@ body {
    ======================================== */
 .container {
     max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
     padding: 2rem 1rem;
     position: relative;
@@ -363,6 +364,7 @@ body {
 
 .main-content {
     flex: 1;
+    min-width: 0;
 }
 
 /* ========================================
@@ -655,7 +657,7 @@ h3 {
 
 @media (max-width: 1024px) {
     .layout-wrapper {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
     }
 
     .sidebar {
