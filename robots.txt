@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gacha-calculator.vercel.app/sitemap.xml
