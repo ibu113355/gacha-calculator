@@ -428,24 +428,30 @@ lineShareBtn.addEventListener('click', function () {
 // ========================================
 document.getElementById('imageShareBtn').addEventListener('click', () => {
     const target = document.getElementById('resultCard');
-    
-    // シェアボタン類を一時的に非表示
-    const shareSection = target.querySelector('.share-section');
-    shareSection.style.display = 'none';
+    const shareSection = document.querySelector('.share-section');
+    const copyFeedback = document.getElementById('copyFeedback');
+
+    // 一時非表示
+    shareSection.style.visibility = 'hidden';
+    copyFeedback.style.visibility = 'hidden';
 
     html2canvas(target, {
         backgroundColor: '#ffffff',
-        scale: 2, // 高解像度
-        useCORS: true
+        scale: 2,
+        useCORS: true,
+        allowTaint: true
     }).then(canvas => {
-        shareSection.style.display = ''; // 元に戻す
+        shareSection.style.visibility = '';
+        copyFeedback.style.visibility = '';
         const link = document.createElement('a');
         link.download = 'gacha-result.png';
         link.href = canvas.toDataURL('image/png');
         link.click();
-    }).catch(() => {
-        shareSection.style.display = '';
-        alert('画像の生成に失敗しました');
+    }).catch(err => {
+        shareSection.style.visibility = '';
+        copyFeedback.style.visibility = '';
+        console.error('html2canvas error:', err);
+        alert('画像の生成に失敗しました: ' + err.message);
     });
 });
 console.log('✨ ガチャ計算機 起動完了！');
