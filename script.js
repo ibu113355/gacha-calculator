@@ -399,7 +399,7 @@ function getShareText() {
     const currentResource = currentMode === 'stone'
         ? (parseFloat(document.getElementById('stoneCount').value) || 0).toLocaleString()
         : (parseFloat(document.getElementById('budget').value.replace(/[^0-9.]/g, '')) || 0).toLocaleString();
-    return `${winProb}の確率で${targetCountValue}体当てるのに必要な${resourceLabel}は${currentResource}${resourceUnit}でした！ #ガチャ期待値シミュレーター`;
+    return `${resourceLabel}${currentResource}${resourceUnit}で${targetCountValue}体を狙うと、当たる確率は${winProb}でした！🎲`; #ガチャ期待値シミュレーター`;
 }
 
 shareBtn.addEventListener('click', () => window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(getShareText() + " " + window.location.href)}`, '_blank'));
