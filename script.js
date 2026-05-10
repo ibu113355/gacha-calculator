@@ -33,8 +33,8 @@ const copyFeedback = document.getElementById('copyFeedback');
 // ========================================
 // モード切り替え
 // ========================================
-stoneToggle.addEventListener('change', () => switchMode('stone'));
-moneyToggle.addEventListener('change', () => switchMode('money'));
+if (stoneToggle) stoneToggle.addEventListener('change', () => switchMode('stone'));
+if (moneyToggle) moneyToggle.addEventListener('change', () => switchMode('money'));
 
 function switchMode(mode) {
     currentMode = mode;
@@ -414,15 +414,22 @@ function getShareText() {
     return `${resourceLabel}${currentResource}${resourceUnit}で${targetCountValue}体を狙うと、当たる確率は${winProb}でした！🎲 #ガチャ期待値シミュレーター`;
 }
 
-shareBtn.addEventListener('click', () => window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(getShareText() + " " + window.location.href)}`, '_blank'));
+if (shareBtn) {
+    shareBtn.addEventListener('click', () => {
+        const text = getShareText();
+        window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text + " " + window.location.href)}`, '_blank');
+    });
+}
 
 // LINEシェアを修正（確実にメッセージが含まれる直接リンク形式に変更）
-lineShareBtn.addEventListener('click', function () {
-    const text = getShareText();
-    const url = window.location.href;
-    const lineUrl = `https://line.me/R/share?text=${encodeURIComponent(text + " " + url)}`;
-    window.open(lineUrl, '_blank');
-});
+if (lineShareBtn) {
+    lineShareBtn.addEventListener('click', function () {
+        const text = getShareText();
+        const url = window.location.href;
+        const lineUrl = `https://line.me/R/share?text=${encodeURIComponent(text + " " + url)}`;
+        window.open(lineUrl, '_blank');
+    });
+}
 // ========================================
 // 画像保存機能
 // ========================================
@@ -430,6 +437,11 @@ const imageShareBtn = document.getElementById('imageShareBtn');
 if (imageShareBtn) {
     imageShareBtn.addEventListener('click', () => {
         const target = document.getElementById('resultCard');
+        if (!target) {
+            alert('保存対象の要素（resultCard）が見つかりません。');
+            return;
+        }
+
         const shareSection = document.querySelector('.share-buttons');
         const copyFeedback = document.getElementById('copyFeedback');
 
