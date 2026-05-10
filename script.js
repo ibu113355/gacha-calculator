@@ -352,8 +352,8 @@ gachaFormStone.addEventListener('submit', (e) => {
     const rate = parseFloat(document.getElementById('rateStone').value);
     const stonePerPull = parseFloat(document.getElementById('stonePerPull').value);
     if (stonePerPull <= 0) {
-    alert("「1回に必要な石」には0より大きい数字を入力してください");
-    return;
+        alert("「1回に必要な石」には0より大きい数字を入力してください");
+        return;
     }
     const count = Math.floor(parseFloat(document.getElementById('stoneCount').value) / stonePerPull);
     const target = parseInt(document.getElementById('targetCountStone').value);
@@ -426,33 +426,35 @@ lineShareBtn.addEventListener('click', function () {
 // ========================================
 // 画像保存機能
 // ========================================
-document.getElementById('imageShareBtn').addEventListener('click', () => {
-    const target = document.getElementById('resultCard');
-    const shareSection = document.querySelector('.share-section');
-    const copyFeedback = document.getElementById('copyFeedback');
+const imageShareBtn = document.getElementById('imageShareBtn');
+if (imageShareBtn) {
+    imageShareBtn.addEventListener('click', () => {
+        const target = document.getElementById('resultCard');
+        const shareSection = document.querySelector('.share-buttons');
+        const copyFeedback = document.getElementById('copyFeedback');
 
-    // 一時非表示
-    shareSection.style.visibility = 'hidden';
-    copyFeedback.style.visibility = 'hidden';
+        // 一時非表示
+        if (shareSection) shareSection.style.visibility = 'hidden';
+        if (copyFeedback) copyFeedback.style.visibility = 'hidden';
 
-    html2canvas(target, {
-        backgroundColor: '#ffffff',
-        scale: 2,
-        useCORS: true,
-        allowTaint: true
-    }).then(canvas => {
-        shareSection.style.visibility = '';
-        copyFeedback.style.visibility = '';
-        const link = document.createElement('a');
-        link.download = 'gacha-result.png';
-        link.href = canvas.toDataURL('image/png');
-        link.click();
-    }).catch(err => {
-        shareSection.style.visibility = '';
-        copyFeedback.style.visibility = '';
-        console.error('html2canvas error:', err);
-        alert('画像の生成に失敗しました: ' + err.message);
+        html2canvas(target, {
+            backgroundColor: '#ffffff',
+            scale: 2,
+            useCORS: true,
+            allowTaint: true
+        }).then(canvas => {
+            if (shareSection) shareSection.style.visibility = '';
+            if (copyFeedback) copyFeedback.style.visibility = '';
+            const link = document.createElement('a');
+            link.download = 'gacha-result.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }).catch(err => {
+            if (shareSection) shareSection.style.visibility = '';
+            if (copyFeedback) copyFeedback.style.visibility = '';
+            console.error('html2canvas error:', err);
+            alert('画像の生成に失敗しました: ' + err.message);
+        });
     });
-});
+}
 console.log('✨ ガチャ計算機 起動完了！');
-
