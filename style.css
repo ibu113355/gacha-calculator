@@ -1203,7 +1203,13 @@ h3 {
 .btn-share-image {
     background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
 }
+.btn-share-line {
+    background: #06C755;
+}
 
+.btn-share-image {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+}
 .btn-share:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
