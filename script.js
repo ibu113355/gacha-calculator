@@ -442,68 +442,75 @@ if (imageShareBtn) {
             return;
         }
 
-        // 撮影用に不要な要素を特定
-        const affiliateSection = document.getElementById('affiliateSection');
-        const bankruptAlert = document.getElementById('bankruptAlert');
-        const statsSection = document.querySelector('.stats-section');
-        const shareButtons = document.querySelector('.share-buttons');
-        const copyFeedback = document.getElementById('copyFeedback');
-        
-        // グラデーション文字が透明になる問題の対策用要素
-        const gradientTexts = target.querySelectorAll('.main-message-value, .stat-value, .stat-value-compact');
-
-        // --- 撮影用のスタイル調整（一時的） ---
-        if (affiliateSection) affiliateSection.style.display = 'none';
-        if (bankruptAlert) bankruptAlert.style.display = 'none';
-        if (statsSection) statsSection.style.display = 'none';
-        if (shareButtons) shareButtons.style.display = 'none';
-        if (copyFeedback) copyFeedback.style.display = 'none';
-        
-        // 背景を透過させず白に固定し、枠線を整える
-        const originalStyle = target.style.cssText;
-        target.style.background = '#ffffff';
-        target.style.paddingBottom = '20px';
-
-        // グラデーション文字を一時的に固形色にする
-        gradientTexts.forEach(el => {
-            el.style.webkitTextFillColor = '#f687b3'; // ピンク系の色
-            el.style.color = '#f687b3';
-        });
-
         html2canvas(target, {
             backgroundColor: '#ffffff',
             scale: 2,
             useCORS: true,
-            allowTaint: true
-        }).then(canvas => {
-            // --- 元に戻す ---
-            if (affiliateSection) affiliateSection.style.display = '';
-            if (bankruptAlert) bankruptAlert.style.display = '';
-            if (statsSection) statsSection.style.display = '';
-            if (shareButtons) shareButtons.style.display = '';
-            if (copyFeedback) copyFeedback.style.display = '';
-            target.style.cssText = originalStyle;
-            gradientTexts.forEach(el => {
-                el.style.webkitTextFillColor = '';
-                el.style.color = '';
-            });
+            allowTaint: true,
+            // 撮影用のクローンを作成して加工する
+            onclone: (clonedDoc) => {
+                const clonedTarget = clonedDoc.getElementById('resultCard');
+                if (!clonedTarget) return;
 
+                // 1. 不要な要素を非表示にする
+                const toHide = ['affiliateSection', 'bankruptAlert', 'stats-section', 'share-buttons', 'copyFeedback'];
+                toHide.forEach(idOrClass => {
+                    const el = clonedTarget.querySelector('#' + idOrClass) || clonedTarget.querySelector('.' + idOrClass);
+                    if (el) el.style.display = 'none';
+                });
+
+                // 2. カード全体のスタイルを安定させる
+                clonedTarget.style.background = '#ffffff';
+                clonedTarget.style.opacity = '1';
+                clonedTarget.style.animation = 'none';
+                clonedTarget.style.transform = 'none';
+                clonedTarget.style.boxShadow = 'none';
+                clonedTarget.style.paddingBottom = '30px';
+
+                // 3. 全てのテキスト要素を濃くする
+                const allTextElements = clonedTarget.querySelectorAll('*');
+                allTextElements.forEach(el => {
+                    el.style.opacity = '1';
+                    el.style.animation = 'none';
+                    el.style.transition = 'none';
+
+                    // メインの数値（ピンク色）
+                    if (el.classList.contains('main-message-value') || el.classList.contains('stat-value-compact')) {
+                        el.style.webkitTextFillColor = '#e91e63'; // 濃いピンク
+                        el.style.color = '#e91e63';
+                        el.style.background = 'none';
+                        el.style.fontWeight = '900';
+                    } 
+                    // ラベルや普通の文字（濃いグレー〜黒）
+                    else if (el.classList.contains('main-message-text') || el.classList.contains('stat-label') || el.classList.contains('card-title')) {
+                        el.style.color = '#333333';
+                        el.style.fontWeight = '700';
+                    }
+                    // その他のテキストもデフォルトで濃くする
+                    else if (el.innerText && el.children.length === 0) {
+                        el.style.color = '#444444';
+                    }
+                });
+
+                // 4. メインメッセージの背景を少し色付けして目立たせる
+                const mainMsg = clonedTarget.querySelector('.result-main-message');
+                if (mainMsg) {
+                    mainMsg.style.background = '#fff5f7'; // 薄いピンク背景
+                    mainMsg.style.borderColor = '#ffb6c1';
+                }
+                
+                // 5. ステータスボックスの背景
+                clonedTarget.querySelectorAll('.stat-box-compact').forEach(box => {
+                    box.style.background = '#f8f9fa';
+                    box.style.borderColor = '#dee2e6';
+                });
+            }
+        }).then(canvas => {
             const link = document.createElement('a');
             link.download = 'gacha-result.png';
             link.href = canvas.toDataURL('image/png');
             link.click();
         }).catch(err => {
-            // エラー時も元に戻す
-            if (affiliateSection) affiliateSection.style.display = '';
-            if (bankruptAlert) bankruptAlert.style.display = '';
-            if (statsSection) statsSection.style.display = '';
-            if (shareButtons) shareButtons.style.display = '';
-            if (copyFeedback) copyFeedback.style.display = '';
-            target.style.cssText = originalStyle;
-            gradientTexts.forEach(el => {
-                el.style.webkitTextFillColor = '';
-                el.style.color = '';
-            });
             console.error('html2canvas error:', err);
             alert('画像の生成に失敗しました: ' + err.message);
         });
