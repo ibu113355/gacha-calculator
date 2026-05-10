@@ -370,7 +370,14 @@ gachaFormMoney.addEventListener('submit', (e) => {
     const rate = parseFloat(document.getElementById('rateMoney').value);
     const budget = parseFloat(document.getElementById('budget').value.replace(/[^0-9.]/g, '')) || 0;
     const price = parseFloat(document.getElementById('price').value.replace(/[^0-9.]/g, '')) || 0;
-    const count = Math.floor(budget / price);
+
+    // ★ ここに挿入！
+    if (price <= 0) {
+        alert("「1回あたりの金額」には0より大きい数字を入力してください");
+        return; // ここで処理を中断させる
+    }
+
+    const count = Math.floor(budget / price); // priceが0だとここでInfinityになり、無限ループします
     const target = parseInt(document.getElementById('targetCountMoney').value);
     const preset = gachaPresetMoney.value;
     const targetProb = parseFloat(document.getElementById('targetProbMoney').value);
@@ -399,7 +406,7 @@ function getShareText() {
     const currentResource = currentMode === 'stone'
         ? (parseFloat(document.getElementById('stoneCount').value) || 0).toLocaleString()
         : (parseFloat(document.getElementById('budget').value.replace(/[^0-9.]/g, '')) || 0).toLocaleString();
-    return `${resourceLabel}${currentResource}${resourceUnit}で${targetCountValue}体を狙うと、当たる確率は${winProb}でした！🎲`; #ガチャ期待値シミュレーター`;
+    return `${resourceLabel}${currentResource}${resourceUnit}で${targetCountValue}体を狙うと、当たる確率は${winProb}でした！🎲 #ガチャ期待値シミュレーター`;
 }
 
 shareBtn.addEventListener('click', () => window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(getShareText() + " " + window.location.href)}`, '_blank'));
