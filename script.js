@@ -447,63 +447,87 @@ if (imageShareBtn) {
             scale: 2,
             useCORS: true,
             allowTaint: true,
-            // 撮影用のクローンを作成して加工する
             onclone: (clonedDoc) => {
                 const clonedTarget = clonedDoc.getElementById('resultCard');
                 if (!clonedTarget) return;
 
-                // 1. 不要な要素を非表示にする
-                const toHide = ['affiliateSection', 'bankruptAlert', 'stats-section', 'share-buttons', 'copyFeedback'];
-                toHide.forEach(idOrClass => {
-                    const el = clonedTarget.querySelector('#' + idOrClass) || clonedTarget.querySelector('.' + idOrClass);
-                    if (el) el.style.display = 'none';
-                });
-
-                // 2. カード全体のスタイルを安定させる
-                clonedTarget.style.background = '#ffffff';
-                clonedTarget.style.opacity = '1';
-                clonedTarget.style.animation = 'none';
-                clonedTarget.style.transform = 'none';
-                clonedTarget.style.boxShadow = 'none';
-                clonedTarget.style.paddingBottom = '30px';
-
-                // 3. 全てのテキスト要素を濃くする
-                const allTextElements = clonedTarget.querySelectorAll('*');
-                allTextElements.forEach(el => {
-                    el.style.opacity = '1';
-                    el.style.animation = 'none';
-                    el.style.transition = 'none';
-
-                    // メインの数値（ピンク色）
-                    if (el.classList.contains('main-message-value') || el.classList.contains('stat-value-compact')) {
-                        el.style.webkitTextFillColor = '#e91e63'; // 濃いピンク
-                        el.style.color = '#e91e63';
-                        el.style.background = 'none';
-                        el.style.fontWeight = '900';
-                    } 
-                    // ラベルや普通の文字（濃いグレー〜黒）
-                    else if (el.classList.contains('main-message-text') || el.classList.contains('stat-label') || el.classList.contains('card-title')) {
-                        el.style.color = '#333333';
-                        el.style.fontWeight = '700';
+                // 1. 強力なスタイルシートを注入して、CSS変数やclamp、アニメーションを全て上書きする
+                const style = clonedDoc.createElement('style');
+                style.innerHTML = `
+                    #resultCard {
+                        background: #ffffff !important;
+                        opacity: 1 !important;
+                        visibility: visible !important;
+                        animation: none !important;
+                        transform: none !important;
+                        box-shadow: none !important;
+                        padding: 30px !important;
+                        border: 2px solid #f0f0f0 !important;
+                        border-radius: 20px !important;
+                        display: block !important;
                     }
-                    // その他のテキストもデフォルトで濃くする
-                    else if (el.innerText && el.children.length === 0) {
-                        el.style.color = '#444444';
+                    #resultCard * {
+                        color: #333333 !important; /* 基本の文字を黒に */
+                        opacity: 1 !important;
+                        animation: none !important;
+                        transition: none !important;
+                        -webkit-text-fill-color: initial !important;
+                        text-shadow: none !important;
+                        visibility: visible !important;
                     }
-                });
-
-                // 4. メインメッセージの背景を少し色付けして目立たせる
-                const mainMsg = clonedTarget.querySelector('.result-main-message');
-                if (mainMsg) {
-                    mainMsg.style.background = '#fff5f7'; // 薄いピンク背景
-                    mainMsg.style.borderColor = '#ffb6c1';
-                }
-                
-                // 5. ステータスボックスの背景
-                clonedTarget.querySelectorAll('.stat-box-compact').forEach(box => {
-                    box.style.background = '#f8f9fa';
-                    box.style.borderColor = '#dee2e6';
-                });
+                    /* タイトル */
+                    #resultCard .card-title {
+                        font-size: 24px !important;
+                        color: #222222 !important;
+                        margin-bottom: 20px !important;
+                    }
+                    /* メインメッセージのボックス */
+                    #resultCard .result-main-message {
+                        background: #fff5f7 !important; /* 薄いピンク背景 */
+                        border: 3px solid #f687b3 !important; /* ピンクの枠線 */
+                        border-radius: 20px !important;
+                        padding: 20px !important;
+                        margin-bottom: 20px !important;
+                    }
+                    /* 「確保するには...」などの文字 */
+                    #resultCard .main-message-text {
+                        font-size: 22px !important;
+                        font-weight: 800 !important;
+                        color: #333333 !important;
+                        display: block !important;
+                        margin-bottom: 10px !important;
+                    }
+                    /* 「あと20,000個必要！」などの数値 */
+                    #resultCard .main-message-value, 
+                    #resultCard .stat-value-compact {
+                        font-size: 42px !important;
+                        font-weight: 900 !important;
+                        color: #e91e63 !important; /* はっきりしたピンク */
+                        background: none !important;
+                        -webkit-background-clip: initial !important;
+                        -webkit-text-fill-color: #e91e63 !important;
+                    }
+                    /* ステータスボックス */
+                    #resultCard .stat-box-compact {
+                        background: #f8f9fa !important;
+                        border: 1px solid #dee2e6 !important;
+                        border-radius: 16px !important;
+                        padding: 15px !important;
+                    }
+                    #resultCard .stat-label {
+                        font-size: 16px !important;
+                        color: #666666 !important;
+                        margin-bottom: 5px !important;
+                    }
+                    #resultCard .stat-value-compact {
+                        font-size: 28px !important;
+                    }
+                    /* 不要な要素を完全に消す */
+                    #affiliateSection, #bankruptAlert, .stats-section, .share-buttons, #copyFeedback {
+                        display: none !important;
+                    }
+                `;
+                clonedDoc.head.appendChild(style);
             }
         }).then(canvas => {
             const link = document.createElement('a');
