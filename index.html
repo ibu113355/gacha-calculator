@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -352,19 +352,21 @@
                 </div>
 
                 <!-- SNSシェア -->
-                <div class="share-section">
-                    <p class="share-label">結果を友達に教える</p>
-                    <div class="share-buttons">
-                        <button class="btn-share btn-share-twitter" id="shareBtn">
-                            <span class="share-icon">𝕏</span>
-                            <span>𝕏でシェア</span>
-                        </button>
-                        <button class="btn-share btn-share-line" id="lineShareBtn">
-                            <span class="share-icon">LINE</span>
-                            <span>LINEで送る</span>
-                        </button>
-                    </div>
+                <div class="share-buttons">
+                    <button class="btn-share btn-share-twitter" id="shareBtn">
+                        <span class="share-icon">𝕏</span>
+                        <span>𝕏でシェア</span>
+                    </button>
+                    <button class="btn-share btn-share-line" id="lineShareBtn">
+                        <span class="share-icon">LINE</span>
+                        <span>LINEで送る</span>
+                    </button>
+                    <button class="btn-share btn-share-image" id="imageShareBtn">
+                        <span class="share-icon">📸</span>
+                        <span>画像保存</span>
+                    </button>
                 </div>
+            </div>
 
                 <div class="copy-feedback" id="copyFeedback">コピーしました!</div>
             </section>
