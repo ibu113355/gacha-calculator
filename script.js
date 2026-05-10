@@ -350,7 +350,12 @@ function drawProbabilityChart(rate, currentTrials, currentProb, targetCount, pre
 gachaFormStone.addEventListener('submit', (e) => {
     e.preventDefault();
     const rate = parseFloat(document.getElementById('rateStone').value);
-    const count = Math.floor(parseFloat(document.getElementById('stoneCount').value) / parseFloat(document.getElementById('stonePerPull').value));
+    const stonePerPull = parseFloat(document.getElementById('stonePerPull').value);
+    if (stonePerPull <= 0) {
+    alert("「1回に必要な石」には0より大きい数字を入力してください");
+    return;
+    }
+    const count = Math.floor(parseFloat(document.getElementById('stoneCount').value) / stonePerPull);
     const target = parseInt(document.getElementById('targetCountStone').value);
     const preset = gachaPresetStone.value;
     const targetProb = parseFloat(document.getElementById('targetProbStone').value);
