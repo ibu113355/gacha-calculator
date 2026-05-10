@@ -423,6 +423,30 @@ lineShareBtn.addEventListener('click', function () {
     const lineUrl = `https://line.me/R/share?text=${encodeURIComponent(text + " " + url)}`;
     window.open(lineUrl, '_blank');
 });
+// ========================================
+// 画像保存機能
+// ========================================
+document.getElementById('imageShareBtn').addEventListener('click', () => {
+    const target = document.getElementById('resultCard');
+    
+    // シェアボタン類を一時的に非表示
+    const shareSection = target.querySelector('.share-section');
+    shareSection.style.display = 'none';
 
+    html2canvas(target, {
+        backgroundColor: '#ffffff',
+        scale: 2, // 高解像度
+        useCORS: true
+    }).then(canvas => {
+        shareSection.style.display = ''; // 元に戻す
+        const link = document.createElement('a');
+        link.download = 'gacha-result.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+    }).catch(() => {
+        shareSection.style.display = '';
+        alert('画像の生成に失敗しました');
+    });
+});
 console.log('✨ ガチャ計算機 起動完了！');
 
