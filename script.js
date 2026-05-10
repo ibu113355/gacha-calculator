@@ -442,12 +442,33 @@ if (imageShareBtn) {
             return;
         }
 
-        const shareSection = document.querySelector('.share-buttons');
+        // 撮影用に不要な要素を特定
+        const affiliateSection = document.getElementById('affiliateSection');
+        const bankruptAlert = document.getElementById('bankruptAlert');
+        const statsSection = document.querySelector('.stats-section');
+        const shareButtons = document.querySelector('.share-buttons');
         const copyFeedback = document.getElementById('copyFeedback');
+        
+        // グラデーション文字が透明になる問題の対策用要素
+        const gradientTexts = target.querySelectorAll('.main-message-value, .stat-value, .stat-value-compact');
 
-        // 一時非表示
-        if (shareSection) shareSection.style.visibility = 'hidden';
-        if (copyFeedback) copyFeedback.style.visibility = 'hidden';
+        // --- 撮影用のスタイル調整（一時的） ---
+        if (affiliateSection) affiliateSection.style.display = 'none';
+        if (bankruptAlert) bankruptAlert.style.display = 'none';
+        if (statsSection) statsSection.style.display = 'none';
+        if (shareButtons) shareButtons.style.display = 'none';
+        if (copyFeedback) copyFeedback.style.display = 'none';
+        
+        // 背景を透過させず白に固定し、枠線を整える
+        const originalStyle = target.style.cssText;
+        target.style.background = '#ffffff';
+        target.style.paddingBottom = '20px';
+
+        // グラデーション文字を一時的に固形色にする
+        gradientTexts.forEach(el => {
+            el.style.webkitTextFillColor = '#f687b3'; // ピンク系の色
+            el.style.color = '#f687b3';
+        });
 
         html2canvas(target, {
             backgroundColor: '#ffffff',
@@ -455,15 +476,34 @@ if (imageShareBtn) {
             useCORS: true,
             allowTaint: true
         }).then(canvas => {
-            if (shareSection) shareSection.style.visibility = '';
-            if (copyFeedback) copyFeedback.style.visibility = '';
+            // --- 元に戻す ---
+            if (affiliateSection) affiliateSection.style.display = '';
+            if (bankruptAlert) bankruptAlert.style.display = '';
+            if (statsSection) statsSection.style.display = '';
+            if (shareButtons) shareButtons.style.display = '';
+            if (copyFeedback) copyFeedback.style.display = '';
+            target.style.cssText = originalStyle;
+            gradientTexts.forEach(el => {
+                el.style.webkitTextFillColor = '';
+                el.style.color = '';
+            });
+
             const link = document.createElement('a');
             link.download = 'gacha-result.png';
             link.href = canvas.toDataURL('image/png');
             link.click();
         }).catch(err => {
-            if (shareSection) shareSection.style.visibility = '';
-            if (copyFeedback) copyFeedback.style.visibility = '';
+            // エラー時も元に戻す
+            if (affiliateSection) affiliateSection.style.display = '';
+            if (bankruptAlert) bankruptAlert.style.display = '';
+            if (statsSection) statsSection.style.display = '';
+            if (shareButtons) shareButtons.style.display = '';
+            if (copyFeedback) copyFeedback.style.display = '';
+            target.style.cssText = originalStyle;
+            gradientTexts.forEach(el => {
+                el.style.webkitTextFillColor = '';
+                el.style.color = '';
+            });
             console.error('html2canvas error:', err);
             alert('画像の生成に失敗しました: ' + err.message);
         });
