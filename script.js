@@ -3,7 +3,6 @@
 // ========================================
 let probabilityChart = null;
 let currentMode = 'stone'; // 'stone' or 'money'
-
 // ========================================
 // DOM要素の取得
 // ========================================
@@ -29,13 +28,11 @@ const statsTableBody = document.getElementById('statsTableBody');
 const shareBtn = document.getElementById('shareBtn');
 const lineShareBtn = document.getElementById('lineShareBtn');
 const copyFeedback = document.getElementById('copyFeedback');
-
 // ========================================
 // モード切り替え
 // ========================================
 if (stoneToggle) stoneToggle.addEventListener('change', () => switchMode('stone'));
 if (moneyToggle) moneyToggle.addEventListener('change', () => switchMode('money'));
-
 function switchMode(mode) {
     currentMode = mode;
     if (mode === 'stone') {
@@ -50,7 +47,6 @@ function switchMode(mode) {
     resultCard.style.display = 'none';
     chartCard.style.display = 'none';
 }
-
 // ========================================
 // クイックボタン & 目標選択
 // ========================================
@@ -61,7 +57,6 @@ document.querySelectorAll('.quick-btn').forEach(btn => {
         if (input) input.value = this.getAttribute('data-value');
     });
 });
-
 document.querySelectorAll('.goal-btn').forEach(btn => {
     btn.addEventListener('click', function (e) {
         e.preventDefault();
@@ -74,22 +69,23 @@ document.querySelectorAll('.goal-btn').forEach(btn => {
         }
     });
 });
-
 document.querySelectorAll('#targetCountStone, #targetCountMoney').forEach(input => {
     input.addEventListener('input', function () {
         const wrapper = this.closest('.goal-selection-wrapper');
         if (wrapper) wrapper.querySelectorAll('.goal-btn').forEach(btn => btn.classList.remove('active'));
     });
 });
-
 // 天井プリセット連動
 const gachaPresetStone = document.getElementById('gachaPresetStone');
 const gachaPresetMoney = document.getElementById('gachaPresetMoney');
 const rateStoneInput = document.getElementById('rateStone');
 const rateMoneyInput = document.getElementById('rateMoney');
 const stonePerPullInput = document.getElementById('stonePerPull');
-
-function updateRateFromPreset(preset, targetInput, stoneInput = null) {
+const surinikeGroupStone = document.getElementById('surinikeGroupStone');
+const surinikeGroupMoney = document.getElementById('surinikeGroupMoney');
+const surinikeStoneCheckbox = document.getElementById('surinikeStone');
+const surinikeMoneyCheckbox = document.getElementById('surinikeMoney');
+function updateRateFromPreset(preset, targetInput, stoneInput = null, surinikeGroup = null, surinikeCheckbox = null) {
     if (preset === 'genshin_char' || preset === 'zzz_char') {
         targetInput.value = 0.6;
         if (stoneInput) stoneInput.value = 160;
@@ -100,11 +96,17 @@ function updateRateFromPreset(preset, targetInput, stoneInput = null) {
         targetInput.value = 1.0;
         if (stoneInput) stoneInput.value = 160;
     }
+    if (surinikeGroup) {
+        if (preset !== 'custom') {
+            surinikeGroup.classList.remove('hidden');
+        } else {
+            surinikeGroup.classList.add('hidden');
+            if (surinikeCheckbox) surinikeCheckbox.checked = false;
+        }
+    }
 }
-
-gachaPresetStone.addEventListener('change', (e) => updateRateFromPreset(e.target.value, rateStoneInput, stonePerPullInput));
-gachaPresetMoney.addEventListener('change', (e) => updateRateFromPreset(e.target.value, rateMoneyInput));
-
+gachaPresetStone.addEventListener('change', (e) => updateRateFromPreset(e.target.value, rateStoneInput, stonePerPullInput, surinikeGroupStone, surinikeStoneCheckbox));
+gachaPresetMoney.addEventListener('change', (e) => updateRateFromPreset(e.target.value, rateMoneyInput, null, surinikeGroupMoney, surinikeMoneyCheckbox));
 // ========================================
 // 計算ロジック
 // ========================================
@@ -119,20 +121,17 @@ function combination(n, k) {
     }
     return result;
 }
-
 function calculateMultipleWinProbability(rate, trials, targetCount) {
     const p = rate / 100;
     if (targetCount <= 0) return 100;
     if (trials < targetCount) return 0;
     if (p >= 1) return 100;
-
     let probLessThanK = 0;
     for (let i = 0; i < targetCount; i++) {
         probLessThanK += combination(trials, i) * Math.pow(p, i) * Math.pow(1 - p, trials - i);
     }
     return Math.min(Math.max((1 - probLessThanK) * 100, 0), 100);
 }
-
 /**
  * 原神・ゼンゼロのソフト天井を考慮した確率計算 (DP)
  * @param {number} trials 試行回数
@@ -142,9 +141,7 @@ function calculateMultipleWinProbability(rate, trials, targetCount) {
 function calculatePityProbability(trials, targetCount, preset, isSurinike = false) {
     if (targetCount <= 0) return 100;
     if (trials <= 0) return 0;
-
     let softPityStart, maxPity, baseRate, rateIncrease;
-
     if (preset === 'genshin_char' || preset === 'zzz_char') {
         softPityStart = 73;
         maxPity = 90;
@@ -163,7 +160,6 @@ function calculatePityProbability(trials, targetCount, preset, isSurinike = fals
     } else {
         return 0; // 不明なプリセット
     }
-
     function getRate(pityCount) {
         if (pityCount >= maxPity) return 1.0;
         if (pityCount > softPityStart) {
@@ -171,7 +167,6 @@ function calculatePityProbability(trials, targetCount, preset, isSurinike = fals
         }
         return baseRate;
     }
-
     // dp[j][k][g] = j体引いていて、現在天井カウントがkで、確定枠フラグがgである確率
     // g = 0: 50%枠, g = 1: 確定枠
     let dp = new Array(targetCount + 1).fill(0).map(() => 
@@ -184,7 +179,6 @@ function calculatePityProbability(trials, targetCount, preset, isSurinike = fals
     } else {
         dp[0][0][0] = 1.0; // 最初は50%枠
     }
-
     for (let i = 0; i < trials; i++) {
         let nextDp = new Array(targetCount + 1).fill(0).map(() => 
             new Array(maxPity + 1).fill(0).map(() => new Array(2).fill(0))
@@ -193,9 +187,7 @@ function calculatePityProbability(trials, targetCount, preset, isSurinike = fals
             for (let k = 0; k < maxPity; k++) {
                 for (let g = 0; g < 2; g++) {
                     if (dp[j][k][g] === 0) continue;
-
                     const winRate = getRate(k + 1);
-
                     // 当たった場合
                     if (g === 1) {
                         // 確定枠なので100%ピックアップ
@@ -209,7 +201,6 @@ function calculatePityProbability(trials, targetCount, preset, isSurinike = fals
                         // すり抜け (50%) -> キャラ数は増えず、次は確定枠 (g=1)
                         nextDp[j][0][1] += dp[j][k][g] * winRate * 0.5;
                     }
-
                     // 外れた場合
                     if (k + 1 < maxPity) {
                         nextDp[j][k + 1][g] += dp[j][k][g] * (1 - winRate);
@@ -229,7 +220,6 @@ function calculatePityProbability(trials, targetCount, preset, isSurinike = fals
         }
         dp = nextDp;
     }
-
     // 目標体数以上に達している確率の合計
     let totalProb = 0;
     for (let k = 0; k <= maxPity; k++) {
@@ -237,13 +227,11 @@ function calculatePityProbability(trials, targetCount, preset, isSurinike = fals
     }
     return totalProb * 100;
 }
-
 function calculateRequiredTrialsForMultiple(rate, targetProb, targetCount) {
     if (targetCount <= 0) return 0;
     if (rate >= 100) return targetCount;
     let low = targetCount, high = targetCount * 1000, result = high;
     if (calculateMultipleWinProbability(rate, high, targetCount) < targetProb) return high;
-
     while (low <= high) {
         const mid = Math.floor((low + high) / 2);
         if (calculateMultipleWinProbability(rate, mid, targetCount) >= targetProb) {
@@ -252,7 +240,6 @@ function calculateRequiredTrialsForMultiple(rate, targetProb, targetCount) {
     }
     return result;
 }
-
 // ========================================
 // 表示・UI更新
 // ========================================
@@ -260,27 +247,22 @@ function displayResults(rate, pullCount, winProb, targetProb, costPerPull, mode,
     pullCountEl.textContent = pullCount.toLocaleString();
     winProbEl.textContent = winProb.toFixed(2) + '%';
     probLabel.textContent = `${targetCount}体以上取得する確率`;
-
     const alert = (function (p, tc) {
         if (p < 30) return { icon: '😱', message: `絶望的です。${tc}体確保は厳しいかも...`, level: 'despair' };
         if (p < 70) return { icon: '😰', message: `五分五分です。${tc}体確保は運次第。`, level: 'risky' };
         if (p < 95) return { icon: '😊', message: `あと一息！期待値は高いです！`, level: 'hopeful' };
         return { icon: '🎉', message: `勝利は目前！ほぼ確実です。`, level: 'victory' };
     })(winProb, targetCount);
-
     alertIcon.textContent = alert.icon;
     alertMessage.textContent = alert.message;
     bankruptAlert.className = 'alert level-' + alert.level;
-
     // 必要回数の計算 (プリセット時は近似値またはDPの逆引きが必要だが、ここでは簡易化のため従来の関数を使用)
     // ただし、プリセット時は天井があるため、実際のリソースより少なく済む傾向を反映させたい
     const reqTrials = (preset === 'custom')
         ? calculateRequiredTrialsForMultiple(rate, targetProb, targetCount)
         : calculateRequiredTrialsWithPity(targetProb, targetCount, preset);
-
     const reqRes = reqTrials * costPerPull;
     const currentRes = pullCount * costPerPull;
-
     if (reqRes > currentRes) {
         targetMessage.innerHTML = `<strong>${targetCount}体</strong>を<strong>${targetProb}%</strong>で確保するには...`;
         targetStats.innerHTML = `あと<strong>${(reqRes - currentRes).toLocaleString()}</strong>${mode === 'stone' ? '個' : '円'}必要!`;
@@ -288,7 +270,6 @@ function displayResults(rate, pullCount, winProb, targetProb, costPerPull, mode,
         targetMessage.innerHTML = `🎉 おめでとうございます!`;
         targetStats.innerHTML = `現在の予算/石で<strong>${targetCount}体</strong>確保できます!`;
     }
-
     statsTableBody.innerHTML = '';
     [50, 70, 80, 90, 95, 99].forEach(p => {
         const t = (preset === 'custom')
@@ -298,16 +279,12 @@ function displayResults(rate, pullCount, winProb, targetProb, costPerPull, mode,
         tr.innerHTML = `<td class="prob-cell">${p}%</td><td class="value-cell">${t.toLocaleString()}回</td><td class="value-cell">${(t * costPerPull).toLocaleString()}${mode === 'stone' ? '個' : '円'}</td>`;
         statsTableBody.appendChild(tr);
     });
-
     resultCard.style.display = 'block';
     chartCard.style.display = 'block';
-
     // 描画先の要素が表示された後にグラフを描画する（サイズ計算ミスを防ぐ）
     drawProbabilityChart(rate, pullCount, winProb, targetCount, preset);
-
     diagnosisMessage.textContent = winProb >= 95 ? "勝利確定！？推しが待っています！" : winProb >= 70 ? "勝率は悪くない！" : "覚悟を決めて挑みましょう。";
 }
-
 /**
  * プリセット（天井）ありの場合の必要回数を計算
  */
@@ -322,7 +299,6 @@ function calculateRequiredTrialsWithPity(targetProb, targetCount, preset) {
     }
     return result;
 }
-
 function drawProbabilityChart(rate, currentTrials, currentProb, targetCount, preset = 'custom') {
     const ctx = document.getElementById('probabilityChart').getContext('2d');
     if (probabilityChart) probabilityChart.destroy();
@@ -376,7 +352,6 @@ function drawProbabilityChart(rate, currentTrials, currentProb, targetCount, pre
         }
     });
 }
-
 // ========================================
 // イベントリスナー
 // ========================================
@@ -393,45 +368,37 @@ gachaFormStone.addEventListener('submit', (e) => {
     const preset = gachaPresetStone.value;
     const targetProb = parseFloat(document.getElementById('targetProbStone').value);
     const isSurinike = document.getElementById('surinikeStone').checked;
-
     let winProb;
     if (preset !== 'custom') {
         winProb = calculatePityProbability(count, target, preset, isSurinike);
     } else {
         winProb = calculateMultipleWinProbability(rate, count, target);
     }
-
     displayResults(rate, count, winProb, targetProb, parseFloat(document.getElementById('stonePerPull').value), 'stone', target, preset);
 });
-
 gachaFormMoney.addEventListener('submit', (e) => {
     e.preventDefault();
     const rate = parseFloat(document.getElementById('rateMoney').value);
     const budget = parseFloat(document.getElementById('budget').value.replace(/[^0-9.]/g, '')) || 0;
     const price = parseFloat(document.getElementById('price').value.replace(/[^0-9.]/g, '')) || 0;
-
     // ★ ここに挿入！
     if (price <= 0) {
         alert("「1回あたりの金額」には0より大きい数字を入力してください");
         return; // ここで処理を中断させる
     }
-
     const count = Math.floor(budget / price); // priceが0だとここでInfinityになり、無限ループします
     const target = parseInt(document.getElementById('targetCountMoney').value);
     const preset = gachaPresetMoney.value;
     const isSurinike = document.getElementById('surinikeMoney').checked;
     const targetProb = parseFloat(document.getElementById('targetProbMoney').value);
-
     let winProb;
     if (preset !== 'custom') {
         winProb = calculatePityProbability(count, target, preset, isSurinike);
     } else {
         winProb = calculateMultipleWinProbability(rate, count, target);
     }
-
     displayResults(rate, count, winProb, targetProb, price, 'money', target, preset);
 });
-
 // ========================================
 // シェア機能
 // ========================================
@@ -448,14 +415,12 @@ function getShareText() {
         : (parseFloat(document.getElementById('budget').value.replace(/[^0-9.]/g, '')) || 0).toLocaleString();
     return `${resourceLabel}${currentResource}${resourceUnit}で${targetCountValue}体を狙うと、当たる確率は${winProb}でした！🎲 #ガチャ期待値シミュレーター`;
 }
-
 if (shareBtn) {
     shareBtn.addEventListener('click', () => {
         const text = getShareText();
         window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text + " " + window.location.href)}`, '_blank');
     });
 }
-
 // LINEシェアを修正（確実にメッセージが含まれる直接リンク形式に変更）
 if (lineShareBtn) {
     lineShareBtn.addEventListener('click', function () {
@@ -476,7 +441,6 @@ if (imageShareBtn) {
             alert('保存対象の要素（resultCard）が見つかりません。');
             return;
         }
-
         html2canvas(target, {
             backgroundColor: '#ffffff',
             scale: 2,
@@ -485,7 +449,6 @@ if (imageShareBtn) {
             onclone: (clonedDoc) => {
                 const clonedTarget = clonedDoc.getElementById('resultCard');
                 if (!clonedTarget) return;
-
                 // 1. 強力なスタイルシートを注入して、CSS変数やclamp、アニメーションを全て上書きする
                 const style = clonedDoc.createElement('style');
                 style.innerHTML = `
