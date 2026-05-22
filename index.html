@@ -35,17 +35,14 @@
     <title>ガチャ確率期待値計算機 | 原神・ゼンゼロ対応の精密シミュレーター</title>
     <meta name="description" content="原神やゼンゼロなど様々なゲームに対応！ガチャの天井仕様や確率を徹底解説した記事も満載。あなたの手持ちで何体狙えるか、ガチャの計算結果を即座に判定します。">
     <meta name="keywords" content="ガチャ確率,期待値,確率計算,爆死,原神,ゼンゼロ,ブルーアーカイブ,ソシャゲ,ガチャ計算機,ガチャ確率計算機">
-
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;900&family=Poppins:wght@600;800&display=swap"
         rel="stylesheet">
-
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
-
     <link rel="stylesheet" href="style.css">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6484664771704694"
         crossorigin="anonymous"></script>
@@ -57,10 +54,8 @@
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
 </head>
-
 <body>
     <div class="background-decoration"></div>
-
     <div class="container">
         <!-- 共通ヘッダー -->
         <header class="site-header">
@@ -74,7 +69,6 @@
                 <a href="how-to.html">使い方</a>
             </nav>
         </header>
-
         <!-- 広告エリア（トップ：おすすめグッズ） -->
         <section class="card recommend-card compact">
             <h3 class="card-title" style="font-size: 0.9rem; margin-bottom: 0.8rem; text-align: center;">🎁 おすすめグッズ</h3>
@@ -85,13 +79,11 @@
                         alt="" style="border: none;" /><br>原神 公式グッズ 正規品 璃月 キャラクター アクリルスタンド</a>
             </div>
         </section>
-
         <!-- メインタイトル (H1) -->
         <div class="header" style="margin-top: 1.5rem; margin-bottom: 1.5rem;">
             <h1 class="title" style="font-size: clamp(1.4rem, 4vw, 2rem);">原神・ゼンゼロ対応ガチャ計算機</h1>
             <p class="subtitle" style="font-size: 0.95rem;">期待値と確率を数学的に徹底シミュレーション</p>
         </div>
-
         <!-- モード切り替えトグル -->
         <div class="toggle-container">
             <div class="toggle-switch">
@@ -108,7 +100,6 @@
                 <div class="toggle-slider"></div>
             </div>
         </div>
-
         <!-- メインコンテンツ -->
         <main class="main-content" id="calculator">
             <!-- 石モード入力フォーム -->
@@ -125,7 +116,6 @@
                             <option value="zzz_weapon">ゼンゼロ：音動機ピックアップ (1.0% + 80連天井)</option>
                         </select>
                     </div>
-
                     <div class="form-group">
                         <label for="rateStone">排出率 (%)</label>
                         <div class="input-with-quick">
@@ -143,7 +133,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="form-group highlight-group">
                         <label for="targetCountStone">🎯 何体ほしいですか？</label>
                         <div class="goal-selection-wrapper">
@@ -170,39 +159,33 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="form-group">
                         <label for="stoneCount">現在持っている石</label>
                         <input type="number" id="stoneCount" step="1" min="0" value="3000" placeholder="貯めた石の個数"
                             required>
                     </div>
-
                     <div class="form-group">
                         <label for="stonePerPull">1回に必要な石</label>
                         <input type="number" id="stonePerPull" step="1" min="1" value="100"
                             placeholder="1連に必要な石（10連なら10倍）" required>
                     </div>
-
-                    <div class="form-group">
+                    <div class="form-group hidden" id="surinikeGroupStone">
                         <label>すり抜け状況</label>
                         <label style="display: flex; align-items: center; gap: 0.8rem; cursor: pointer; font-weight: 400;">
                             <input type="checkbox" id="surinikeStone" style="width: 1.2rem; height: 1.2rem; cursor: pointer;">
                             <span>前回の星5がすり抜けだった（次は確定）</span>
                         </label>
                     </div>
-
                     <div class="form-group">
                         <label for="targetProbStone">目標確率 (%)</label>
                         <input type="number" id="targetProbStone" step="1" min="1" max="99" value="90"
                             placeholder="推奨: 90%" required>
                     </div>
-
                     <button type="submit" class="btn-primary btn-calculate">
                         <span>🎲 計算する</span>
                     </button>
                 </form>
             </section>
-
             <!-- 課金モード入力フォーム -->
             <section class="card calculator-card hidden" id="moneyForm">
                 <h2 class="card-title">💰 課金で計算</h2>
@@ -217,7 +200,6 @@
                             <option value="zzz_weapon">ゼンゼロ：音動機ピックアップ (1.0% + 80連天井)</option>
                         </select>
                     </div>
-
                     <div class="form-group">
                         <label for="rateMoney">排出率 (%)</label>
                         <div class="input-with-quick">
@@ -235,7 +217,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="form-group highlight-group">
                         <label for="targetCountMoney">🎯 何体ほしいですか？</label>
                         <div class="goal-selection-wrapper">
@@ -262,42 +243,35 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="form-group">
                         <div class="form-group">
                             <label for="budget">予算 (円)</label>
                             <input type="text" id="budget" value="10000" placeholder="今回使える金額" required>
                         </div>
-
                         <div class="form-group">
                             <label for="price">ガチャ1回の単価 (円)</label>
                             <input type="text" id="price" value="300" placeholder="1連の価格" required>
                         </div>
-
-                        <div class="form-group">
+                        <div class="form-group hidden" id="surinikeGroupMoney">
                             <label>すり抜け状況</label>
                             <label style="display: flex; align-items: center; gap: 0.8rem; cursor: pointer; font-weight: 400;">
                                 <input type="checkbox" id="surinikeMoney" style="width: 1.2rem; height: 1.2rem; cursor: pointer;">
                                 <span>前回の星5がすり抜けだった（次は確定）</span>
                             </label>
                         </div>
-
                         <div class="form-group">
                             <label for="targetProbMoney">目標確率 (%)</label>
                             <input type="number" id="targetProbMoney" step="1" min="1" max="99" value="90"
                                 placeholder="推奨: 90%" required>
                         </div>
-
                         <button type="submit" class="btn-primary btn-calculate">
                             <span>🎲 計算する</span>
                         </button>
                 </form>
             </section>
-
             <!-- 結果表示 -->
             <section class="card result-card" id="resultCard" style="display: none;">
                 <h2 class="card-title">🔮 シミュレーション結果！</h2>
-
                 <!-- メイン結果メッセージ（最優先表示） -->
                 <div class="result-main-message" id="mainResultMessage">
                     <div class="main-message-text" id="targetMessage"></div>
@@ -305,7 +279,6 @@
                     <!-- 一言診断メッセージ -->
                     <div class="diagnosis-message" id="diagnosisMessage"></div>
                 </div>
-
                 <!-- 基本情報（コンパクト） -->
                 <div class="result-basic">
                     <div class="stat-box stat-box-compact">
@@ -317,7 +290,6 @@
                         <div class="stat-value-compact" id="winProb">0</div>
                     </div>
                 </div>
-
                 <!-- 課金カード準備セクション（公式ストア風） -->
                 <div class="affiliate-section" id="affiliateSection">
                     <h3 class="affiliate-title">課金カードの準備はこちら（公式ストア）</h3>
@@ -368,14 +340,11 @@
                         </a>
                     </div>
                 </div>
-
-
                 <!-- 破産アラート -->
                 <div class="alert" id="bankruptAlert">
                     <div class="alert-icon" id="alertIcon">⚠️</div>
                     <div class="alert-message" id="alertMessage"></div>
                 </div>
-
                 <!-- 統計テーブル -->
                 <div class="stats-section">
                     <h3 class="section-title">📈 確率別統計データ</h3>
@@ -394,7 +363,6 @@
                         </table>
                     </div>
                 </div>
-
                 <!-- SNSシェア -->
                 <div class="share-buttons">
                     <button class="btn-share btn-share-twitter" id="shareBtn">
@@ -411,12 +379,8 @@
                     </button>
                 </div>
             </div>
-
                 <div class="copy-feedback" id="copyFeedback">コピーしました!</div>
             </section>
-
-
-
             <!-- おすすめの解説記事セクション -->
             <section class="card info-section">
                 <h2 class="card-title">🌟 おすすめの解説記事</h2>
@@ -466,14 +430,11 @@
                 </div>
             </section>
         </main>
-
-
         <!-- フッター -->
         <footer class="footer">
             <!-- 広告プレースホルダー（フッター） -->
             <div class="ad-placeholder ad-placeholder-footer">
             </div>
-
             <!-- 管理人プロフィール（個別ページと共通） -->
             <section class="card about-section" id="about">
                 <h2 class="card-title">🎒 管理人のプロフィール</h2>
@@ -497,7 +458,6 @@
                     </div>
                 </div>
             </section>
-
             <!-- プライバシーポリシー -->
             <div class="privacy-policy">
                 <h3>■プライバシーポリシー</h3>
@@ -509,16 +469,12 @@
                         当サイトの計算結果および掲載情報により生じた損害等の一切の責任を負いかねます。ガチャの利用は自己責任でお願いいたします。</p>
                 </div>
             </div>
-
             <p class="footer-copy">推し活は計画的に 💖 Powered by 期待値の力</p>
             <p class="disclaimer">※この結果は確率上の計算値であり、実際の当選を保証するものではありません。<br>無理のない範囲で楽しみましょう。</p>
         </footer>
-
     </div>
-
     <script src="script.js"></script>
     <!-- おすすめグッズのランダム表示ロジック -->
     <script src="recommend-data.js"></script>
 </body>
-
 </html>
