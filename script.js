@@ -389,11 +389,12 @@ gachaFormMoney.addEventListener('submit', (e) => {
     const count = Math.floor(budget / price); // priceが0だとここでInfinityになり、無限ループします
     const target = parseInt(document.getElementById('targetCountMoney').value);
     const preset = gachaPresetMoney.value;
+    const isSurinike = document.getElementById('surinikeMoney').checked;
     const targetProb = parseFloat(document.getElementById('targetProbMoney').value);
 
     let winProb;
     if (preset !== 'custom') {
-        winProb = calculatePityProbability(count, target, preset);
+        winProb = calculatePityProbability(count, target, preset, isSurinike);
     } else {
         winProb = calculateMultipleWinProbability(rate, count, target);
     }
