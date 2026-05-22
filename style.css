@@ -573,17 +573,15 @@ body {
 /* ========================================
    繧ｿ繧､繝昴げ繝ｩ繝輔ぅ縺ｮ隱ｿ謨ｴ
    ======================================== */
-body {
-    font-family: 'Noto Sans JP', sans-serif;
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
-    line-height: 1.75;
-    /* 謾ｻ逡･繧ｵ繧､繝磯｢ｨ */
-    font-size: 16px;
-    /* 謾ｻ逡･繧ｵ繧､繝磯｢ｨ */
-    word-break: break-all;
-    overflow-wrap: break-word;
-}
+ body {
+     font-family: 'Noto Sans JP', sans-serif;
+     background-color: var(--bg-primary);
+     color: var(--text-primary);
+     line-height: 1.8;
+     font-size: 16px;
+     word-break: break-word;
+     overflow-wrap: break-word;
+ }
 
 h1,
 h2,
