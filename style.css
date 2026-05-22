@@ -2150,3 +2150,20 @@ h3 {
     color: var(--primary-color);
     font-weight: bold;
 }
+/* 吹き出しボックス内のフォントサイズ修正 */
+@media (max-width: 768px) {
+    .callout-content p {
+        font-size: 1rem;
+        line-height: 1.8;
+    }
+    
+    /* テーブルのはみ出し修正 */
+    .table-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .info-table {
+        min-width: 320px;
+    }
+}
