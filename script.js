@@ -139,7 +139,7 @@ function calculateMultipleWinProbability(rate, trials, targetCount) {
  * @param {number} targetCount 目標取得数
  * @param {string} preset プリセットID
  */
-function calculatePityProbability(trials, targetCount, preset) {
+function calculatePityProbability(trials, targetCount, preset, isSurinike = false) {
     if (targetCount <= 0) return 100;
     if (trials <= 0) return 0;
 
