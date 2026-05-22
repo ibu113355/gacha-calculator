@@ -112,6 +112,13 @@
         <!-- メインコンテンツ -->
         <main class="main-content" id="calculator">
             <!-- 石モード入力フォーム -->
+            <div class="form-group">
+                <label>すり抜け状況</label>
+                <label style="display: flex; align-items: center; gap: 0.8rem; cursor: pointer; font-weight: 400;">
+                    <input type="checkbox" id="surinikeStone" style="width: 1.2rem; height: 1.2rem; cursor: pointer;">
+                    <span>前回の星5がすり抜けだった（次は確定）</span>
+                </label>
+            </div>
             <section class="card calculator-card" id="stoneForm">
                 <h2 class="card-title">💎 ガチャ計算機</h2>
                 <form id="gachaFormStone" class="form">
@@ -196,6 +203,13 @@
             </section>
 
             <!-- 課金モード入力フォーム -->
+            <div class="form-group">
+                <label>すり抜け状況</label>
+                <label style="display: flex; align-items: center; gap: 0.8rem; cursor: pointer; font-weight: 400;">
+                    <input type="checkbox" id="surinikeMoney" style="width: 1.2rem; height: 1.2rem; cursor: pointer;">
+                    <span>前回の星5がすり抜けだった（次は確定）</span>
+                </label>
+            </div>
             <section class="card calculator-card hidden" id="moneyForm">
                 <h2 class="card-title">💰 課金で計算</h2>
                 <form id="gachaFormMoney" class="form">
