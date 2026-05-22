@@ -2203,3 +2203,26 @@ h3 {
         overflow-wrap: break-word;
     }
 }
+@media (max-width: 768px) {
+    .callout {
+        margin-left: 0;
+        margin-right: 0;
+        padding: 1rem;
+    }
+    
+    .callout-icon {
+        font-size: 1.2rem;
+    }
+    
+    .callout-content p {
+        font-size: 0.95rem;
+        line-height: 1.8;
+        word-break: normal;
+        overflow-wrap: break-word;
+    }
+}
+@media (max-width: 768px) {
+    .article-page {
+        padding: 1.2rem 0.8rem;
+    }
+}
