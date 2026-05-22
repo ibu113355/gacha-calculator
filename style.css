@@ -2185,4 +2185,21 @@ h3 {
         overflow-wrap: break-word;
     }
 }
-
+@media (max-width: 768px) {
+    .info-table td:first-child {
+        width: 2.5rem;
+        padding: 0.6rem 0.3rem;
+    }
+    
+    .info-table td:nth-child(2) {
+        width: 5rem;
+        font-size: 0.85rem;
+    }
+    
+    .info-table td:nth-child(3) {
+        font-size: 0.85rem;
+        line-height: 1.7;
+        word-break: normal;
+        overflow-wrap: break-word;
+    }
+}
