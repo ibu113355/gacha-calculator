@@ -172,32 +172,58 @@ function calculatePityProbability(trials, targetCount, preset, isSurinike = fals
         return baseRate;
     }
 
-    // dp[i][j][k] = i回引いて、j体引いていて、現在天井カウントがkである確率
-    // メモリ節約のため i は 1世代前のみ保持
-    let dp = new Array(targetCount + 1).fill(0).map(() => new Array(maxPity + 1).fill(0));
-    dp[0][0] = 1.0;
-    // すり抜け確定の場合、最初の星5は100%ピックアップとして扱う
-    // （通常は50%すり抜けの可能性があるが、それをスキップ）
-    const surinikeBonus = isSurinike ? 1.0 : 0.5;
+    // dp[j][k][g] = j体引いていて、現在天井カウントがkで、確定枠フラグがgである確率
+    // g = 0: 50%枠, g = 1: 確定枠
+    let dp = new Array(targetCount + 1).fill(0).map(() => 
+        new Array(maxPity + 1).fill(0).map(() => new Array(2).fill(0))
+    );
+    
+    // 初期状態の設定
+    if (isSurinike) {
+        dp[0][0][1] = 1.0; // 最初は確定枠
+    } else {
+        dp[0][0][0] = 1.0; // 最初は50%枠
+    }
 
     for (let i = 0; i < trials; i++) {
-        let nextDp = new Array(targetCount + 1).fill(0).map(() => new Array(maxPity + 1).fill(0));
+        let nextDp = new Array(targetCount + 1).fill(0).map(() => 
+            new Array(maxPity + 1).fill(0).map(() => new Array(2).fill(0))
+        );
         for (let j = 0; j <= targetCount; j++) {
             for (let k = 0; k < maxPity; k++) {
-                if (dp[j][k] === 0) continue;
+                for (let g = 0; g < 2; g++) {
+                    if (dp[j][k][g] === 0) continue;
 
-                const winRate = getRate(k + 1);
+                    const winRate = getRate(k + 1);
 
-                // 当たった場合
-                const nextJ = Math.min(targetCount, j + 1);
-                nextDp[nextJ][0] += dp[j][k] * winRate;
+                    // 当たった場合
+                    if (g === 1) {
+                        // 確定枠なので100%ピックアップ
+                        const nextJ = Math.min(targetCount, j + 1);
+                        nextDp[nextJ][0][0] += dp[j][k][g] * winRate;
+                    } else {
+                        // 50%枠
+                        const nextJ = Math.min(targetCount, j + 1);
+                        // ピックアップ当選 (50%) -> 確定枠は消費され、次は50%枠 (g=0)
+                        nextDp[nextJ][0][0] += dp[j][k][g] * winRate * 0.5;
+                        // すり抜け (50%) -> キャラ数は増えず、次は確定枠 (g=1)
+                        nextDp[j][0][1] += dp[j][k][g] * winRate * 0.5;
+                    }
 
-                // 外れた場合
-                if (k + 1 < maxPity) {
-                    nextDp[j][k + 1] += dp[j][k] * (1 - winRate);
-                } else {
-                    // 天井到達時は必ず当たるのでここには来ないはずだが、安全のため
-                    nextDp[nextJ][0] += dp[j][k] * (1 - winRate);
+                    // 外れた場合
+                    if (k + 1 < maxPity) {
+                        nextDp[j][k + 1][g] += dp[j][k][g] * (1 - winRate);
+                    } else {
+                        // 天井到達時は必ず当たるのでここには来ないが、安全のため
+                        if (g === 1) {
+                            const nextJ = Math.min(targetCount, j + 1);
+                            nextDp[nextJ][0][0] += dp[j][k][g] * (1 - winRate);
+                        } else {
+                            const nextJ = Math.min(targetCount, j + 1);
+                            nextDp[nextJ][0][0] += dp[j][k][g] * (1 - winRate) * 0.5;
+                            nextDp[j][0][1] += dp[j][k][g] * (1 - winRate) * 0.5;
+                        }
+                    }
                 }
             }
         }
@@ -205,7 +231,11 @@ function calculatePityProbability(trials, targetCount, preset, isSurinike = fals
     }
 
     // 目標体数以上に達している確率の合計
-    return dp[targetCount].reduce((a, b) => a + b, 0) * 100;
+    let totalProb = 0;
+    for (let k = 0; k <= maxPity; k++) {
+        totalProb += dp[targetCount][k][0] + dp[targetCount][k][1];
+    }
+    return totalProb * 100;
 }
 
 function calculateRequiredTrialsForMultiple(rate, targetProb, targetCount) {
