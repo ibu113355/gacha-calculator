@@ -176,6 +176,9 @@ function calculatePityProbability(trials, targetCount, preset, isSurinike = fals
     // メモリ節約のため i は 1世代前のみ保持
     let dp = new Array(targetCount + 1).fill(0).map(() => new Array(maxPity + 1).fill(0));
     dp[0][0] = 1.0;
+    // すり抜け確定の場合、最初の星5は100%ピックアップとして扱う
+    // （通常は50%すり抜けの可能性があるが、それをスキップ）
+    const surinikeBonus = isSurinike ? 1.0 : 0.5;
 
     for (let i = 0; i < trials; i++) {
         let nextDp = new Array(targetCount + 1).fill(0).map(() => new Array(maxPity + 1).fill(0));
