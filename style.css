@@ -1588,7 +1588,7 @@ h3 {
 /* 繝ｬ繧ｹ繝昴Φ繧ｷ繝� */
 @media (max-width: 768px) {
     .container {
-        padding: 1rem 0.5rem;
+        padding: 1rem 1rem;
     }
 
     .affiliate-buttons {
@@ -1596,8 +1596,8 @@ h3 {
     }
 
     .card {
-        padding: 1.2rem;
-        margin: 0 0.2rem 1.5rem 0.2rem;
+        padding: 1.4rem 1.2rem;
+        margin: 0 0 1.5rem 0;
     }
 
     .recommend-card {
@@ -1607,7 +1607,7 @@ h3 {
     .info-group,
     .article-card {
         padding: 1.5rem 1.2rem;
-        margin: 0 0.2rem 1.5rem 0.2rem;
+        margin: 0 0 1.5rem 0;
     }
 
     .title {
