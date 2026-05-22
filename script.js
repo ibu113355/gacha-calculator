@@ -362,10 +362,11 @@ gachaFormStone.addEventListener('submit', (e) => {
     const target = parseInt(document.getElementById('targetCountStone').value);
     const preset = gachaPresetStone.value;
     const targetProb = parseFloat(document.getElementById('targetProbStone').value);
+    const isSurinike = document.getElementById('surinikeStone').checked;
 
     let winProb;
     if (preset !== 'custom') {
-        winProb = calculatePityProbability(count, target, preset);
+        winProb = calculatePityProbability(count, target, preset, isSurinike);
     } else {
         winProb = calculateMultipleWinProbability(rate, count, target);
     }
